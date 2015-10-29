@@ -1,4 +1,4 @@
-var tpen = angular.module('tpen', ['ui.bootstrap', 'ngRoute', 'ngAnimate','angular-loading-bar', 'cfp.hotkeys']);
+var tpen = angular.module('tpen', ['ui.bootstrap', 'ngRoute', 'ngAnimate', 'angular-loading-bar', 'cfp.hotkeys', 'utils']);
 tpen.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
 // routes
