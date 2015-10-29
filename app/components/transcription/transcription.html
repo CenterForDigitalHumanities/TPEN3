@@ -1,0 +1,12 @@
+<div ng-class="{fullscreen:config.fullscreen}" class="transcription">
+    <alert ng-repeat="m in messages" type="{{m.type}}">{{m.text}}</alert>
+    <div id="imgTop">
+        <canvas></canvas>
+    </div>
+    <div id="workspace">
+        workspace
+    </div>
+    <div id="imgBottom">
+        <canvas></canvas>
+    </div>
+</div>
