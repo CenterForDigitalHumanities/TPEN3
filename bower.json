@@ -1,0 +1,38 @@
+{
+  "name": "TPEN3",
+  "version": "0.0.0",
+  "description": "T-PEN 3.0",
+  "keywords": [
+    "transcription",
+    "manuscript",
+    "manuscripts",
+    "iiif",
+    "oac",
+    "slu",
+    "cdh",
+    "humanities",
+    "heritage"
+  ],
+  "authors": [
+    "cubap@slu.edu"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/cubap/TPEN3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-animate": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "jquery": "~2.1.4",
+    "animate.css": "~3.4.0",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "fontawesome#~4.4.0",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6.0"
+  }
+}
