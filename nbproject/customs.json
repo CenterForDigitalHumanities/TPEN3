@@ -1,5 +1,7 @@
 {
-    "elements": {},
+    "elements": {
+        "bookmark": {}
+    },
     "attributes": {
         "selector": {
             "context": "img"

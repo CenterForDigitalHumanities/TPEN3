@@ -1,10 +1,53 @@
 /* global angular */
 
-tpen.controller('transcriptionController', function ($scope, hotkeys, Manifest, RERUM) {
-    $scope.config = {
-        currentSequenceIndex: 0,
-        currentCanvasIndex: 0
+tpen.service('transcriptionService', function (config, $cacheFactory) {
+    var service = this;
+    var clipCache = $cacheFactory.get("clips") || $cacheFactory("clips");
+    var buffer = config.buffer;
+    var closeCrop = config.closeCrop;
+    this.getClip = function (canvas, selector, bottomImg) {
+        var chkCache = clipCache.get(selector + (bottomImg && 'B' || 'A'));
+        if (chkCache) {
+            return chkCache;
+        }
+        var pos = (selector && (selector.indexOf("xywh") > 1))
+            ? selector.substr(selector.indexOf("xywh=") + 5).split(",").map(function (a) {
+            return parseInt(a);
+        })
+            : [0, 0, canvas.width, canvas.height].map(function (a) {
+            return parseInt(a);
+        });
+        pos[0] -= canvas.width * buffer;
+        pos[3] += canvas.width * buffer * 2;
+        if (bottomImg) {
+            pos[1] += pos[3];
+            if (!closeCrop) {
+                pos[0] = 0;
+                pos[2] = canvas.width;
+                pos[3] = canvas.height - pos[1] - pos[3];
+            }
+        } else {
+            pos[1] -= canvas.width * buffer;
+            if (!closeCrop) {
+                pos[0] = 0;
+                pos[2] = canvas.width;
+            }
+        }
+        if (pos[0] < 0)
+            pos[0] = 0;
+        if (pos[1] < 0)
+            pos[1] = 0;
+        var reselector = selector.split("#xywh")[0]
+            + "#xywh=" + pos[0] + "," + pos[1]
+            + "," + pos[2] + "," + pos[3];
+        clipCache.put(selector + (bottomImg && 'B' || 'A'), reselector);
+        return reselector;
     };
+
+});
+
+tpen.controller('transcriptionController', function ($scope, hotkeys, Manifest, RERUM, config, $rootScope) {
+    $scope.config = config;
     $scope.manifest = Manifest;
     RERUM.extractResources(Manifest);
     $scope.canvas = Manifest.sequences[$scope.config.currentSequenceIndex].canvases[$scope.config.currentCanvasIndex];
@@ -13,9 +56,10 @@ tpen.controller('transcriptionController', function ($scope, hotkeys, Manifest, 
         description: 'Fullscreen',
         callback: function () {
             $scope.config.fullscreen = !$scope.config.fullscreen;
+            $rootScope.$broadcast('resize');
         }
     });
-    function validate () {
+    $scope.validate = function () {
         var msg = [];
         if (!Manifest.label) {
             msg.push({
@@ -48,49 +92,79 @@ tpen.controller('transcriptionController', function ($scope, hotkeys, Manifest, 
             return msg;
         }
         return msg;
-    }
-    ;
-    var buffer = .05; // percent of canvas height
-    $scope.transcriptionClip = function (selector, bottomImg) {
-        var closeCrop = $scope.config.closeCrop;
-        var pos = (selector && (selector.indexOf("xywh") > 1))
-            ? selector.substr(selector.indexOf("xywh=") + 5).split(",").map(function (a) {
-            return parseInt(a);
-        })
-            : [0, 0, $scope.canvas.width, $scope.canvas.height].map(function (a) {
-            return parseInt(a);
-        });
-        pos[0] -= $scope.canvas.width * buffer;
-        pos[3] += $scope.canvas.width * buffer * 2;
-        if (bottomImg) {
-            pos[1] += pos[3];
-            if (!closeCrop) {
-                pos[0] = 0;
-                pos[2] = $scope.canvas.width;
-                pos[3] = $scope.canvas.height - pos[1] - pos[3];
-            }
-        } else {
-            pos[1] -= $scope.canvas.width * buffer;
-            if (!closeCrop) {
-                pos[0] = 0;
-                pos[2] = $scope.canvas.width;
-            }
-        }
-        if (pos[0] < 0)
-            pos[0] = 0;
-        if (pos[1] < 0)
-            pos[1] = 0;
-        var reselector = selector.split("#xywh")[0]
-            + "#xywh=" + pos[0] + "," + pos[1]
-            + "," + pos[2] + "," + pos[3];
-        return reselector;
     };
     $scope.$watch('canvas', function () {
-        $scope.messages = validate();
+        $scope.messages = $scope.validate();
         if (!$scope.messages.length) {
             $scope.focus = $scope.canvas.otherContent[0].resources[0];
+        } else {
+            $scope.focus = {};
         }
     });
+});
+
+tpen.value('config',{
+    buffer: .05, // percent of canvas height
+    closeCrop: false, // show just enough around a slice to view
+    currentSequenceIndex: 0,
+    currentCanvasIndex: 0
+});
+
+tpen.controller('canvasTranscriptionController', function ($scope, transcriptionService, config) {
+    var buffer = config.buffer;
+    $scope.transcriptionClip = function(selector, bottomImg){
+        return transcriptionService.getClip($scope.canvas, selector, bottomImg);
+    };
+});
+
+tpen.directive('canvasTranscription', function () {
+    return {
+        restrict: 'E',
+        scope: '=canvas',
+        templateUrl: 'components/transcription/canvasTranscription.html',
+        controller: 'canvasTranscriptionController'
+    };
+});
+
+tpen.directive('bookmark', function (transcriptionService) {
+    return {
+        restrict: 'E',
+        scope: {
+            bounds: '=',
+            canvas: '='
+        },
+        link: function (scope, element) {
+            var CSSstyle = {
+                display: "block",
+                position: "absolute"
+            };
+            var proportionalPositioning = function (bounds, imageSlice) {
+                CSSstyle.left = (bounds[0] - imageSlice[0]) / imageSlice[2] * 100 + "%"; // set X
+                CSSstyle.top = (bounds[1] - imageSlice[1]) / imageSlice[3] * 100 + "%"; // set Y
+                CSSstyle.width = bounds[2] / imageSlice[2] * 100 + "%"; // set W
+                CSSstyle.height = bounds[3] / imageSlice[3] * 100 + "%"; // set H
+                return CSSstyle;
+            };
+            var pos = (scope.bounds && (scope.bounds.indexOf("xywh") > 1))
+                ? scope.bounds.substr(scope.bounds.indexOf("xywh=") + 5).split(",").map(function (a) {
+                return parseInt(a);
+            })
+                : [0, 0, scope.canvas.width, scope.canvas.height].map(function (a) {
+                return parseInt(a);
+            });
+            var box = transcriptionService.getClip(scope.canvas,scope.bounds);
+            var boxPos = (box && (box.indexOf("xywh") > 1))
+                ? box.substr(box.indexOf("xywh=") + 5).split(",").map(function (a) {
+                return parseInt(a);
+            })
+                : [0, 0, scope.canvas.width, scope.canvas.height].map(function (a) {
+                return parseInt(a);
+            });
+            scope.$watch('bounds', function () {
+                element.css(proportionalPositioning(pos, boxPos));
+            });
+        }
+    };
 });
 
 // Mock Manifest
@@ -2856,11 +2930,12 @@ tpen.directive('selector', function () {
                 var imgTrim = (imgSelectorIndex > -1)
                     ? $scope.canvas.images[0].resource['@id'].substring(imgSelectorIndex + 6).split(",") // #xywh=
                     : false;
-                img.onload = function () {
-                    cache.put("img" + $scope.canvas['@id'], img);
+                var loaded = function (e) {
+                    var targ = e.target;
+                    cache.put("img" + $scope.canvas['@id'], targ);
                     $element.next().remove(); // delete any backup <canvas> that has been added
                     $element.removeClass('ng-hide');
-                    var scale = img.width / $scope.canvas.width;
+                    var scale = targ.width / $scope.canvas.width;
                     if (imgTrim) {
                         scale = imgTrim[2] / $scope.canvas.width;
                         for (var i = 0; i < 2; i++) {
@@ -2872,7 +2947,7 @@ tpen.directive('selector', function () {
                             pos[i] = pos[i] * scale;
                         }
                     }
-                    ctx.drawImage(img, pos[0] * scale, pos[1] * scale, pos[2] * scale, pos[3] * scale, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
+                    ctx.drawImage(targ, pos[0] * scale, pos[1] * scale, pos[2] * scale, pos[3] * scale, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
                     try {
                         dataURL = cache.put("image" + $scope.selector, hiddenCanvas.toDataURL());
                         $element.attr('src', dataURL);
@@ -2887,18 +2962,20 @@ tpen.directive('selector', function () {
                         hiddenCanvas.width = hiddenCanvas.width * ratio;
                         hiddenCanvas.height = hiddenCanvas.height * ratio;
                         // redraw, after width change
-                        ctx.drawImage(img, pos[0] * scale, pos[1] * scale, pos[2] * scale, pos[3] * scale, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
+                        ctx.drawImage(targ, pos[0] * scale, pos[1] * scale, pos[2] * scale, pos[3] * scale, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
                     }
                 };
-                img.onerror = function (event) {
+                angular.element(img).one('load', loaded);
+                angular.element(img).one('error', function (event) {
                     // CORS H8, probably, load tainted canvas
-                    img.crossOrigin = null;
-                    img.src = $scope.canvas.images[0].resource['@id'];
-                };
+                    $element.one('load', loaded);
+                    $element.attr('src', $scope.canvas.images[0].resource['@id']);
+                });
                 img.crossOrigin = "anonymous";
                 img.src = src;
             };
             $scope.$watch('selector', $scope.updateCrop);
+//            $scope.$on('resize', $scope.updateCrop);
         }
     };
 });

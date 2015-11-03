@@ -1,18 +1,11 @@
 <div ng-class="{fullscreen:config.fullscreen}" class="transcription">
-    <alert ng-repeat="m in messages" type="{{m.type}}">{{m.text}}</alert>
-    <div ng-if="!messages.length">
-        <div id="imgTop">
-            <img selector="transcriptionClip(focus.on)">
-            <canvas></canvas>
-        </div>
-        <div id="workspace">
-            workspace
-        </div>
-        <div id="imgBottom">
-            <img selector="transcriptionClip(focus.on,true)">
-            <canvas></canvas>
-        </div>
+    <div class="col-sm-8">
+        <uib-alert ng-repeat="m in messages" type="{{m.type}}">{{m.text}}</uib-alert>
     </div>
+    <div class="col-sm-4" ng-show="!focus.on">
+        <img ng-src="{{canvas.images[0].resource['@id']}}" width='100%'>
+    </div>
+    <canvas-transcription canvas="canvas" ng-if="focus.on"></canvas-transcription>
     <nav>
         <select ng-model="canvas" class="form-control"
                 ng-options="(c.label||$index) for c in manifest.sequences[config.currentSequenceIndex].canvases">
