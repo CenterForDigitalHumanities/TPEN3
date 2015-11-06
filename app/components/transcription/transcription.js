@@ -50,12 +50,14 @@ tpen.controller('transcriptionController', function ($scope, hotkeys, Manifest, 
     $scope.config = config;
     $scope.manifest = Manifest;
     RERUM.extractResources(Manifest);
-    $scope.canvas = Manifest.sequences[$scope.config.currentSequenceIndex].canvases[$scope.config.currentCanvasIndex];
+    $scope.canvas = config.currentCanvas
+        ? config.currentCanvas
+        : Manifest.sequences[config.currentSequenceIndex].canvases[config.currentCanvasIndex];
     hotkeys.add({
         combo: 'alt+enter',
         description: 'Fullscreen',
         callback: function () {
-            $scope.config.fullscreen = !$scope.config.fullscreen;
+            config.fullscreen = !config.fullscreen;
             $rootScope.$broadcast('resize');
         }
     });

@@ -5,7 +5,28 @@ tpen.config(['$routeProvider', '$locationProvider',
             $routeProvider
                 .when('/home', {
                 templateUrl: 'components/home/home.html'
-                })
+            })
+            .when('/transcribe/:canvasID', {
+                templateUrl: 'components/transcription/transcription.html',
+                controller: 'transcriptionController',
+                resolve: {
+                    currentCanvas: function (config, RERUM, $route, $q, Manifest, Lists) {
+                        var cId = $route.current.params.canvasID;
+                        if (cId.indexOf("%2F") > -1) {
+                            cId = decodeURIComponent(cId);
+                        }
+                        angular.forEach(Manifest.sequences, function (s) {
+                            config.currentCanvas = Lists.getAllByProp("@id", cId, s.canvases)[0];
+                        });
+                        if (config.currentCanvas) {
+                            return config.currentCanvas;
+                        }
+                        return $q.when(RERUM.getResource(cId)).then(function (res) {
+                            config.currentCanvas = res;
+                        });
+                    }
+                }
+            })
             .when('/transcription', {
                 templateUrl: 'components/transcription/transcription.html',
                 controller: 'transcriptionController'
