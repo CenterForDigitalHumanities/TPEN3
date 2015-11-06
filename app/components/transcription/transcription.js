@@ -182,7 +182,7 @@ tpen.value('Manifest', {
             "@type": "sc:Sequence",
             "canvases": [
                 {
-                    "@id": "c1",
+                    "@id": "canvas_0",
                     "@type": "sc:Canvas",
                     "label": "0001_al_piatto.anteriore",
                     "height": 1000,
@@ -198,25 +198,10 @@ tpen.value('Manifest', {
                                 "height": 150
                             }
                         }
-                    ],
-                    "otherContent": [
-                        {
-                            "@id": "aList",
-                            "@type": "sc:AnnotationList",
-                            "resources": [
-                                {
-                                    "@id": "A1",
-                                    "@type": "oa:Annotation",
-                                    "motivation": "transcription",
-                                    "chars": "",
-                                    "on": "c1#xywh=15,15,700,225"
-                                }
-                            ]
-                        }
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_1",
                     "@type": "sc:Canvas",
                     "label": "0002_ba_risguardia.anteriore",
                     "height": 1000,
@@ -235,7 +220,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_2",
                     "@type": "sc:Canvas",
                     "label": "0003_cy_0001r",
                     "height": 1000,
@@ -254,7 +239,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_3",
                     "@type": "sc:Canvas",
                     "label": "0004_cy_0001v",
                     "height": 1000,
@@ -273,7 +258,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_4",
                     "@type": "sc:Canvas",
                     "label": "0005_cy_0002r",
                     "height": 1000,
@@ -292,7 +277,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_5",
                     "@type": "sc:Canvas",
                     "label": "0006_cy_0002v",
                     "height": 1000,
@@ -311,7 +296,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_6",
                     "@type": "sc:Canvas",
                     "label": "0007_fa_0001r",
                     "height": 1000,
@@ -330,7 +315,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_7",
                     "@type": "sc:Canvas",
                     "label": "0008_fa_0001v",
                     "height": 1000,
@@ -349,7 +334,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_8",
                     "@type": "sc:Canvas",
                     "label": "0009_fa_0002r",
                     "height": 1000,
@@ -368,7 +353,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_9",
                     "@type": "sc:Canvas",
                     "label": "0010_fa_0002v",
                     "height": 1000,
@@ -387,7 +372,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_10",
                     "@type": "sc:Canvas",
                     "label": "0011_fa_0003r",
                     "height": 1000,
@@ -406,7 +391,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_11",
                     "@type": "sc:Canvas",
                     "label": "0012_fa_0003v",
                     "height": 1000,
@@ -425,7 +410,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_12",
                     "@type": "sc:Canvas",
                     "label": "0013_fa_0004r",
                     "height": 1000,
@@ -444,7 +429,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_13",
                     "@type": "sc:Canvas",
                     "label": "0014_fa_0004v",
                     "height": 1000,
@@ -463,7 +448,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_14",
                     "@type": "sc:Canvas",
                     "label": "0015_fa_0006r.%5B01.xy.0002%5D",
                     "height": 1000,
@@ -482,7 +467,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_15",
                     "@type": "sc:Canvas",
                     "label": "0016_fa_0006v",
                     "height": 1000,
@@ -501,7 +486,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_16",
                     "@type": "sc:Canvas",
                     "label": "0017_fa_0007r",
                     "height": 1000,
@@ -520,7 +505,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_17",
                     "@type": "sc:Canvas",
                     "label": "0018_fa_0007v",
                     "height": 1000,
@@ -539,7 +524,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_18",
                     "@type": "sc:Canvas",
                     "label": "0019_fa_0008r",
                     "height": 1000,
@@ -558,7 +543,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_19",
                     "@type": "sc:Canvas",
                     "label": "0020_fa_0008v",
                     "height": 1000,
@@ -577,7 +562,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_20",
                     "@type": "sc:Canvas",
                     "label": "0021_fa_0009r",
                     "height": 1000,
@@ -596,7 +581,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_21",
                     "@type": "sc:Canvas",
                     "label": "0022_fa_0009v",
                     "height": 1000,
@@ -615,7 +600,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_22",
                     "@type": "sc:Canvas",
                     "label": "0023_fa_0010r",
                     "height": 1000,
@@ -634,7 +619,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_23",
                     "@type": "sc:Canvas",
                     "label": "0024_fa_0010v",
                     "height": 1000,
@@ -653,7 +638,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_24",
                     "@type": "sc:Canvas",
                     "label": "0025_fa_0011r",
                     "height": 1000,
@@ -672,7 +657,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_25",
                     "@type": "sc:Canvas",
                     "label": "0026_fa_0011v",
                     "height": 1000,
@@ -691,7 +676,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_26",
                     "@type": "sc:Canvas",
                     "label": "0027_fa_0012r",
                     "height": 1000,
@@ -710,7 +695,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_27",
                     "@type": "sc:Canvas",
                     "label": "0028_fa_0012v",
                     "height": 1000,
@@ -729,7 +714,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_28",
                     "@type": "sc:Canvas",
                     "label": "0029_fa_0013r",
                     "height": 1000,
@@ -748,7 +733,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_29",
                     "@type": "sc:Canvas",
                     "label": "0030_fa_0013v",
                     "height": 1000,
@@ -767,7 +752,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_30",
                     "@type": "sc:Canvas",
                     "label": "0031_fa_0014r",
                     "height": 1000,
@@ -786,7 +771,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_31",
                     "@type": "sc:Canvas",
                     "label": "0032_fa_0014v",
                     "height": 1000,
@@ -805,7 +790,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_32",
                     "@type": "sc:Canvas",
                     "label": "0033_fa_0015r",
                     "height": 1000,
@@ -824,7 +809,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_33",
                     "@type": "sc:Canvas",
                     "label": "0034_fa_0015v",
                     "height": 1000,
@@ -843,7 +828,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_34",
                     "@type": "sc:Canvas",
                     "label": "0035_fa_0016r",
                     "height": 1000,
@@ -862,7 +847,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_35",
                     "@type": "sc:Canvas",
                     "label": "0036_fa_0016v",
                     "height": 1000,
@@ -881,7 +866,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_36",
                     "@type": "sc:Canvas",
                     "label": "0037_fa_0017r",
                     "height": 1000,
@@ -900,7 +885,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_37",
                     "@type": "sc:Canvas",
                     "label": "0038_fa_0017v",
                     "height": 1000,
@@ -919,7 +904,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_38",
                     "@type": "sc:Canvas",
                     "label": "0039_fa_0018r",
                     "height": 1000,
@@ -938,7 +923,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_39",
                     "@type": "sc:Canvas",
                     "label": "0040_fa_0018v",
                     "height": 1000,
@@ -957,7 +942,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_40",
                     "@type": "sc:Canvas",
                     "label": "0041_fa_0019r",
                     "height": 1000,
@@ -976,7 +961,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_41",
                     "@type": "sc:Canvas",
                     "label": "0042_fa_0019v",
                     "height": 1000,
@@ -995,7 +980,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_42",
                     "@type": "sc:Canvas",
                     "label": "0043_fa_0020r",
                     "height": 1000,
@@ -1014,7 +999,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_43",
                     "@type": "sc:Canvas",
                     "label": "0044_fa_0020v",
                     "height": 1000,
@@ -1033,7 +1018,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_44",
                     "@type": "sc:Canvas",
                     "label": "0045_fa_0021r",
                     "height": 1000,
@@ -1052,7 +1037,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_45",
                     "@type": "sc:Canvas",
                     "label": "0046_fa_0021v",
                     "height": 1000,
@@ -1071,7 +1056,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_46",
                     "@type": "sc:Canvas",
                     "label": "0047_fa_0022r",
                     "height": 1000,
@@ -1090,7 +1075,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_47",
                     "@type": "sc:Canvas",
                     "label": "0048_fa_0022v",
                     "height": 1000,
@@ -1109,7 +1094,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_48",
                     "@type": "sc:Canvas",
                     "label": "0049_fa_0023r",
                     "height": 1000,
@@ -1128,7 +1113,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_49",
                     "@type": "sc:Canvas",
                     "label": "0050_fa_0023v",
                     "height": 1000,
@@ -1147,7 +1132,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_50",
                     "@type": "sc:Canvas",
                     "label": "0051_fa_0024r",
                     "height": 1000,
@@ -1166,7 +1151,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_51",
                     "@type": "sc:Canvas",
                     "label": "0052_fa_0024v",
                     "height": 1000,
@@ -1185,7 +1170,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_52",
                     "@type": "sc:Canvas",
                     "label": "0053_fa_0025r",
                     "height": 1000,
@@ -1204,7 +1189,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_53",
                     "@type": "sc:Canvas",
                     "label": "0054_fa_0025v",
                     "height": 1000,
@@ -1223,7 +1208,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_54",
                     "@type": "sc:Canvas",
                     "label": "0055_fa_0026r",
                     "height": 1000,
@@ -1242,7 +1227,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_55",
                     "@type": "sc:Canvas",
                     "label": "0056_fa_0026v",
                     "height": 1000,
@@ -1261,7 +1246,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_56",
                     "@type": "sc:Canvas",
                     "label": "0057_fa_0027r",
                     "height": 1000,
@@ -1280,7 +1265,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_57",
                     "@type": "sc:Canvas",
                     "label": "0058_fa_0027v",
                     "height": 1000,
@@ -1299,7 +1284,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_58",
                     "@type": "sc:Canvas",
                     "label": "0059_fa_0028r",
                     "height": 1000,
@@ -1318,7 +1303,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_59",
                     "@type": "sc:Canvas",
                     "label": "0060_fa_0028v",
                     "height": 1000,
@@ -1337,7 +1322,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_60",
                     "@type": "sc:Canvas",
                     "label": "0061_fa_0029r",
                     "height": 1000,
@@ -1356,7 +1341,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_61",
                     "@type": "sc:Canvas",
                     "label": "0062_fa_0029v",
                     "height": 1000,
@@ -1375,7 +1360,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_62",
                     "@type": "sc:Canvas",
                     "label": "0063_fa_0030r",
                     "height": 1000,
@@ -1394,7 +1379,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_63",
                     "@type": "sc:Canvas",
                     "label": "0064_fa_0030v",
                     "height": 1000,
@@ -1413,7 +1398,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_64",
                     "@type": "sc:Canvas",
                     "label": "0065_fa_0031r",
                     "height": 1000,
@@ -1432,7 +1417,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_65",
                     "@type": "sc:Canvas",
                     "label": "0066_fa_0031v",
                     "height": 1000,
@@ -1451,7 +1436,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_66",
                     "@type": "sc:Canvas",
                     "label": "0067_fa_0032r",
                     "height": 1000,
@@ -1470,7 +1455,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_67",
                     "@type": "sc:Canvas",
                     "label": "0068_fa_0032v",
                     "height": 1000,
@@ -1489,7 +1474,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_68",
                     "@type": "sc:Canvas",
                     "label": "0069_fa_0033r",
                     "height": 1000,
@@ -1508,7 +1493,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_69",
                     "@type": "sc:Canvas",
                     "label": "0070_fa_0033v",
                     "height": 1000,
@@ -1527,7 +1512,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_70",
                     "@type": "sc:Canvas",
                     "label": "0071_fa_0034r",
                     "height": 1000,
@@ -1546,7 +1531,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_71",
                     "@type": "sc:Canvas",
                     "label": "0072_fa_0034v",
                     "height": 1000,
@@ -1565,7 +1550,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_72",
                     "@type": "sc:Canvas",
                     "label": "0073_fa_0035r",
                     "height": 1000,
@@ -1584,7 +1569,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_73",
                     "@type": "sc:Canvas",
                     "label": "0074_fa_0035v",
                     "height": 1000,
@@ -1603,7 +1588,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_74",
                     "@type": "sc:Canvas",
                     "label": "0075_fa_0036r",
                     "height": 1000,
@@ -1622,7 +1607,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_75",
                     "@type": "sc:Canvas",
                     "label": "0076_fa_0036v",
                     "height": 1000,
@@ -1641,7 +1626,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_76",
                     "@type": "sc:Canvas",
                     "label": "0077_fa_0037r",
                     "height": 1000,
@@ -1660,7 +1645,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_77",
                     "@type": "sc:Canvas",
                     "label": "0078_fa_0037v",
                     "height": 1000,
@@ -1679,7 +1664,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_78",
                     "@type": "sc:Canvas",
                     "label": "0079_fa_0038r",
                     "height": 1000,
@@ -1698,7 +1683,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_79",
                     "@type": "sc:Canvas",
                     "label": "0080_fa_0038v",
                     "height": 1000,
@@ -1717,7 +1702,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_80",
                     "@type": "sc:Canvas",
                     "label": "0081_fa_0039r",
                     "height": 1000,
@@ -1736,7 +1721,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_81",
                     "@type": "sc:Canvas",
                     "label": "0082_fa_0039v",
                     "height": 1000,
@@ -1755,7 +1740,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_82",
                     "@type": "sc:Canvas",
                     "label": "0083_fa_0040r",
                     "height": 1000,
@@ -1774,7 +1759,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_83",
                     "@type": "sc:Canvas",
                     "label": "0084_fa_0040v",
                     "height": 1000,
@@ -1793,7 +1778,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_84",
                     "@type": "sc:Canvas",
                     "label": "0085_fa_0041r",
                     "height": 1000,
@@ -1812,7 +1797,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_85",
                     "@type": "sc:Canvas",
                     "label": "0086_fa_0041v",
                     "height": 1000,
@@ -1831,7 +1816,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_86",
                     "@type": "sc:Canvas",
                     "label": "0087_fa_0042r",
                     "height": 1000,
@@ -1850,7 +1835,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_87",
                     "@type": "sc:Canvas",
                     "label": "0088_fa_0042v",
                     "height": 1000,
@@ -1869,7 +1854,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_88",
                     "@type": "sc:Canvas",
                     "label": "0089_fa_0043r",
                     "height": 1000,
@@ -1888,7 +1873,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_89",
                     "@type": "sc:Canvas",
                     "label": "0090_fa_0043v",
                     "height": 1000,
@@ -1907,7 +1892,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_90",
                     "@type": "sc:Canvas",
                     "label": "0091_fa_0044r",
                     "height": 1000,
@@ -1926,7 +1911,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_91",
                     "@type": "sc:Canvas",
                     "label": "0092_fa_0044v",
                     "height": 1000,
@@ -1945,7 +1930,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_92",
                     "@type": "sc:Canvas",
                     "label": "0093_fa_0045r",
                     "height": 1000,
@@ -1964,7 +1949,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_93",
                     "@type": "sc:Canvas",
                     "label": "0094_fa_0045v",
                     "height": 1000,
@@ -1983,7 +1968,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_94",
                     "@type": "sc:Canvas",
                     "label": "0095_fa_0046r",
                     "height": 1000,
@@ -2002,7 +1987,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_95",
                     "@type": "sc:Canvas",
                     "label": "0096_fa_0046v",
                     "height": 1000,
@@ -2021,7 +2006,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_96",
                     "@type": "sc:Canvas",
                     "label": "0097_fa_0047r",
                     "height": 1000,
@@ -2040,7 +2025,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_97",
                     "@type": "sc:Canvas",
                     "label": "0098_fa_0047v",
                     "height": 1000,
@@ -2059,7 +2044,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_98",
                     "@type": "sc:Canvas",
                     "label": "0099_fa_0048r",
                     "height": 1000,
@@ -2078,7 +2063,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_99",
                     "@type": "sc:Canvas",
                     "label": "0100_fa_0048v",
                     "height": 1000,
@@ -2097,7 +2082,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_100",
                     "@type": "sc:Canvas",
                     "label": "0101_fa_0049r",
                     "height": 1000,
@@ -2116,7 +2101,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_101",
                     "@type": "sc:Canvas",
                     "label": "0102_fa_0049v",
                     "height": 1000,
@@ -2135,7 +2120,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_102",
                     "@type": "sc:Canvas",
                     "label": "0103_fa_0050r",
                     "height": 1000,
@@ -2154,7 +2139,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_103",
                     "@type": "sc:Canvas",
                     "label": "0104_fa_0050v",
                     "height": 1000,
@@ -2173,7 +2158,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_104",
                     "@type": "sc:Canvas",
                     "label": "0105_fa_0051r",
                     "height": 1000,
@@ -2192,7 +2177,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_105",
                     "@type": "sc:Canvas",
                     "label": "0106_fa_0051v",
                     "height": 1000,
@@ -2211,7 +2196,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_106",
                     "@type": "sc:Canvas",
                     "label": "0107_fa_0052r",
                     "height": 1000,
@@ -2230,7 +2215,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_107",
                     "@type": "sc:Canvas",
                     "label": "0108_fa_0052v",
                     "height": 1000,
@@ -2249,7 +2234,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_108",
                     "@type": "sc:Canvas",
                     "label": "0109_fa_0053r",
                     "height": 1000,
@@ -2268,7 +2253,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_109",
                     "@type": "sc:Canvas",
                     "label": "0110_fa_0053v",
                     "height": 1000,
@@ -2287,7 +2272,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_110",
                     "@type": "sc:Canvas",
                     "label": "0111_fa_0054r",
                     "height": 1000,
@@ -2306,7 +2291,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_111",
                     "@type": "sc:Canvas",
                     "label": "0112_fa_0054v",
                     "height": 1000,
@@ -2325,7 +2310,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_112",
                     "@type": "sc:Canvas",
                     "label": "0113_fa_0055r",
                     "height": 1000,
@@ -2344,7 +2329,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_113",
                     "@type": "sc:Canvas",
                     "label": "0114_fa_0055v",
                     "height": 1000,
@@ -2363,7 +2348,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_114",
                     "@type": "sc:Canvas",
                     "label": "0115_fa_0056r",
                     "height": 1000,
@@ -2382,7 +2367,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_115",
                     "@type": "sc:Canvas",
                     "label": "0116_fa_0056v",
                     "height": 1000,
@@ -2401,7 +2386,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_116",
                     "@type": "sc:Canvas",
                     "label": "0117_fa_0057r",
                     "height": 1000,
@@ -2420,7 +2405,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_117",
                     "@type": "sc:Canvas",
                     "label": "0118_fa_0057v",
                     "height": 1000,
@@ -2439,7 +2424,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_118",
                     "@type": "sc:Canvas",
                     "label": "0119_fa_0058r",
                     "height": 1000,
@@ -2458,7 +2443,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_119",
                     "@type": "sc:Canvas",
                     "label": "0120_fa_0058v",
                     "height": 1000,
@@ -2477,7 +2462,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_120",
                     "@type": "sc:Canvas",
                     "label": "0121_fa_0059r",
                     "height": 1000,
@@ -2496,7 +2481,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_121",
                     "@type": "sc:Canvas",
                     "label": "0122_fa_0059v",
                     "height": 1000,
@@ -2515,7 +2500,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_122",
                     "@type": "sc:Canvas",
                     "label": "0123_fa_0060r",
                     "height": 1000,
@@ -2534,7 +2519,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_123",
                     "@type": "sc:Canvas",
                     "label": "0124_fa_0060v",
                     "height": 1000,
@@ -2553,7 +2538,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_124",
                     "@type": "sc:Canvas",
                     "label": "0125_fa_0061r",
                     "height": 1000,
@@ -2572,7 +2557,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_125",
                     "@type": "sc:Canvas",
                     "label": "0126_fa_0061v",
                     "height": 1000,
@@ -2591,7 +2576,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_126",
                     "@type": "sc:Canvas",
                     "label": "0127_fa_0062r",
                     "height": 1000,
@@ -2610,7 +2595,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_127",
                     "@type": "sc:Canvas",
                     "label": "0128_fa_0062v",
                     "height": 1000,
@@ -2629,7 +2614,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_128",
                     "@type": "sc:Canvas",
                     "label": "0129_fa_0063r",
                     "height": 1000,
@@ -2648,7 +2633,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_129",
                     "@type": "sc:Canvas",
                     "label": "0130_fa_0063v",
                     "height": 1000,
@@ -2667,7 +2652,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_130",
                     "@type": "sc:Canvas",
                     "label": "0131_fa_0064r",
                     "height": 1000,
@@ -2686,7 +2671,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_131",
                     "@type": "sc:Canvas",
                     "label": "0132_fa_0064v",
                     "height": 1000,
@@ -2705,7 +2690,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_132",
                     "@type": "sc:Canvas",
                     "label": "0133_sy_0001r",
                     "height": 1000,
@@ -2724,7 +2709,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_133",
                     "@type": "sc:Canvas",
                     "label": "0134_sy_0001v",
                     "height": 1000,
@@ -2743,7 +2728,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_134",
                     "@type": "sc:Canvas",
                     "label": "0135_sy_0002r",
                     "height": 1000,
@@ -2762,7 +2747,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_135",
                     "@type": "sc:Canvas",
                     "label": "0136_sy_0002v",
                     "height": 1000,
@@ -2781,7 +2766,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_136",
                     "@type": "sc:Canvas",
                     "label": "0137_ye_risguardia.posteriore",
                     "height": 1000,
@@ -2800,7 +2785,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_137",
                     "@type": "sc:Canvas",
                     "label": "0138_yh_dorso",
                     "height": 1000,
@@ -2819,7 +2804,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_138",
                     "@type": "sc:Canvas",
                     "label": "0139_yl_taglio.centrale",
                     "height": 1000,
@@ -2838,7 +2823,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_139",
                     "@type": "sc:Canvas",
                     "label": "0140_yn_taglio.inferiore",
                     "height": 1000,
@@ -2857,7 +2842,7 @@ tpen.value('Manifest', {
                     ]
                 },
                 {
-                    "@id": "",
+                    "@id": "canvas_140",
                     "@type": "sc:Canvas",
                     "label": "0141_yp_taglio.superiore",
                     "height": 1000,
