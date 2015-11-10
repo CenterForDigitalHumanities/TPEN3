@@ -1,0 +1,30 @@
+<div ng-class="{fullscreen:config.fullscreen}" class="parsing">
+    <div class="parseButtons btn-group" ng-controller="drawBoxController">
+        <button ng-click="dbs.action = 'create'" class="btn bg-primary">
+            <i class="fa fa-plus-circle"></i>
+        </button>
+        <button ng-click="dbs.action = 'destroy'" class="btn bg-primary">
+            <i class="fa fa-minus-circle"></i>
+        </button>
+        <button ng-click="dbs.action = 'select'" class="btn bg-primary">
+            <i class="fa fa-mouse-pointer"></i>
+        </button>
+        <button ng-click="saveAnnotation()" ng-if="dbs.newBox[0]" class="btn bg-primary">
+            <i class="fa fa-save"></i>
+        </button>
+    </div>
+    <div class="col-sm-8">
+        <uib-alert ng-repeat="m in messages" type="{{m.type}}">{{m.text}}</uib-alert>
+    </div>
+    <div id="parseImage" style="position:relative;margin-bottom: 6rem;">
+        <img selector="canvas['@id']">
+        <canvas></canvas>
+        <annotation-layer></annotation-layer>
+        <draw-box class="{{dbs.action}}"></draw-box>
+    </div>
+    <nav>
+        <select ng-model="canvas" class="form-control"
+                ng-options="(c.label||$index) for c in manifest.sequences[config.currentSequenceIndex].canvases">
+        </select>
+    </nav>
+</div>

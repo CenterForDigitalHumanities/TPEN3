@@ -1,10 +1,15 @@
 {
     "elements": {
-        "bookmark": {}
+        "bookmark": {},
+        "annotation-layer": {},
+        "draw-box": {}
     },
     "attributes": {
         "selector": {
             "context": "img"
+        },
+        "parse-image": {
+            "context": "div"
         }
     }
 }

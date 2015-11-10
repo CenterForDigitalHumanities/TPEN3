@@ -32,7 +32,31 @@ tpen.config(['$routeProvider', '$locationProvider',
             .when('/transcription', {
                 templateUrl: 'components/transcription/transcription.html',
                 controller: 'transcriptionController'
-                })
+            })
+            .when('/parse/:canvasID', {
+                templateUrl: 'components/parsing/parsing.html',
+                controller: 'parsingController',
+                resolve: {
+                    currentCanvas: function (config, RERUM, $route, $q, Manifest, Lists) {
+                        var cId = $route.current.params.canvasID;
+                        if (cId.indexOf("%2F") > -1) {
+                            cId = decodeURIComponent(cId);
+                        }
+                        if (config.currentCanvas && config.currentCanvas['@id'] === cId) {
+                            return config.currentCanvas;
+                        }
+                        angular.forEach(Manifest.sequences, function (s) {
+                            config.currentCanvas = Lists.getAllByProp("@id", cId, s.canvases)[0];
+                        });
+                        if (config.currentCanvas) {
+                            return config.currentCanvas;
+                        }
+                        return $q.when(RERUM.getResource(cId)).then(function (res) {
+                            config.currentCanvas = res;
+                        });
+                    }
+                }
+            })
             .otherwise(({redirectTo: '/home'}));
     }]);
 tpen.value('Manifest', {});

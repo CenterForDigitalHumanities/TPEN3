@@ -198,6 +198,22 @@ tpen.value('Manifest', {
                                 "height": 150
                             }
                         }
+                    ],
+                    "otherContent": [
+                        {
+                            "@id": "aList",
+                            "@type": "sc:AnnotationList",
+                            "motivation": "transcription",
+                            "resources": [
+                                {
+                                    "@id": "A0",
+                                    "@type": "oa:Annotation",
+                                    "motivation": "transcription",
+                                    "chars": "",
+                                    "on": "canvas_0#xywh=15,15,700,225"
+                                }
+                            ]
+                        }
                     ]
                 },
                 {
@@ -2942,12 +2958,10 @@ tpen.directive('selector', function () {
                         // Doesn't serve CORS images, so this doesn't work.
                         // load the canvas itself into the DOM since it is 'tainted'
                         $element.after(hiddenCanvas);
-                        $element[0].style.width = "100%";
-                        var ratio = $element[0].width / hiddenCanvas.width;
-                        // BUG: When the img element is hidden, the width is 100, which is often a smaller slice than the screen really allows
                         $element.addClass('ng-hide');
-                        hiddenCanvas.width = hiddenCanvas.width * ratio;
-                        hiddenCanvas.height = hiddenCanvas.height * ratio;
+                        hiddenCanvas.style.width = "100%";
+                        hiddenCanvas.style.maxWidth = "100%";
+                        hiddenCanvas.style.maxHeight = "100%";
                         // redraw, after width change
                         ctx.drawImage(targ, pos[0] * scale, pos[1] * scale, pos[2] * scale, pos[3] * scale, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
                     }

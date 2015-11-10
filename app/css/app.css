@@ -34,3 +34,20 @@ nav {
     left:0;
     position: fixed;
 }
+
+/* Parsing */
+.parseButtons {
+    position:fixed;
+    top:5px;
+    right:5px;
+    z-index: 1;
+}
+.create {
+    cursor: crosshair;
+}
+.destroy {
+    cursor: not-allowed;
+}
+.select {
+    cursor: auto;
+}
