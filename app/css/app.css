@@ -1,3 +1,7 @@
+[ng-click] {
+    cursor: pointer;
+}
+
 body {
     background: #FFC999;
 }

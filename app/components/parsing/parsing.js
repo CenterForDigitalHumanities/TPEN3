@@ -1,6 +1,6 @@
 /* global tpen, angular */
 
-tpen.service('parsingService', function ($rootScope) {
+tpen.service('parsingService', function ($rootScope, drawBoxService) {
     var service = this;
     this.saveAnnotation = function (xywh, on) {
         if (!on.otherContent) {
@@ -13,7 +13,7 @@ tpen.service('parsingService', function ($rootScope) {
                 }
             ];
         }
-        var list = on.otherContent[0].resources;
+        var list = drawBoxService.activeList.resources || on.otherContent[0].resources;
         var anno = {
             "@id": "A" + list.length,
             "@type": "oa:Annotation",
@@ -25,23 +25,51 @@ tpen.service('parsingService', function ($rootScope) {
         $rootScope.$broadcast("create-annotation");
     };
 });
-tpen.controller('parsingController', function ($scope, RERUM, config, Manifest) {
+tpen.controller('parsingController', function ($scope, $rootScope, RERUM, Lists, config, Manifest, drawBoxService) {
     $scope.config = config;
     $scope.manifest = Manifest;
     RERUM.extractResources(Manifest);
     $scope.canvas = config.currentCanvas
         ? config.currentCanvas
         : Manifest.sequences[config.currentSequenceIndex].canvases[config.currentCanvasIndex];
+    $rootScope.$broadcast('view-canvas');
+    $scope.addList = function () {
+        if (!$scope.canvas.otherContent) {
+            $scope.canvas.otherContent = [];
+        }
+        var newList = {
+            label: prompt("Enter a label for this new Annotation List"),
+            motivation: prompt("Enter a motivation for this new Annotation List"),
+            "@id": "new",
+            "@type": "sc:AnnotationList",
+            resources: []
+        };
+        if (newList.label) {
+            $scope.canvas.otherContent.push(newList);
+        }
+        drawBoxService.activeList = newList;
+    };
+        var motivations;
+    $scope.getMotivations = function () {
+        if (!motivations) {
+            motivations = Lists.getAllPropValues("motivation", drawBoxService.activeList);
+        }
+        return motivations;
+    };
+    $rootScope.$on('change-canvas', function () {
+        motivations = [];
+        config.currentCanvas = $scope.canvas; // TODO: remove once the jump list is $location linked
+        drawBoxService.activeList = $scope.canvas.otherContent && $scope.canvas.otherContent[0];
+    });
 });
 
-tpen.directive('annotationLayer', function (Lists) {
+tpen.directive('annotationLayer', function ($rootScope, drawBoxService) {
     return {
         restrict: 'E',
         replace: true,
         template: '<canvas id="annotationLayer"></canvas>',
         link: function (scope, element) {
             scope.canvasElement = document.getElementById('parseImage').children[1];
-            var annotations = Lists.getAllByProp('motivation', "transcription", scope.canvas.otherContent)[0];
             element.css({
                 width: '100%',
                 maxWidth: '100%',
@@ -60,18 +88,24 @@ tpen.directive('annotationLayer', function (Lists) {
             function reset () {
                 ctx.clearRect(0, 0, element[0].width, element[0].height);
             }
+            function defaultDraw () {
+                return drawAnnotations();
+            }
             function drawAnnotations (motive, type) {
+                if (!motive) {
+                    motive = drawBoxService.restrictMotivations;
+                }
                 reset();
-                scope.canvasElement = document.getElementById('parseImage').children[1];
+                scope.canvasElement = document.getElementById('annotationLayer');
                 element.attr({
                     width: scope.canvasElement.width,
                     height: scope.canvasElement.height
                 });
-                if (!annotations) {
+                if (!drawBoxService.activeList) {
                     return false;
                 }
                 ctx.beginPath();
-                angular.forEach(annotations.resources, function (a) {
+                angular.forEach(drawBoxService.activeList.resources, function (a) {
                     if (a.on.startsWith(scope.canvas['@id'])
                         && (!motive || motive === a.motivation)
                         && (!type || type === a['@type'])) {
@@ -85,17 +119,22 @@ tpen.directive('annotationLayer', function (Lists) {
                 ctx.strokeStyle = '#00F';
                 ctx.stroke();
             }
-            drawAnnotations("transcription");
-            scope.$on('create-annotation', function () {
-                annotations = Lists.getAllByProp('motivation', "transcription", scope.canvas.otherContent)[0];
-                drawAnnotations("transcription");
+            scope.$on('create-annotation', defaultDraw);
+            scope.$on('destroy-annotation', defaultDraw);
+            scope.$on('view-canvas', defaultDraw);
+            scope.$on('change-canvas', defaultDraw);
+            scope.$on('view-list', defaultDraw);
+            scope.$watch('dbs.activeList', defaultDraw);
+            scope.$watch('dbs.restrictMotivations', defaultDraw);
+            scope.$watch('canvas["@id"]', function () {
+                $rootScope.$broadcast('change-canvas');
             });
         },
         controller: 'parsingController'
     };
 });
 
-tpen.directive('drawBox', function (drawBoxService, Lists) {
+tpen.directive('drawBox', function (drawBoxService, Lists, $rootScope) {
     return {
         restrict: 'E',
         replace: true,
@@ -144,7 +183,25 @@ tpen.directive('drawBox', function (drawBoxService, Lists) {
                         }
             });
 
-            function drawAnnotationsAt (xy, collection) {
+            function drawBoxes (annos, restrict) {
+                angular.forEach(annos, function (a) {
+                    var pos = a.on.substr(a.on.indexOf("xywh=") + 5).split(",").map(function (a) {
+                        return parseFloat(a);
+                    });
+                    var draw = true;
+                    if (restrict) {
+                        angular.forEach(restrict,function(v,k){
+                           if(!a[k] || a[k] != v) { // loose comparision
+                               draw = false;
+                           }
+                        });
+                    }
+                    if (draw) {
+                        rect(pos[0], pos[1], pos[2], pos[3], '#F00');
+                    }
+                });
+            };
+            function annotationsAt (xy, collection) {
                 var list = [];
                 angular.forEach(collection, function (a) {
                     var pos = a.on.substr(a.on.indexOf("xywh=") + 5).split(",").map(function (a) {
@@ -152,23 +209,33 @@ tpen.directive('drawBox', function (drawBoxService, Lists) {
                     });
                     if (pos[0] < xy[0] && (pos[0] + pos[2]) > xy[0]
                         && pos[1] < xy[1] && (pos[1] + pos[3]) > xy[1]) {
-                        rect(pos[0], pos[1], pos[2], pos[3], '#F00');
+                        list.push(a);
                     }
                 });
                 return list;
-            }
-            ;
+            };
             element.bind('click', function (event) {
                 var xTap = pixelToUnit(event.offsetX);
                 var yTap = pixelToUnit(event.offsetY);
+                var l = drawBoxService.activeList;
+                var boxes = annotationsAt([xTap, yTap], l.resources);
+                if (boxes.length === 0) {
+                    return false;
+                }
                 switch (drawBoxService.action) {
                     case "select":
-                        var l = Lists.getAllByProp('motivation', "transcription", scope.canvas.otherContent)[0];
-                        if(l){
-                            drawAnnotationsAt([xTap, yTap], l.resources);
+                        if (boxes) {
+                            drawBoxes(boxes);
                         }
                         break;
                     case "destroy":
+                        if (boxes.length === 1) {
+                            l.resources.splice(l.resources.indexOf(boxes[0]), 1);
+                            $rootScope.$broadcast('destroy-annotation');
+                        } else {
+                            alert("Multiple selection not allowed yet.");
+                            // TODO: disambiguate selection
+                        }
                         break;
                 }
             });
@@ -216,6 +283,7 @@ tpen.directive('drawBox', function (drawBoxService, Lists) {
                 });
             });
             scope.$on('create-annotation', reset);
+            scope.$on('destroy-annotation', reset);
             scope.$on('view-canvas', reset);
         },
         controller: 'drawBoxController'
@@ -224,6 +292,8 @@ tpen.directive('drawBox', function (drawBoxService, Lists) {
 tpen.service('drawBoxService', function (config) {
     this.newBox = "";
     this.canvas = config.currentCanvas;
+    this.activeList = {};
+    this.restrictMotivations = false;
 });
 tpen.controller('drawBoxController', function ($scope, parsingService, drawBoxService) {
     $scope.dbs = drawBoxService;
@@ -231,6 +301,7 @@ tpen.controller('drawBoxController', function ($scope, parsingService, drawBoxSe
         var pos = drawBoxService.newBox.split(",").map(function (a) {
             return parseFloat(a);
         });
+        // allow reverse direction rectangling
         if (pos[2] < 0) {
             pos[0] += pos[2];
             pos[2] = -pos[2];
@@ -242,5 +313,8 @@ tpen.controller('drawBoxController', function ($scope, parsingService, drawBoxSe
         parsingService.saveAnnotation(pos.join(","), $scope.canvas || drawBoxService.canvas);
         drawBoxService.newBox = {};
     };
-    drawBoxService.action = "create"; // select, destroy
+    drawBoxService.action = ""; // select, destroy
+    if (!drawBoxService.activeList['@id']) {
+        drawBoxService.activeList = drawBoxService.canvas.otherContent[0];
+    }
 });

@@ -5,6 +5,12 @@
         "draw-box": {}
     },
     "attributes": {
+        "uib-dropdown": {
+            "context": "div"
+        },
+        "uib-dropdown-toggle": {
+            "context": "button"
+        },
         "selector": {
             "context": "img"
         },
