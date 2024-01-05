@@ -2,7 +2,6 @@ name: Desideratum
 description: Record a need for a specific feature in this platform upgrade
 title: "[ desideratum ] Researcher feature request"
 labels: desiderata
-assignees: ''
 body:
 - type: checkboxes
   id: isNew
@@ -10,8 +9,8 @@ body:
     label: Is your feature an extension/update of a feature currently at t-pen.org?
     description: TPEN 3 will retain most of the existing functionality but new features are being prioritized as well.
     options:
-      - label: Yes
-      - label: No
+      - label: 'Yes'
+      - label: 'No'
   validations:
     required: true
 - type: textarea
