@@ -5,39 +5,39 @@ labels: desiderata
 assignees: ''
 body:
 - type: checkboxes
-    id: isNew
-    attributes:
-      label: Is your feature an extension/update of a feature currently at t-pen.org?
-      description: TPEN 3 will retain most of the existing functionality but new features are being prioritized as well.
-      options:
-        - label: Yes
-        - label: No
-    validations:
-      required: true
+  id: isNew
+  attributes:
+    label: Is your feature an extension/update of a feature currently at t-pen.org?
+    description: TPEN 3 will retain most of the existing functionality but new features are being prioritized as well.
+    options:
+      - label: Yes
+      - label: No
+  validations:
+    required: true
 - type: textarea
-    id: summary
-    attributes:
-      label: Summarize your proposed feature or solution
-      description: A clear and concise description of your need. You may paste in screenshots here or below, if it helps.
-      render: markdown
-    validations:
-      required: true
+  id: summary
+  attributes:
+    label: Summarize your proposed feature or solution
+    description: A clear and concise description of your need. You may paste in screenshots here or below, if it helps.
+    render: markdown
+  validations:
+    required: true
 - type: textarea
-    id: cases
-    attributes:
-      label: Describe the specific use case this solution would address
-      description: If you can link to actual documents, standards, or projects that would benefit from this feature, it is easier to develop.
-      render: markdown
+  id: cases
+  attributes:
+    label: Describe the specific use case this solution would address
+    description: If you can link to actual documents, standards, or projects that would benefit from this feature, it is easier to develop.
+    render: markdown
 - type: textarea
-    id: metaphors
-    attributes:
-      label: Similar solutions in the wild
-      description: Provide annotated links to existing platforms that currently fulfill this need for you, if available.
-      render: markdown
+  id: metaphors
+  attributes:
+    label: Similar solutions in the wild
+    description: Provide annotated links to existing platforms that currently fulfill this need for you, if available.
+    render: markdown
 - type: textarea
-    id: context
-    attributes:
-      label: Additional context
-      description: Add any other context or screenshots about the feature request here.
-        Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
-      render: markdown
+  id: context
+  attributes:
+    label: Additional context
+    description: Add any other context or screenshots about the feature request here.
+      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
+    render: markdown
