@@ -33,9 +33,15 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'IBM Plex Sans Bold','IBM Plex Sans', sans-serif;
-    font-weight: bold;
     color:hsl(186, 84%, 40%);
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h2,h3 {
+    font-family: 'IBM Plex Sans Light','IBM Plex Sans', sans-serif;
 }
 
 .wrapper {
