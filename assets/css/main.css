@@ -49,6 +49,10 @@ h2,h3 {
     margin: 0 auto;
 }
 
+.wrapper section:first-of-type {
+    min-height: 100vh;
+}
+
 @media print, screen and (max-width: 960px) {
     div.wrapper {
         width:auto;
