@@ -3,6 +3,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
+html {
+    background-color: #0d0d0d;
+    color: hsl(0,0%,90%);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    scroll-padding-bottom: 5rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'IBM Plex Sans Bold','IBM Plex Sans', sans-serif;
     font-weight: bold;
