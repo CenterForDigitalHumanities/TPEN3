@@ -1,8 +1,8 @@
 ---
 layout: default
-title: T-PEN
+title: TPEN
 ---
 
-# T-PEN 3.0
+# TPEN 3.0
 
 versionary
