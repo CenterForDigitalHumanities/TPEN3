@@ -29,3 +29,26 @@ Encourages users to share with the community and find new ways to work.
 ### Active
 
 Established in 2010, the project is still active and growing. 
+
+## Transcribe Now
+
+Open your account to get started: <button role="button"> Log in </button>
+
+## Helpful Patterns
+
+From within your project management, you will find lots of ways to share, collaborate, or reuse your annotation data. 
+Here are a few helpful patterns to get you started.
+
+### https://services.tpen.rerum.io/project?new=https://example.com/image.jpg
+
+Start a new transcription
+
+
+### https://services.tpen.rerum.io/manifest/`project_id`
+
+Discover the Manifest to load your project in an external viewer
+
+
+### https://tpen.rerum.io/project/`project_id`?view=html
+
+Share your Project in a readonly viewer
