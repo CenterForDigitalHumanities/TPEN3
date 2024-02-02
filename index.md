@@ -3,8 +3,6 @@ layout: default
 title: TPEN
 ---
 
-<div class="alt-background"></div>
-
 ## Transcription for Paleographical and Editorial Notation
 
 <img alt="old TPEN logo" src="/assets/img/tpen_clearShadowSmall.png" align="right">
