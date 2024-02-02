@@ -45,3 +45,4 @@ Temporary Items
 /app/bower_components
 /node_modules
 .jekyll-cache/
+_site/
