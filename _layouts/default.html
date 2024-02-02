@@ -15,10 +15,10 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
+    <div>
+        <header class="wrapper">
             {% if site.logo %}
-            <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" /></a>
+            <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" style="width:100%;"/></a>
             {% else %}
             <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
             {% endif %}
@@ -42,12 +42,12 @@
             </ul>
             {% endif %}
         </header>
-        <section>
+        <section id="content" class="wrapper">
 
             {{ content }}
 
         </section>
-        <footer>
+        <footer class="wrapper">
             {% if site.github.is_project_page %}
             <p>This project is maintained by <a href="{{ site.github.owner_url }}">Research Computing Group</a></p>
             {% endif %}

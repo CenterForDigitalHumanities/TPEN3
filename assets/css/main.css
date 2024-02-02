@@ -3,27 +3,39 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
-a:active {
-    color: hsl(0,0%,100%);
+:root {
+    --primary-color: hsl(186, 84%, 40%);
+    --primary-light: hsl(186, 84%, 60%);
+    --light-color: hsl(186, 84%, 90%);
+    --darkest:#0d0d0d;
+    --dark:#1a1a1a;
+    --white:hsl(0,0%,100%);
+    --gray:hsl(0,0%,60%);
+    --light-gray:hsl(0,0%,90%);
 }
 
-a:link {
-    color: hsl(186, 84%, 60%);
+a:active {
+    color: var(--white)
+}
+
+a:link,a {
+    color: var(--primary-light);
 }
 
 a:visited {
-    color: hsl(0,0%,60%);
+    color: var(--gray);
 }
 
 a:hover {
-    color: hsl(186, 84%, 90%);
+    color:var(--light-color);
 }
 
 html {
     background-color: #0d0d0d;
-    color: hsl(0,0%,90%);
+    color: var(--light-gray);
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 16px;
+    line-height: 1.8;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -33,7 +45,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color:hsl(186, 84%, 40%);
+    color:var(--primary-color);
 }
 
 h1 {
@@ -45,17 +57,41 @@ h2,h3 {
 }
 
 .wrapper {
-    width: 860px;
-    margin: 0 auto;
+    min-height: 100vh;
+    width: 100%;
+    padding: 4em calc(50% - 430px);
+    box-sizing: border-box;
 }
 
-.wrapper section:first-of-type {
-    min-height: 100vh;
+.alt-background::before {
+    content: "";
+    background-color: var(--dark);
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    z-index: -1;
+}
+
+p img[align] {
+    max-width: 30%;
+    padding: 0 1em;
+}
+
+dt {
+    font-weight: bold;
+}
+dd {
+    position: relative; 
+    left: 2em;
+    padding-right: 2em;
 }
 
 @media print, screen and (max-width: 960px) {
     div.wrapper {
         width:auto;
-        margin: 0
+        margin: 0;
+        padding: auto;
+        min-height: initial;
     }
 }
