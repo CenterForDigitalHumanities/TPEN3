@@ -44,3 +44,4 @@ Temporary Items
 /nbproject/private/
 /app/bower_components
 /node_modules
+.jekyll-cache/
