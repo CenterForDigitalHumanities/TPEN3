@@ -5,12 +5,8 @@ permalink: /updates/
 ---
 
 {% for category in site.categories %}
-    <h2>{{ category[0] }}</h2>
-    <ul>
+## {{ category[0] }}
     {% for post in category[1] %}
-        <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
+* [{{ post.title }}]({{ post.url }}){% if post.excerpt %} <br> {{ post.excerpt | strip_html }} {% endif %}
     {% endfor %}
-    </ul>
 {% endfor %}
