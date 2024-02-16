@@ -1,6 +1,7 @@
 ---
 layout: default
 title: About TPEN
+permalink: /about/
 ---
 
 ## The right team, the right tool
