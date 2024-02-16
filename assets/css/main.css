@@ -12,6 +12,7 @@
     --white:hsl(0,0%,100%);
     --gray:hsl(0,0%,60%);
     --light-gray:hsl(0,0%,90%);
+    --link:hsl(12, 60%, 40%);
 }
 
 a:active {
@@ -19,11 +20,11 @@ a:active {
 }
 
 a:link,a {
-    color: var(--primary-light);
+    color: var(--link);
 }
 
 a:visited {
-    color: var(--gray);
+    color: var(--primary-color);
 }
 
 a:hover {
@@ -71,7 +72,8 @@ h2,h3 {
     background-color: var(--dark);
 }
 
-p img[align] {
+p > img:first-child {
+    float: right;
     max-width: 30%;
     padding: 0 1em;
 }
