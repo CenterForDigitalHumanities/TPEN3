@@ -16,13 +16,24 @@
 
 <body>
     <div>
+        {% if site.logo and page.layout == "default" %}
         <header class="wrapper">
-            {% if site.logo %}
             <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" style="width:100%;"/></a>
-            {% else %}
-            <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-            {% endif %}
         </header>
+            {% else %}
+            <header>
+                <h1><a href="{{ "/" | absolute_url }}" style="text-decoration: none;">{{ site.title | default: site.github.repository_name }}</a>
+                    <div class="cube">
+                        <div class="top">Top</div>
+                        <div class="right">Right</div>
+                        <div class="bottom">Bottom</div>
+                        <div class="left">Left</div>
+                        <div class="front">Front</div>
+                        <div class="back">Back</div>
+                      </div>
+                </h1>
+            </header>
+            {% endif %}
         <section id="content" class="wrapper dark">
 
             {{ content }}
