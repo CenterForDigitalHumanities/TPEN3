@@ -27,8 +27,6 @@ the code, the infrastructure, and the community over the years.
 * Leadership:
     * Jim Ginther (PI), 1999-2015
     * Abigail Firey (co-PI), 2006-2010
-    * Tom Finan (PI), 2016-2019
-    * Maureen Donlin (Director of Research Computing Group), 2021-2024
 * Research Support:
     * Tomás O’Sullivan, Research Fellow (2010-11)
     * Alison Walker, Research Fellow (2011-12)
