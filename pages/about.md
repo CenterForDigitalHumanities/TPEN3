@@ -49,6 +49,21 @@ first complete platform at t-pen.org in 2010.
 
 ### License and Rights
 
+[TPEN 3](https://github.com/CenterForDigitalHumanities/TPEN3) 
+by [Research Computing Group](https://github.com/CenterForDigitalHumanities) 
+is licensed under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
+
+[![](https://mirrors.creativecommons.org/presskit/icons/cc.svg)
+![](https://mirrors.creativecommons.org/presskit/icons/by.svg)](http://creativecommons.org/licenses/by/4.0/)
+
+Users and machines who interact with TPEN and its services are expected to be well-behaved citizens of 
+the open web. The license above describes this code and its related repositories but does not explicitly 
+cover the code or content related platforms, such as https://rerum.io. This open source code contains other 
+libraries that also contain licenses that may include different liberties and restrictions.
+
+Contributors to any of the TPEN repositories must accept this license, though no requirement is in place 
+for anyone who clones this repository or otherwise modifies the code for themselves.
+
 // TODO 
 state license for code, rules about content, and agreement for contribution
 
