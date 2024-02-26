@@ -64,13 +64,21 @@ libraries that also contain licenses that may include different liberties and re
 Contributors to any of the TPEN repositories must accept this license, though no requirement is in place 
 for anyone who clones this repository or otherwise modifies the code for themselves.
 
-// TODO 
-state license for code, rules about content, and agreement for contribution
-
 ### User Agreement
 
-// TODO 
-when you sign up you agree to these terms, but when you use the site you kinda do too
+As a TPEN User, you agree to use TPEN tools, services, APIs, and websites for their intended purpose. Illegal or unethical activities, including violation of intellectual property rights, harassment, or theft and abuse of resources are prohibited.
+
+TPEN will maintain an amicable and cooperative community, which may include suspension of accounts, though we will act reasonably to preserve any data you may want to recover.
+
+User information and project configurations will be stored on servers at Saint Louis University (SLU). While a valid email account is required to receive communications from TPEN, no personal information is required, verified, or transmitted to any other entities. Users who connect external identities to their TPEN accounts will be responsible for ensuring that any information they provide is accurate.
+
+User authentication is managed through the SLU Rerum client at Auth0.com. TPEN does not require or control any information provided to Auth0.com (social login, SMS number, etc.) in order to activate additional authentication options.
+
+User contributed content includes all transcription fragment bounding, text content, and descriptive annotations. While much of the context is obscured through non-obvious URIs until intentionally published or directly shared, it is all encoded and available for readonly access immediately as Linked Open Usable Data in the public [RERUM](https://rerum.io/) repository. By default, the [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/) license is applied to all content, though modifications made per project configuration will be applied to all published content. While TPEN may use transcription content for non-commercial purposes, especially in the context of sharing back with repository owners, proper user attribution and rights statements will always be intact.
+
+Resources being annotated are not necessarily hosted or owned by TPEN and any available rights statements will be visible to viewers of the project. TPEN does not make any non-automated efforts to verify the right to annotate resources and relies on users to act responsibly.
+
+TPEN does not share user information and will never publish any information except the Agent URI that identifies you in RERUM. While individuals have the right to release any additional information by appending information to their own public profile, this is never required.
 
 ### Related Tools and Projects
 
