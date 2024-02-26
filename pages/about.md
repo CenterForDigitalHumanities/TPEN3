@@ -40,7 +40,7 @@ the code, the infrastructure, and the community over the years.
 
 ### Legacy
 
-!["old TPEN logo"](/assets/img/tpen_clearShadowSmall.png)
+!["old TPEN logo"](assets/img/tpen_clearShadowSmall.png)
 The original Transcription for Paleographical and Editorial Notation (T‑PEN) project was coordinated by the 
 Center for Digital Theology at [(SLU)](https://slu.edu) and funded by the Andrew W. Mellon 
 Foundation and the NEH. The Electronic Norman Anonymous Project developed several capabilities at the core of this 
