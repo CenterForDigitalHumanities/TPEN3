@@ -89,13 +89,23 @@ dd {
 
 .cube {
     transform-style: preserve-3d;
-    animation: spin linear;
+    animation: spin linear reverse;
     animation-timeline: scroll();
     position: relative;
     width: 20px;
     height: 20px;
     display: inline-block;
     margin: 0 5px;
+  }
+
+  .cube + .cube {
+    animation-direction: normal;
+    animation-iteration-count: 2;
+  }
+
+  .cube + .cube + .cube {
+    animation-iteration-count: 1;
+    animation-direction: alternate-reverse;
   }
   
   .cube div {
