@@ -6,10 +6,10 @@ permalink: /
 
 ## Transcription for Paleographical and Editorial Notation
 
-!["old TPEN logo"](/assets/img/tpen_clearShadowSmall.png)
-This tool is the evolution of the 21st century transcription platform at [t‑pen.org](https://t-pen.org).
-Originally targeting Medieval manuscripts, users have fostered a community of carefully
-transcribed images of scripts, engravings, and calligraphy from all over the world across time.
+<button role="button"> Log in </button>
+Open an account to start recording annotations on images from al over the world and across time.
+
+---
 
 ### Open
 
@@ -31,9 +31,13 @@ Encourages users to share with the community and find new ways to work.
 
 Established in 2010, the project is still active and growing. 
 
+---
+
 ## Transcribe Now
 
 Open your account to get started: <button role="button"> Log in </button>
+
+---
 
 ## Helpful Patterns
 
@@ -42,7 +46,7 @@ Here are a few helpful patterns to get you started.
 
 ### https://services.tpen.rerum.io/project?new=https://example.com/image.jpg
 
-Start a new transcription
+Start a new transcription. This link may also be [embedded in your own repository](https://github.com/CenterForDigitalHumanities/TPEN3/issues/32) of images to enable people to start transcribing your collections.
 
 
 ### https://services.tpen.rerum.io/manifest/`project_id`
@@ -53,3 +57,10 @@ Discover the Manifest to load your project in an external viewer
 ### https://tpen.rerum.io/project/`project_id`?view=html
 
 Share your Project in a readonly viewer
+
+---
+
+!["old TPEN logo"](/assets/img/tpen_clearShadowSmall.png)
+This tool is the evolution of the 21st century transcription platform at [t‑pen.org](https://t-pen.org).
+Originally targeting Medieval manuscripts, users have fostered a community of carefully
+transcribed images of scripts, engravings, and calligraphy from all over the world across time.
