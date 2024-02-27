@@ -104,8 +104,7 @@ dd {
   }
 
   .cube + .cube + .cube {
-    animation-iteration-count: 1;
-    animation-direction: ;
+    animation-iteration-count: .5;
   }
   
   .cube div {
