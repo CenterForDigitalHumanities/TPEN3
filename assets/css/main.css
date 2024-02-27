@@ -23,7 +23,7 @@ a:link,a {
     color: var(--link);
 }
 
-a:visited {
+a:visited, h1 a, h2 a, h3 a {
     color: var(--primary-color);
 }
 
@@ -105,7 +105,7 @@ dd {
 
   .cube + .cube + .cube {
     animation-iteration-count: 1;
-    animation-direction: alternate-reverse;
+    animation-direction: ;
   }
   
   .cube div {
