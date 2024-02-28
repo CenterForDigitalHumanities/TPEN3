@@ -1,6 +1,7 @@
 ---
 layout: default
 title: TPEN
+permalink: /
 ---
 
 ## Transcription for Paleographical and Editorial Notation
