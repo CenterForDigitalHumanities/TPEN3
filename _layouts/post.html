@@ -14,18 +14,18 @@ layout: default
       {% if page.meta %}• {{ page.meta }}{% endif %}
     </p>
     <p class="post-tags">
-        <i class="fa-solid fa-calendar fa-sm"></i> {{ year }}
+        <i class="bi-calendar-fill"></i> {{ year }}
       {% if tags != '' %}
         &nbsp; &middot; &nbsp;
         {% for tag in page.tags %}
-          <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }} &nbsp;
+          <i class="bi-hash"></i> {{ tag }} &nbsp;
         {% endfor %}
       {% endif %}
 
       {% if categories != '' %}
         &nbsp; &middot; &nbsp;
         {% for category in page.categories %}
-            <i class="fa-solid fa-tag fa-sm"></i> {{ category }} &nbsp;
+            <a href="{{site.baseurl}}/category/{{ category }}" style="text-decoration: none;"><i class="bi-bookmark-fill"></i> {{ category | capitalize }}</a> &nbsp;
         {% endfor %}
       {% endif %}
     </p>
