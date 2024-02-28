@@ -6,8 +6,7 @@ layout: default
   <header class="category-header">
     <p class="category-tags">
       {% for category in site.categories %}
-      <i class="fa-solid fa-tag fa-sm"></i> <a href="/category/{{ category[0] }}">{{ category[0] | capitalize }} ({{
-        category[1] | size }})</a> &nbsp;
+      <i class="fa-solid fa-tag fa-sm"></i> <a href="/category/{{ category[0] }}">{{ category[0] | capitalize }} ({{ category[1] | size }})</a> &nbsp;
       {% endfor %}
     </p>
   </header>
@@ -15,9 +14,8 @@ layout: default
   <p class="category-meta">
     - {{ site.posts | size }} total posts -
   </p>
-  {% assign posts = site.categories[page.category] %}
-  {% for post in posts %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a> <small>({{ post.date | date_to_long_string: "ordinal" }}) <cite>{{
-        post.author }}</cite></small>{% if post.excerpt %} <br> {{ post.excerpt | strip_html }} {% endif %}</li>
-  {% endfor %}
+{% assign posts = site.categories[page.category] %}
+{% for post in posts %}
+<li><a href="{{ post.url }}">{{ post.title }}</a> <small>({{ post.date | date_to_long_string: "ordinal" }}) <cite>{{ post.author }}</cite></small>{% if post.excerpt %} <br> {{ post.excerpt | strip_html }} {% endif %}</li>
+{% endfor %}
 </div>
