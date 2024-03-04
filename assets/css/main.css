@@ -7,6 +7,7 @@
 :root {
     --primary-color: hsl(186, 84%, 40%);
     --primary-light: hsl(186, 84%, 60%);
+<<<<<<< Updated upstream
     --light-color: hsl(186, 84%, 90%);
     --darkest:#0d0d0d;
     --dark:#1a1a1a;
@@ -14,14 +15,28 @@
     --gray:hsl(0,0%,60%);
     --light-gray:hsl(0,0%,90%);
     --link:hsl(12, 60%, 40%);
+=======
+    --light-color  : hsl(186, 84%, 90%);
+    --darkest      : #0d0d0d;
+    --dark         : #1a1a1a;
+    --white        : hsl(0, 0%, 100%);
+    --gray         : hsl(0, 0%, 60%);
+    --light-gray   : hsl(0, 0%, 90%);
+>>>>>>> Stashed changes
 }
 
 a:active {
     color: var(--white)
 }
 
+<<<<<<< Updated upstream
 a:link,a {
     color: var(--link);
+=======
+a:link,
+a {
+    color: var(--primary-light);
+>>>>>>> Stashed changes
 }
 
 a:visited, h1 a, h2 a, h3 a {
@@ -29,39 +44,45 @@ a:visited, h1 a, h2 a, h3 a {
 }
 
 a:hover {
-    color:var(--light-color);
+    color: var(--light-color);
 }
 
 html {
-    background-color: var(--darkest);
-    color: var(--light-gray);
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    background-color     : var(--darkest);
+    color                : var(--light-gray);
+    font-family          : 'IBM Plex Sans', sans-serif;
+    font-size            : 16px;
+    line-height          : 1.8;
+    padding              : 0;
+    margin               : 0;
+    box-sizing           : border-box;
+    scroll-behavior      : smooth;
+    scroll-padding-top   : 5rem;
     scroll-padding-bottom: 5rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color:var(--primary-color);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--primary-color);
 }
 
 h1 {
     font-weight: bold;
 }
 
-h2,h3 {
-    font-family: 'IBM Plex Sans Light','IBM Plex Sans', sans-serif;
+h2,
+h3 {
+    font-family: 'IBM Plex Sans Light', 'IBM Plex Sans', sans-serif;
 }
 
 .wrapper {
     min-height: 100vh;
-    width: 100%;
-    padding: 4em calc(50% - 430px);
+    width     : 100%;
+    padding   : 4em calc(50% - 430px);
     box-sizing: border-box;
 }
 
@@ -73,21 +94,31 @@ h2,h3 {
     background-color: var(--dark);
 }
 
+<<<<<<< Updated upstream
 p > img:first-child {
     float: right;
     max-width: 30%;
     padding: 0 1em;
+=======
+p img[align] {
+    max-width         : 30%;
+    padding           : 0 1em;
+    animation         : scaled-in linear;
+    animation-timeline: view(50% 0);
+>>>>>>> Stashed changes
 }
 
 dt {
     font-weight: bold;
 }
+
 dd {
-    position: relative; 
-    left: 2em;
+    position     : relative;
+    left         : 2em;
     padding-right: 2em;
 }
 
+<<<<<<< Updated upstream
 .cube {
     transform-style: preserve-3d;
     animation: spin linear reverse;
@@ -154,10 +185,67 @@ dd {
   }
 
 @media print, screen and (max-width: 960px) {
+=======
+.gridly {
+    display              : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap             : 1em;
+    width                : 100%;
+}
+
+.gridly>div {
+    background-color: var(--darkest);
+    padding         : 1em;
+}
+
+.gridly>div>h3 {
+    margin            : 0;
+    animation         : letter-squeeze linear;
+    animation-delay: 200ms;
+    animation-timeline: view(50% 0);
+}
+
+@keyframes letter-squeeze {
+    from {
+        letter-spacing: .38em;
+    }
+
+    to {
+        letter-spacing: 0em;
+    }
+}
+
+@keyframes scaled-in {
+    from {
+        scale: .75;
+        translate: 25% 0;
+    }
+
+    to {
+        scale: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes scaled-out {
+    to {
+        scale: .75;
+        translate: 0 -25%;
+    }
+
+    from {
+        scale: 1;
+        translate: 0 0;
+    }
+}
+
+@media print,
+screen and (max-width: 960px) {
+>>>>>>> Stashed changes
     div.wrapper {
-        width:auto;
-        margin: 0;
-        padding: auto;
+        width     : auto;
+        margin    : 0;
+        padding   : auto;
         min-height: initial;
     }
 }
