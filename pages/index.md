@@ -6,17 +6,10 @@ permalink: /
 
 ## Transcription for Paleographical and Editorial Notation
 
-<<<<<<< Updated upstream:pages/index.md
 <button role="button"> Log in </button>
 Open an account to start recording annotations on images from al over the world and across time.
 
 ---
-=======
-<img alt="old TPEN logo" src="/assets/img/tpen_clearShadowSmall.png" align="right">
-This tool is the evolution of the 21st century transcription platform at [t‑pen.org](https://t-pen.org).
-Originally targeting Medieval manuscripts, users have fostered a community of carefully
-transcribed images of scripts, engravings, and calligraphy from all over the world across time.
->>>>>>> Stashed changes:index.md
 
 <div class="gridly">
 

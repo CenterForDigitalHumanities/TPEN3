@@ -94,18 +94,11 @@ h3 {
     background-color: var(--dark);
 }
 
-<<<<<<< Updated upstream
 p > img:first-child {
-    float: right;
-    max-width: 30%;
-    padding: 0 1em;
-=======
-p img[align] {
     max-width         : 30%;
     padding           : 0 1em;
     animation         : scaled-in linear;
     animation-timeline: view(50% 0);
->>>>>>> Stashed changes
 }
 
 dt {
@@ -118,7 +111,6 @@ dd {
     padding-right: 2em;
 }
 
-<<<<<<< Updated upstream
 .cube {
     transform-style: preserve-3d;
     animation: spin linear reverse;
@@ -185,7 +177,6 @@ dd {
   }
 
 @media print, screen and (max-width: 960px) {
-=======
 .gridly {
     display              : grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -241,7 +232,6 @@ dd {
 
 @media print,
 screen and (max-width: 960px) {
->>>>>>> Stashed changes
     div.wrapper {
         width     : auto;
         margin    : 0;
