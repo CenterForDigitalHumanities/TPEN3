@@ -64,7 +64,6 @@ libraries that also contain licenses that may include different liberties and re
 Contributors to any of the TPEN repositories must accept this license, though no requirement is in place
 for anyone who clones this repository or otherwise modifies the code for themselves.
 
-<<<<<<< Updated upstream
 ### User Agreement
 
 As a TPEN User, you agree to use TPEN tools, services, APIs, and websites for their intended purpose. Illegal or unethical activities, including violation of intellectual property rights, harassment, or theft and abuse of resources are prohibited.
@@ -92,30 +91,10 @@ TPEN does not share user information and will never publish any information exce
 
 This project, directly funded by the National Endowment for the Humanities (NEH), is the result of intense support over decades of work and several iterations of this platform. Funding and support has come from foundations, organizations, and individuals, including the Andrew W. Mellon Foundation, the National Endowment for the Humanities, the Institute of Museum and Library Services, the University of Dayton, and the University of Kentucky, the Newberry Library, Stanford University Libraries, and the International Image Interoperability Framework Consortium.
 
-Additionally, we want to express our gratitude for the repositories which opened up their collections early on to allow this project and others like it to take root: 
+Additionally, we want to express our gratitude for the repositories which opened up their collections early on to allow this project and others like it to take root:
 
-- [Parker Library on the Web](//parker.stanford.edu/parker/)
-- [e-codices](//www.e-codices.unifr.ch/)
-- [Codices Electronici Ecclesiae Coloniensis](//digital.dombibliothek-koeln.de/handschriften/)
-- [Harvard Houghton Library](//library.harvard.edu/libraries/houghton#collections)
-- [SISF - Assisi](//www.sisf-assisi.it/)
-=======
-// TODO
-state license for code, rules about content, and agreement for contribution
-
-### User Agreement
-
-// TODO
-when you sign up you agree to these terms, but when you use the site you kinda do too
-
-### Related Tools and Projects
-
-// TODO
-tools like RERUM, Projects like Newberry and DLA
-
-### Funding and Partnerships
-
-// TODO
-Mellon, NEH, PRF, SLU, Newberry, UTK, Dayton, Stanford
-and also recognize the repositories that started the ball rolling
->>>>>>> Stashed changes
+* [Parker Library on the Web](//parker.stanford.edu/parker/)
+* [e-codices](//www.e-codices.unifr.ch/)
+* [Codices Electronici Ecclesiae Coloniensis](//digital.dombibliothek-koeln.de/handschriften/)
+* [Harvard Houghton Library](//library.harvard.edu/libraries/houghton#collections)
+* [SISF - Assisi](//www.sisf-assisi.it/)
