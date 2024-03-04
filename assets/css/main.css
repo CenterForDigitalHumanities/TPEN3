@@ -189,6 +189,11 @@ dd {
     animation-timeline: view(50% 0);
 }
 
+section > h3 {
+    animation: lift-header linear;
+    animation-timeline: view(50% 0);
+}
+
 @keyframes letter-squeeze {
     from {
         letter-spacing: .38em;
@@ -196,6 +201,16 @@ dd {
 
     to {
         letter-spacing: 0em;
+    }
+}
+
+@keyframes lift-header {
+    from {
+        transform: translateY(-0.5em);
+    }
+
+    to {
+        transform: translateY(-0em);
     }
 }
 

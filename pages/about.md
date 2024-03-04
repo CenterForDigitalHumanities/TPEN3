@@ -40,7 +40,7 @@ the code, the infrastructure, and the community over the years.
 
 ### Legacy
 
-!["old TPEN logo"](/assets/img/tpen_clearShadowSmall.png)
+!["old TPEN logo"](assets/img/tpen_clearShadowSmall.png)
 The original Transcription for Paleographical and Editorial Notation (T‑PEN) project was coordinated by the
 Center for Digital Theology at [(SLU)](https://slu.edu) and funded by the Andrew W. Mellon
 Foundation and the NEH. The Electronic Norman Anonymous Project developed several capabilities at the core of this
@@ -49,12 +49,12 @@ first complete platform at t-pen.org in 2010.
 
 ### License and Rights
 
-[TPEN 3](https://github.com/CenterForDigitalHumanities/TPEN3)
-by [Research Computing Group](https://github.com/CenterForDigitalHumanities)
-is licensed under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
-
-[![CC-BY](https://mirrors.creativecommons.org/presskit/icons/cc.svg)
-![CC-BY](https://mirrors.creativecommons.org/presskit/icons/by.svg)](http://creativecommons.org/licenses/by/4.0/)
+> [TPEN 3](https://github.com/CenterForDigitalHumanities/TPEN3)
+> by [Research Computing Group](https://github.com/CenterForDigitalHumanities)
+> is licensed under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
+>
+> [![CC-BY](https://mirrors.creativecommons.org/presskit/icons/cc.svg)
+> ![CC-BY](https://mirrors.creativecommons.org/presskit/icons/by.svg)](http://creativecommons.org/licenses/by/4.0/)
 
 Users and machines who interact with TPEN and its services are expected to be well-behaved citizens of
 the open web. The license above describes this code and its related repositories but does not explicitly
