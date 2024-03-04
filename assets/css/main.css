@@ -2,7 +2,7 @@
 --- 
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
-@import url("https        ://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 :root {
     --primary-color: hsl(186, 84%, 40%);
@@ -84,6 +84,7 @@ h3 {
 }
 
 p>img:first-child {
+    float: right;
     max-width         : 30%;
     padding           : 0 1em;
     animation         : scaled-in linear;
@@ -203,25 +204,25 @@ screen and (max-width: 960px) {
 
     @keyframes scaled-in {
         from {
-            scale    : .75;
-            translate: 25% 0;
+            transform:scale(.75);
+            transform:translate(25% 0);
         }
 
         to {
-            scale    : 1;
-            translate: 0 0;
+            transform:scale(1);
+            transform:translate(0 0);
         }
     }
 
     @keyframes scaled-out {
         to {
-            scale    : .75;
-            translate: 0 -25%;
+            transform:scale(.75);
+            transform:translate(0 -25%);
         }
 
         from {
-            scale    : 1;
-            translate: 0 0;
+            transform:scale(1);
+            transform:translate(0 0);
         }
     }
 }
