@@ -1,45 +1,34 @@
----
----
+--- 
+--- 
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https        ://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 :root {
     --primary-color: hsl(186, 84%, 40%);
     --primary-light: hsl(186, 84%, 60%);
-<<<<<<< Updated upstream
-    --light-color: hsl(186, 84%, 90%);
-    --darkest:#0d0d0d;
-    --dark:#1a1a1a;
-    --white:hsl(0,0%,100%);
-    --gray:hsl(0,0%,60%);
-    --light-gray:hsl(0,0%,90%);
-    --link:hsl(12, 60%, 40%);
-=======
     --light-color  : hsl(186, 84%, 90%);
     --darkest      : #0d0d0d;
     --dark         : #1a1a1a;
     --white        : hsl(0, 0%, 100%);
     --gray         : hsl(0, 0%, 60%);
     --light-gray   : hsl(0, 0%, 90%);
->>>>>>> Stashed changes
+    --link         : hsl(12, 60%, 40%);
 }
 
 a:active {
     color: var(--white)
 }
 
-<<<<<<< Updated upstream
-a:link,a {
-    color: var(--link);
-=======
 a:link,
 a {
-    color: var(--primary-light);
->>>>>>> Stashed changes
+    color: var(--link);
 }
 
-a:visited, h1 a, h2 a, h3 a {
+a:visited,
+h1 a,
+h2 a,
+h3 a {
     color: var(--primary-color);
 }
 
@@ -94,7 +83,7 @@ h3 {
     background-color: var(--dark);
 }
 
-p > img:first-child {
+p>img:first-child {
     max-width         : 30%;
     padding           : 0 1em;
     animation         : scaled-in linear;
@@ -112,121 +101,128 @@ dd {
 }
 
 .cube {
-    transform-style: preserve-3d;
-    animation: spin linear reverse;
+    transform-style   : preserve-3d;
+    animation         : spin linear reverse;
     animation-timeline: scroll();
-    position: relative;
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    margin: 0 5px;
-  }
+    position          : relative;
+    width             : 20px;
+    height            : 20px;
+    display           : inline-block;
+    margin            : 0 5px;
+}
 
-  .cube + .cube {
-    animation-direction: normal;
+.cube+.cube {
+    animation-direction      : normal;
     animation-iteration-count: 2;
-  }
+}
 
-  .cube + .cube + .cube {
-    animation-direction: reverse;
+.cube+.cube+.cube {
+    animation-direction      : reverse;
     animation-iteration-count: .62;
-  }
-  
-  .cube div {
-     width: 20px;
-     height: 20px;
-     line-height: 20px;
-     text-align: center;
-     box-shadow: inset 0px 0px 0px 1px var(--darkest);
-     background: var(--primary-color);
-     display: block;
-     position: absolute;
-  }
-  
-  .cube div.top {
-     transform: rotateX(90deg); 
+}
+
+.cube div {
+    width      : 20px;
+    height     : 20px;
+    line-height: 20px;
+    text-align : center;
+    box-shadow : inset 0px 0px 0px 1px var(--darkest);
+    background : var(--primary-color);
+    display    : block;
+    position   : absolute;
+}
+
+.cube div.top {
+    transform : rotateX(90deg);
     margin-top: -10px;
-  }
-  
-  .cube div.right {
-     transform: rotateY(90deg); 
+}
+
+.cube div.right {
+    transform  : rotateY(90deg);
     margin-left: 10px;
-  }
-  
-  .cube div.bottom {
-     transform: rotateX(-90deg); 
+}
+
+.cube div.bottom {
+    transform : rotateX(-90deg);
     margin-top: 10px;
-  }
-  
-  .cube div.left {
-     transform: rotateY(-90deg); 
+}
+
+.cube div.left {
+    transform  : rotateY(-90deg);
     margin-left: -10px;
-  }
-  
-  .cube div.front {
-     transform: translateZ(10px);
-  }
-  
-  .cube div.back {
-     transform: translateZ(-10px) rotateX(180deg);
-  }
-  
-  @keyframes spin {
-    0% {transform: rotateX(157deg) rotateY(280deg) rotateZ(330deg);}
-    100% {transform: rotateX(0deg) rotateY(740deg) rotateZ(900deg);}
-  }
-
-@media print, screen and (max-width: 960px) {
-.gridly {
-    display              : grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap             : 1em;
-    width                : 100%;
 }
 
-.gridly>div {
-    background-color: var(--darkest);
-    padding         : 1em;
+.cube div.front {
+    transform: translateZ(10px);
 }
 
-.gridly>div>h3 {
-    margin            : 0;
-    animation         : letter-squeeze linear;
-    animation-delay: 200ms;
-    animation-timeline: view(50% 0);
+.cube div.back {
+    transform: translateZ(-10px) rotateX(180deg);
 }
 
-@keyframes letter-squeeze {
-    from {
-        letter-spacing: .38em;
+@keyframes spin {
+    0% {
+        transform: rotateX(157deg) rotateY(280deg) rotateZ(330deg);
     }
 
-    to {
-        letter-spacing: 0em;
+    100% {
+        transform: rotateX(0deg) rotateY(740deg) rotateZ(900deg);
     }
 }
 
-@keyframes scaled-in {
-    from {
-        scale: .75;
-        translate: 25% 0;
+@media print,
+screen and (max-width: 960px) {
+    .gridly {
+        display              : grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap             : 1em;
+        width                : 100%;
     }
 
-    to {
-        scale: 1;
-        translate: 0 0;
-    }
-}
-
-@keyframes scaled-out {
-    to {
-        scale: .75;
-        translate: 0 -25%;
+    .gridly>div {
+        background-color: var(--darkest);
+        padding         : 1em;
     }
 
-    from {
-        scale: 1;
-        translate: 0 0;
+    .gridly>div>h3 {
+        margin            : 0;
+        animation         : letter-squeeze linear;
+        animation-delay   : 200ms;
+        animation-timeline: view(50% 0);
+    }
+
+    @keyframes letter-squeeze {
+        from {
+            letter-spacing: .38em;
+        }
+
+        to {
+            letter-spacing: 0em;
+        }
+    }
+
+    @keyframes scaled-in {
+        from {
+            scale    : .75;
+            translate: 25% 0;
+        }
+
+        to {
+            scale    : 1;
+            translate: 0 0;
+        }
+    }
+
+    @keyframes scaled-out {
+        to {
+            scale    : .75;
+            translate: 0 -25%;
+        }
+
+        from {
+            scale    : 1;
+            translate: 0 0;
+        }
     }
 }
 
