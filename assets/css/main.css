@@ -206,11 +206,13 @@ section > h3 {
 
 @keyframes lift-header {
     from {
-        transform: translateY(-0.5em);
+        transform: translateY(2em);
+        opacity: 0;
     }
 
     to {
-        transform: translateY(-0em);
+        transform: translateY(0em);
+        opacity: 1;
     }
 }
 
