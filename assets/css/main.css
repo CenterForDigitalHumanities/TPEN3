@@ -170,62 +170,59 @@ dd {
         transform: rotateX(0deg) rotateY(740deg) rotateZ(900deg);
     }
 }
+.gridly {
+    display              : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap             : 1em;
+    width                : 100%;
+}
 
-@media print,
-screen and (max-width: 960px) {
-    .gridly {
-        display              : grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap             : 1em;
-        width                : 100%;
+.gridly>div {
+    background-color: var(--darkest);
+    padding         : 1em;
+}
+
+.gridly>div>h3 {
+    margin            : 0;
+    animation         : letter-squeeze linear;
+    animation-delay   : 200ms;
+    animation-timeline: view(50% 0);
+}
+
+@keyframes letter-squeeze {
+    from {
+        letter-spacing: .38em;
     }
 
-    .gridly>div {
-        background-color: var(--darkest);
-        padding         : 1em;
-    }
-
-    .gridly>div>h3 {
-        margin            : 0;
-        animation         : letter-squeeze linear;
-        animation-delay   : 200ms;
-        animation-timeline: view(50% 0);
-    }
-
-    @keyframes letter-squeeze {
-        from {
-            letter-spacing: .38em;
-        }
-
-        to {
-            letter-spacing: 0em;
-        }
-    }
-
-    @keyframes scaled-in {
-        from {
-            transform:scale(.75);
-            transform:translate(25% 0);
-        }
-
-        to {
-            transform:scale(1);
-            transform:translate(0 0);
-        }
-    }
-
-    @keyframes scaled-out {
-        to {
-            transform:scale(.75);
-            transform:translate(0 -25%);
-        }
-
-        from {
-            transform:scale(1);
-            transform:translate(0 0);
-        }
+    to {
+        letter-spacing: 0em;
     }
 }
+
+@keyframes scaled-in {
+    from {
+        transform:scale(.75);
+        transform:translate(25% 0);
+    }
+
+    to {
+        transform:scale(1);
+        transform:translate(0 0);
+    }
+}
+
+@keyframes scaled-out {
+    to {
+        transform:scale(.75);
+        transform:translate(0 -25%);
+    }
+
+    from {
+        transform:scale(1);
+        transform:translate(0 0);
+    }
+}
+
 
 @media print,
 screen and (max-width: 960px) {
