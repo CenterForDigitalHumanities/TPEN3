@@ -6,7 +6,7 @@ layout: default
   <header class="category-header">
     <p class="category-tags">
       {% for category in site.categories %}
-      <i class="bi-bookmark-fill"></i> <a href="/category/{{ category[0] }}">{{ category[0] | capitalize }} ({{
+     <a href="/category/{{ category[0] }}" style="text-decoration: none;"> <i class="bi-bookmark-fill"></i> {{ category[0] | capitalize }} ({{
         category[1] | size }})</a> &nbsp;
       {% endfor %}
     </p>

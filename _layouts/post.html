@@ -25,7 +25,7 @@ layout: default
       {% if categories != '' %}
         &nbsp; &middot; &nbsp;
         {% for category in page.categories %}
-            <a href="/{{site.baseurl}}/category/{{ category }}" style="text-decoration: none;"><i class="bi-bookmark-fill"></i> {{ category | capitalize }}</a> &nbsp;
+            <a href="/category/{{ category }}" style="text-decoration: none;"><i class="bi-bookmark-fill"></i> {{ category | capitalize }}</a> &nbsp;
         {% endfor %}
       {% endif %}
     </p>
@@ -44,6 +44,21 @@ layout: default
     {% if page.related_posts == null or page.related_posts %}
       {% include related_posts.liquid %}
     {% endif %}
+  {% endif %}
+
+  {% if page.previous or page.next %}
+    <p class="post-navigation">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | absolute_url }}" class="prev-post">
+          <i class="bi-arrow-left"></i> {{ page.prev.title }}
+        </a>
+      {% endif %}
+      {% if page.next %}
+        <a href="{{ page.next.url | absolute_url }}" class="next-post">
+          {{ page.next.title }} <i class="bi-arrow-right"></i>
+        </a>
+      {% endif %}
+    </p>
   {% endif %}
 
 </div>
