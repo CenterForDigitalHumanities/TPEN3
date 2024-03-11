@@ -6,7 +6,8 @@ layout: default
   <header class="category-header">
     <p class="category-tags">
       {% for category in site.categories %}
-      <i class="bi-bookmark-fill"></i> <a href="/category/{{ category[0] }}">{{ category[0] | capitalize }} ({{ category[1] | size }})</a> &nbsp;
+      <i class="bi-bookmark-fill"></i> <a href="/category/{{ category[0] }}">{{ category[0] | capitalize }} ({{
+        category[1] | size }})</a> &nbsp;
       {% endfor %}
     </p>
   </header>
@@ -16,7 +17,22 @@ layout: default
   <p class="category-meta">
     - {{ posts | size }} of {{ site.posts | size }} total posts -
   </p>
-{% for post in posts %}
-<li><a href="{{ post.url }}">{{ post.title }}</a> <small>({{ post.date | date_to_long_string: "ordinal" }}) <cite>{{ post.author }}</cite></small>{% if post.excerpt %} <br> {{ post.excerpt | strip_html }} {% endif %}</li>
-{% endfor %}
+  <ul class="post-list">
+    {% for post in posts %}
+    <li class="post-list-item">
+      <h3>
+        <a href="{{ post.url }}">{{ post.title }}
+          <small>({{ post.date | date_to_long_string: "ordinal" }})
+            <cite>{{ post.author }}</cite>
+          </small>
+        </a>
+      </h3>
+      {% if post.coverImage %}
+      <img src="{{ post.coverImage }}" alt="{{ post.title }}" class="post-cover-image">{% endif %}
+      <p>
+        {{ post.excerpt | strip_html }}
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
 </div>

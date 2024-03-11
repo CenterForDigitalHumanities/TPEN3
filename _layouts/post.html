@@ -25,13 +25,16 @@ layout: default
       {% if categories != '' %}
         &nbsp; &middot; &nbsp;
         {% for category in page.categories %}
-            <a href="{{site.baseurl}}/category/{{ category }}" style="text-decoration: none;"><i class="bi-bookmark-fill"></i> {{ category | capitalize }}</a> &nbsp;
+            <a href="/{{site.baseurl}}/category/{{ category }}" style="text-decoration: none;"><i class="bi-bookmark-fill"></i> {{ category | capitalize }}</a> &nbsp;
         {% endfor %}
       {% endif %}
     </p>
   </header>
 
   <article class="post-content">
+    {% if page.coverImage %}
+    <img src="{{ page.coverImage }}" alt="{{ page.title }}" class="post-cover-image">
+    {% endif %}
     <div id="markdown-content">
       {{ content }}
     </div>
