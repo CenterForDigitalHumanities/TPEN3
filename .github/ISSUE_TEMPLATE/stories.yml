@@ -30,13 +30,14 @@ body:
     label: Resources Involved
     description: Mark any repositories this is likely to impact.
     options:
-      - label: *TPEN 3* business card site
-      - label: *Services* the main API hub 
-      - label: *TinyPen* the RERUM proxy 
-      - label: *Static* the midcache for complex documents 
-      - label: *RERUM* **external** Linked Open Data 
-      - label: *Interfaces* web interfaces for humans and reports 
-      - label: *Rerum Inbox* **external** Linked Open Data Notification Inbox
+      - label: 'TPEN 3: business card site'
+      - label: 'Services: the main API hub'
+      - label: 'TinyPen: the RERUM proxy' 
+      - label: 'Static: the midcache for complex documents'
+      - label: 'RERUM (external): Linked Open Data'
+      - label: 'Interfaces: web interfaces for humans and reports'
+      - label: 'Rerum Inbox (external): Linked Open Data Notification Inbox'
+      - label: 'External Service'
 - type: textarea
   id: solution
   attributes:
