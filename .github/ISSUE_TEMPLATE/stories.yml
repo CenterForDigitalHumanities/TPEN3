@@ -1,0 +1,51 @@
+name: Stories
+description: Compose a user or machine story that describes a behavior and recommends the solution's structure.
+title: "Activities on TPEN 3"
+labels: story
+body:
+- type: dropdown
+  id: classification
+  attributes:
+    label: Primary Agent
+    description: Who/what will be using TPEN today?
+    options:
+      - label: 'Scholar/Researcher'
+      - label: 'Student/Contributor'
+      - label: 'Project Manager'
+      - label: 'Integrated Service'
+      - label: 'Machine Service'      
+  validations:
+    required: true
+- type: textarea
+  id: summary
+  attributes:
+    label: Story
+    description: A clear description of your story. You may paste in screenshots here or below, if it helps.
+    render: markdown
+  validations:
+    required: true
+- type: checkboxes
+  id: components
+  attributes:
+    label: Resources Involved
+    description: Mark any repositories this is likely to impact.
+    options:
+      - label: *TPEN 3* business card site
+      - label: *Services* the main API hub 
+      - label: *TinyPen* the RERUM proxy 
+      - label: *Static* the midcache for complex documents 
+      - label: *RERUM* **external** Linked Open Data 
+      - label: *Interfaces* web interfaces for humans and reports 
+      - label: *Rerum Inbox* **external** Linked Open Data Notification Inbox
+- type: textarea
+  id: solution
+  attributes:
+    label: Structural Solution
+    description: Describe the more mechanical aspects of your "best" solution and how it interacts with the resources above.
+    render: markdown
+- type: textarea
+  id: context
+  attributes:
+    label: Additional context
+    description: Add any other context or screenshots here.
+    render: markdown
