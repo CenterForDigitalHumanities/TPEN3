@@ -25,7 +25,7 @@ layout: default
       {% if categories != '' %}
         &nbsp; &middot; &nbsp;
         {% for category in page.categories %}
-            <a href="/category/{{ category }}" style="text-decoration: none;"><i class="bi-bookmark-fill"></i> {{ category | capitalize }}</a> &nbsp;
+            <a href="{{site.baseurl}}/category/{{ category }}" style="text-decoration: none;"><i class="bi-bookmark-fill"></i> {{ category | capitalize }}</a> &nbsp;
         {% endfor %}
       {% endif %}
     </p>

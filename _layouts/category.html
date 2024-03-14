@@ -6,7 +6,7 @@ layout: default
   <header class="category-header">
     <p class="category-tags">
       {% for category in site.categories %}
-     <a href="/category/{{ category[0] }}" style="text-decoration: none;"> <i class="bi-bookmark-fill"></i> {{ category[0] | capitalize }} ({{
+     <a href="{{ site.baseurl }}/category/{{ category[0] }}" style="text-decoration: none;"> <i class="bi-bookmark-fill"></i> {{ category[0] | capitalize }} ({{
         category[1] | size }})</a> &nbsp;
       {% endfor %}
     </p>
@@ -21,7 +21,7 @@ layout: default
     {% for post in posts %}
     <li class="post-list-item">
       <h3>
-        <a href="{{ post.url }}">{{ post.title }}
+        <a href="{{ post.url | absolute_url}}">{{ post.title }}
           <small>({{ post.date | date_to_long_string: "ordinal" }})
             <cite>{{ post.author }}</cite>
           </small>

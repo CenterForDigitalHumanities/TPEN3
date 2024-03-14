@@ -10,7 +10,7 @@ permalink: /updates/
   <ul class="post-list">
     <li class="post-list-item">
       <h3>
-        <a href="{{ post.url }}">{{ post.title }}
+        <a href="{{ post.url | absolute_url}}">{{ post.title }}
           <small>({{ post.date | date_to_long_string: "ordinal" }})
             <cite>{{ post.author }}</cite>
           </small>
