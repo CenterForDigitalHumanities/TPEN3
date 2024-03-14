@@ -10,6 +10,32 @@ permalink: /
 Open an account to start recording annotations on images from al over the world and across time.
 
 ---
+{% assign today_date = 'now' | date: '%s' %}
+{% assign pre_date = site.posts.first.date | date: '%s' %}
+{% assign diff = today_date | minus: pre_date %}
+{% if diff < 604800 %}
+  {% assign post = site.posts.first %}
+<ul class="post-list">
+    <li class="post-list-item">
+      <h3>
+        <a href="{{ post.url | absolute_url}}">{{ post.title }}
+          <small>({{ post.date | date_to_long_string: "ordinal" }})
+            <cite>{{ post.author }}</cite>
+          </small>
+        </a>
+      </h3>
+      {% if post.coverImage %}
+      <img src="{{ post.coverImage }}" alt="{{ post.title }}" class="post-cover-image">
+      {% endif %}
+      <p>
+        {{ post.excerpt | strip_html }}
+      </p>
+    </li>
+  </ul>
+{% endif %}
+{% for category in site.categories %}
+<a href="{{ site.baseurl }}/category/{{ category[0] }}" style="text-decoration: none;"> <i class="bi-bookmark-fill"></i> {{ category[0] | capitalize }} ({{category[1] | size }})</a> &nbsp;
+{% endfor %}
 
 <div class="gridly">
 
