@@ -9,11 +9,11 @@ body:
     label: Primary Agent
     description: Who/what will be using TPEN today?
     options:
-      - label: 'Scholar/Researcher'
-      - label: 'Student/Contributor'
-      - label: 'Project Manager'
-      - label: 'Integrated Service'
-      - label: 'Machine Service'      
+      - 'Scholar/Researcher'
+      - 'Student/Contributor'
+      - 'Project Manager'
+      - 'Integrated Service'
+      - 'Machine Service'      
   validations:
     required: true
 - type: textarea
@@ -34,6 +34,7 @@ body:
       - label: 'Services: the main API hub'
       - label: 'TinyPen: the RERUM proxy' 
       - label: 'Static: the midcache for complex documents'
+      - label: 'Users: Auth0 User management and tools'
       - label: 'RERUM (external): Linked Open Data'
       - label: 'Interfaces: web interfaces for humans and reports'
       - label: 'Rerum Inbox (external): Linked Open Data Notification Inbox'
