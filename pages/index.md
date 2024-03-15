@@ -3,6 +3,7 @@ layout: default
 title: TPEN
 permalink: /
 ---
+> `This site is scheduled for launch in 2026 and not intended for public use at this time.{: .notice}
 
 ## Transcription for Paleographical and Editorial Notation
 

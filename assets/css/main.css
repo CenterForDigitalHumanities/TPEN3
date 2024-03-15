@@ -67,7 +67,16 @@ h2,
 h3 {
     font-family: 'IBM Plex Sans Light', 'IBM Plex Sans', sans-serif;
 }
-
+.notice {
+    background-color: #990000;
+    box-shadow: 0 0 3px #FF0000;
+    color: white;
+    font-weight: bold;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+}
 .post-list {
     padding: 0;
 }
