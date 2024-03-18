@@ -35,7 +35,7 @@ Open an account to start recording annotations on images from al over the world 
   </ul>
 {% endif %}
 {% for category in site.categories %}
-<a href="{{ site.baseurl }}/category/{{ category[0] }}" style="text-decoration: none;"> <i class="bi-bookmark-fill"></i> {{ category[0] | capitalize }} ({{category[1] | size }})</a> &nbsp;
+<a href="{{ site.baseurl }}/category/{{ category[0] }}" style="text-decoration: none;"> <i class="bi bi-bookmark-fill"></i> {{ category[0] | capitalize }} ({{category[1] | size }})</a> &nbsp;
 {% endfor %}
 
 <div class="gridly">
