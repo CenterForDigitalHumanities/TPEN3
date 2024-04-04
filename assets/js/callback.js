@@ -1,37 +1,52 @@
-// alert("authentication callback complete.")
-
 function redirectUser() {
 
-  let redirectUrl
+  let redirectUrl;
+  const referringPage = getReferringPage()
+  const userToken = localStorage.getItem("userToken")
 
-  const params = new URLSearchParams(window.location.search)
-  const referringUrl = decodeURIComponent(params.get("ref"))
-  // const hasProject = decodeURIComponent(params.get("projects"))
-  const userToken = decodeURIComponent(params.get("access-token"))
-
-  if (referringUrl) {
-    redirectUrl = referringUrl
+  if (referringPage && referringPage !== location.href) {
+    redirectUrl = referringPage
+    //We can change the current location t oprevent login loop. it'd take out all refs or params if we just location.href = referringPage for instance
   } else if ( userHasProject(userToken)) {
     redirectUrl = "xyz/dashboard/projects"
   } else {
-    redirectUrl = "/"
+    redirectUrl = "https://www.tpen.org/interfaces"
     // redirect to homepage with welcome texts and tutorials
   }
 }
 
-const userHasProject = async (token) => {
+async function userHasProject (userToken){
   try {
     return await fetch("dev.api.tpen-services.org/project", {
       method: post,
       headers: {
-        Authorization: `Bearer ${window.TPEN_USER?.authorization}` || token,
+        Authorization: `Bearer ${window.TPEN_USER?.authorization}` || userToken,
         "Content-Type": "application/json; charset=utf-8"
       },
       body: JSON.stringify(userId)
     })
   } catch (error) {
-
+    return false 
   }
 }
+
+function getReferringPage (){
+  try { 
+    const base64Hash = location.hash.split("state=")[1].split("&")[0]; 
+    const decodedUrl = b64toUrl(base64Hash); 
+    return decodedUrl;
+  } catch (err) { 
+    return false;
+  }
+}
+
+function urlToBase64 (url) {
+  return window
+    .btoa(url)
+    .replace(/\//g, "_")
+    .replace(/\+/g, "-")
+    .replace(/=+$/, "")
+}
+
 
 window.onload = redirectUser()
