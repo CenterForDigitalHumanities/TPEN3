@@ -33,7 +33,8 @@ layout: default
 
   <article class="post-content">
     {% if page.coverImage %}
-    <img src="{{ page.coverImage }}" alt="{{ page.title }}" class="post-cover-image">
+    <div class="post-cover-image-banner" style="--bg-image: url('{{ page.coverImage }}');">
+    </div>
     {% endif %}
     <div id="markdown-content">
       {{ content }}

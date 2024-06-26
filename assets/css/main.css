@@ -77,6 +77,16 @@ h3 {
     left:0;
     width: 100%;
 }
+.post-cover-image-banner {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+    height: 300px;
+    width: 100%;
+    position: relative;
+  }
+  
 .post-list {
     padding: 0;
 }
