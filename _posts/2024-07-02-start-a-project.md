@@ -4,6 +4,8 @@ excerpt: "This tutorial will examine the different ways to initiate a new Projec
 date: "2022-07-02"
 categories: 
   - "tutorials"
+tags: 
+  - "paleography"
 coverImage: "https://github.com/CenterForDigitalHumanities/TPEN3/assets/1119165/4cf83476-e73c-47ad-9fdf-90406405e5dd"
 author: "Patrick Cuba"
 ---

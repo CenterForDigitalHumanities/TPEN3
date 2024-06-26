@@ -4,6 +4,8 @@ excerpt: "This tutorial will show you how to create an account on the TPEN3 plat
 date: "2022-07-01"
 categories: 
   - "tutorials"
+tags:
+  - "user-interface"
 coverImage: "https://github.com/CenterForDigitalHumanities/TPEN3/assets/1119165/f0347edf-4274-419d-8be4-47377719312f"
 author: "Patrick Cuba"
 ---
