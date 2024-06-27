@@ -54,6 +54,9 @@ layout: default
           <i class="bi-arrow-left"></i> {{ page.previous.title }}
         </a>
       {% endif %}
+      {% if page.previous and page.next %}
+      ｜
+      {% endif %}
       {% if page.next %}
         <a href="{{ page.next.url | absolute_url }}" class="next-post">
           {{ page.next.title }} <i class="bi-arrow-right"></i>
