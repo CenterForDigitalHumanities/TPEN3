@@ -3,6 +3,8 @@ logo: /assets/img/logo.png
 baseurl: /
 description: Transcription powered by Rerum.
 show_downloads: false
+markdown: kramdown
+highlighter: rouge
 google_analytics: G-630J3K9FNK
 defaults:
   -
