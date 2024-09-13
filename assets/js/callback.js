@@ -1,13 +1,5 @@
 function redirectUser() {
-  let redirectUrl
-  const referringPage = getReferringPage()
-
-  if (referringPage && referringPage !== location.href) {
-    redirectUrl = referringPage
-    //We can change the current location t oprevent login loop. it'd take out all refs or params if we just location.href = referringPage for instance
-  } else{ 
-    redirectUrl = "https://www.tpen.org/interfaces"
-  }  
+  location.href = getReferringPage() ?? "https://www.tpen.org/interfaces"
 }
 
 function getReferringPage() {
@@ -20,13 +12,6 @@ function getReferringPage() {
   }
 }
 
-function urlToBase64(url) {
-  return window
-    .btoa(url)
-    .replace(/\//g, "_")
-    .replace(/\+/g, "-")
-    .replace(/=+$/, "")
-}
 /**
  * Follows the 'base64url' rules to decode a string.
  * @param {String} base64str from `state` parameter in the hash from Auth0
