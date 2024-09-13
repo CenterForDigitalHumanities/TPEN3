@@ -27,5 +27,13 @@ function urlToBase64(url) {
     .replace(/\+/g, "-")
     .replace(/=+$/, "")
 }
+/**
+ * Follows the 'base64url' rules to decode a string.
+ * @param {String} base64str from `state` parameter in the hash from Auth0
+ * @returns referring URL
+ */
+function b64toUrl(base64str) {
+  return window.atob(base64str.replace(/\-/g, "+").replace(/_/g, "/"))
+}
 
 window.onload = redirectUser()
