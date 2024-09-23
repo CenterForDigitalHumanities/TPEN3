@@ -15,10 +15,10 @@ author: "Patrick Cuba"
 Your contributions in a TPEN3 Project are assertions - carefully defined, located, and attributed 
 as Annotations. The digitized images and manuscripts are external resources enhanced by this work. 
 TPEN3 puts this up front, resisting the creation of copies or disconnected commentaries. As such, 
-the Project starts with a some thing to annotate.
+the Project starts with \*something* to annotate.
 
-No matter how you begin, once a Project is created you can begin to annotate the resource and collaborate 
-with others, using the basic TPEN interfaces or any customized experience.
+No matter how you begin, once a Project is created you can start to annotate the resource and collaborate 
+with others using the basic TPEN interfaces or any customized experience.
 
 ## Annotate a Digital Image
 
@@ -29,12 +29,11 @@ based on that resource.
 
 ## Annotate a Manuscript or Collection of Images
 
-Most transcription projects encompass a collection of images. The process for creating a Project from a collection of images is similar to the process for a single image except the Project Creation pipeline will accept a set of image resource URLs to be organized by the Project layers. Alternately, any existing Project can have the pages rearranged, added, or removed after creation. This unfortunately manual process can be made more automatic for any resources adhering to the IIIF standard (below).
+Most transcription projects encompass a collection of images. The process for creating a Project from a collection of images is similar to the process for a single image except the Project Creation pipeline will accept a set of image resource URLs to be organized by the Project layers. Any existing Project can have the pages rearranged, added, or removed after creation. This unfortunately manual process can be made more automatic for any resources adhering to the IIIF standard (below).
 
 ## Annotate a Lacuna
 
-A Lacuna is a region of a manuscript folio that has not been digitized. 
-This is a common occurrence in the digital humanities. A page without an image will be made available as a IIIF Canvas with a generic placeholder image. This is a convenient way to fill in a transcription project where continuous text is reliably available, but it is not recommended as the only source of transcription.
+A Lacuna refers to a missing or undigitized portion of a folio, an entire folio, or perhaps even entire sections of a manuscript.  It can also be a purposefully placed blank page.  Lacuna are a common occurrence in the digital humanities. A page without an image will be made available as a IIIF Canvas with a generic placeholder image. This is a convenient way to fill in a transcription project where continuous text is reliably available, but it is not recommended as the only source of transcription.
 
 ## Annotate a IIIF Resource
 

@@ -12,12 +12,12 @@ author: "Patrick Cuba"
 
 ## TPEN Users by Rerum
 
-The user accounts for TPEN3 will be managed by the [Rerum service](rerum.io), which creates a public User Agent 
-for each account which can be linked to other personal identities.
+The user accounts for TPEN3 will be managed by the [Rerum service](rerum.io) which creates a public User Agent 
+for each account.  A user account can register with other Rerum applications and can be linked to other personal identities.
 
 ![image](https://github.com/CenterForDigitalHumanities/TPEN3/assets/1119165/49463b62-c607-44d8-bcdc-54a8ed589276)
 
-If you have an existing account at t-pen.org, the 2.8 platform, you might consider using the same email address 
+If you have an existing account at t-pen.org in the 2.8 platform, you might consider using the same email address 
 to transition with some automation. Our [Migration Guide]({{ site.baseurl }}Migration-Guide) 
 will help you with the process.
 
@@ -32,7 +32,7 @@ If you do not have an existing account, you can create a new one.
 3. Click on the "Sign up" link.
 4. Select a username, enter your email address, and select a password.
 5. Click on the "Continue" button.
-6. Confirm your account and enjoy using TPEN!
+6. Follow the prompts on screen to confirm your account and enjoy using TPEN!
 
 <hr>
 
