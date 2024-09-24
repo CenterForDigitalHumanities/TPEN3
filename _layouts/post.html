@@ -18,7 +18,7 @@ layout: default
       {% if tags != '' %}
         &nbsp; &middot; &nbsp;
         {% for tag in page.tags %}
-          <i class="bi bi-hash"></i> {{ tag }} &nbsp;
+          <i class="bi bi-hash"></i>{{ tag }} &nbsp;
         {% endfor %}
       {% endif %}
 
@@ -33,7 +33,8 @@ layout: default
 
   <article class="post-content">
     {% if page.coverImage %}
-    <img src="{{ page.coverImage }}" alt="{{ page.title }}" class="post-cover-image">
+    <div class="post-cover-image-banner" style="--bg-image: url('{{ page.coverImage }}');">
+    </div>
     {% endif %}
     <div id="markdown-content">
       {{ content }}
@@ -50,8 +51,11 @@ layout: default
     <p class="post-navigation">
       {% if page.previous %}
         <a href="{{ page.previous.url | absolute_url }}" class="prev-post">
-          <i class="bi-arrow-left"></i> {{ page.prev.title }}
+          <i class="bi-arrow-left"></i> {{ page.previous.title }}
         </a>
+      {% endif %}
+      {% if page.previous and page.next %}
+      ｜
       {% endif %}
       {% if page.next %}
         <a href="{{ page.next.url | absolute_url }}" class="next-post">
