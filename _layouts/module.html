@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: " en-US" }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{"/assets/css/main.css?v=" | append: site.github.build_revision | relative_url }}">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <title>{{ page.title | default: site.title | default: site.github.repository_name }}</title>
+    {% for module in page.modules %}
+    <script src="{{ module }}" type="module"></script>
+    {% endfor %}
+</head>
+
+<body>
+    <div>
+        <header style="position: fixed;background-color: var(--darkest);width: 100%;">
+            <h1 style="margin: 0;"><a href="{{ " /" | absolute_url }}" style="text-decoration: none;">{{ site.title |
+                    default: site.github.repository_name }}</a>
+                <div class="cube">
+                    <div class="top"> </div>
+                    <div class="right"> </div>
+                    <div class="bottom"> </div>
+                    <div class="left"> </div>
+                    <div class="front"> </div>
+                    <div class="back"> </div>
+                </div>
+                <div class="cube">
+                    <div class="top"> </div>
+                    <div class="right"> </div>
+                    <div class="bottom"> </div>
+                    <div class="left"> </div>
+                    <div class="front"> </div>
+                    <div class="back"> </div>
+                </div>
+                <div class="cube">
+                    <div class="top"> </div>
+                    <div class="right"> </div>
+                    <div class="bottom"> </div>
+                    <div class="left"> </div>
+                    <div class="front"> </div>
+                    <div class="back"> </div>
+                </div>
+            </h1>
+        </header>
+        <section id="content" class="wrapper dark">
+
+            loading modules...
+            <ul>
+                {% for module in page.modules %}
+                <li>{{module | split: '/' | last }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <footer class="wrapper">
+            <a href="{{ " /" | absolute_url }}">Return to the home page.</a>
+            &midcir;
+            <a href="{{ " /about" | absolute_url }}">Learn about the platform.</a>
+            &midcir;
+            <a href="https://github.com/CenterForDigitalHumanities/TPEN3">Read code on GitHub.com.</a>
+        </footer>
+    </div>
+    <script src="{{"/assets/js/scale.fix.js" | relative_url }}"></script>
+</body>
+
+</html>
