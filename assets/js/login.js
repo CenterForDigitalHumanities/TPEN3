@@ -70,10 +70,14 @@ function urlToBase64(url) {
   * https://three.t-pen.org/ needs to perform a checkSession() for the user and follow the flow.
   * Once a token is known, three.t-pen.org will recieve that token and needs to pass it back into the interface it came from.
   * /login?redirectTo= gives the user the option to state where they would like to return.
+  * Note this expects URL formatted like...
+  * 
+  /login/?redirectTo=https://transcribonanza.com/interface.html?customParam=hello#ididid
+  ^supported at this time
+  /login/#ididid?redirectTo=https://transcribonanza.com/interface.html?customParam=hello
+  ^unsupported at this time
 */
 function performLogin(){
-  // Immediately do checkSession() stuff
-  console.log("Hey buddy!  Thanks for logging in.")
   let redir = processRedirect()
   let refer = getReferringPage()
   let idTok = location.hash.includes("id_token=") ? location.hash.split("id_token=")[1].split("&")[0] : ""
@@ -88,6 +92,9 @@ function performLogin(){
     let referLink = new URL(refer)
     const referQueryString = referLink.search
     const referURLParams = new URLSearchParams(referQueryString)
+
+    // hmm the URL() does not consider the # to be a part of referLink.search but rather referLink.hash, which is wrong.
+    // We can split around the '#', or just accept referLink.hash just happens to do what we want.
     const hackHash = referLink.hash
 
     // The refer link has a redirect link as a URL parameter itself
@@ -102,35 +109,35 @@ function performLogin(){
     location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
     return
   }
-  login()
-  // webAuth.checkSession({}, (err, result) => {
-  //     if (err) {
-  //         login() // Perform login if not authenticated.
-  //         return
-  //     }
-  //     idTok = result.idToken ?? ""
-  //     if (!idTok){
-  //         console.error("There was missing token information from the login. Reset the cached User")
-  //         window.TPEN_USER = {}
-  //         window.TPEN_USER.authorization = "none"
-  //         localStorage.removeItem("userToken")
-  //         // TODO redirect still with some kind of error?
-  //         // No redirect but let them know an error happened.
-  //         return
-  //     }
-  //     // Redirect to the referring page, or the default page.
-  //     if(!refer) refer = redir
-  //     let redirectLink = new URL(refer)
-  //     let redirectQueryString = redirectLink.search
+  webAuth.checkSession({}, (err, result) => {
+      if (err) {
+          login() // Perform login if not authenticated.
+          return
+      }
+      idTok = result.idToken ?? ""
+      if (!idTok){
+          console.error("There was missing token information from the login. Reset the cached User")
+          // TODO redirect still with some kind of error?
+          // No redirect but let them know an error happened.
+          return
+      }
+      // Redirect to the referring page, or the default page.
+      if(!refer) refer = redir
+      let redirectLink = new URL(refer)
+      let redirectQueryString = redirectLink.search
 
-  //     if(redirectQueryString) redirectQueryString+=`&idToken=${idTok}`
-  //     else redirectQueryString=`?idToken=${idTok}`
-  //     if(redirectLink.hash) redirectQueryString+=redirectLink.hash
+      if(redirectQueryString) redirectQueryString+=`&idToken=${idTok}`
+      else redirectQueryString=`?idToken=${idTok}`
+      if(redirectLink.hash) redirectQueryString+=redirectLink.hash
 
-  //     location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
-  // })
+      location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
+  })
 }
 
+/**
+*  Detect and get the value of redirectTo from the origin address /login/?redirectTo=
+*  If there is no redirectTo, default to the origin address /login/ for the redirect.
+*/
 function processRedirect(url){
   let link = url ? new URL(url) : new URL(window.location.href)
   const queryString = link.search
