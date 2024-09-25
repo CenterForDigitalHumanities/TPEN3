@@ -62,7 +62,7 @@ function performLogin(){
     const referQueryString = referLink.search
     const referURLParams = new URLSearchParams(referQueryString)
 
-    // The decoded ?state= contains the ?redirectTo= that we needm the value of which which may also have URL parameters and/or a hash itself
+    // The decoded ?state= contains the ?redirectTo= that we need the value of, which which may also have URL parameters and/or a hash itself
     let redirect = referURLParams.get('redirectTo') ?? origin
     redirect = decodeURI(redirect)
     let redirectLink = new URL(redirect)
@@ -89,6 +89,7 @@ function performLogin(){
       if (!idTok){
           console.error("There was missing token information from the login. Reset the cached User")
           // TODO don't need to redirect, but we should let the user know an error occurred.
+          alert("The session did not respond with the token information we need.  Try logging in again.")
           return
       }
 
@@ -117,8 +118,7 @@ function processRedirect(url){
   const urlParams = new URLSearchParams(queryString)
   let redirect = urlParams.get('redirectTo') ?? origin
   redirect = decodeURI(redirect)
-  const hash = link.hash
-  if(hash) redirect+=hash
+  if(link.hash) redirect+=link.hash
   return redirect
 }
 
