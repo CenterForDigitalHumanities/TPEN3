@@ -16,31 +16,28 @@ import 'https://cdn.auth0.com/js/auth0/9.19.0/auth0.min.js'
 // Authentication configuration constants
 const AUDIENCE = "https://cubap.auth0.com/api/v2/"
 const ISSUER_BASE_URL = "cubap.auth0.com"
-const CLIENT_ID = "4TztHfVXjvs4H6ByCOXgwxtgA8IEQHsD"
+const CLIENT_ID = "bBugFMWHUo1OhnSZMpYUXxi3Y1UJI7Kl"
 const DOMAIN = "cubap.auth0.com"
+const origin = "http://localhost:3011/login/"
 
-// Initialize web authentication using Auth0
 const webAuth = new auth0.WebAuth({
-    "domain": DOMAIN,
-    "clientID": CLIENT_ID,
-    "audience": AUDIENCE,
-    "scope": "read:roles update:current_user_metadata name nickname picture email profile openid offline_access",
-    "redirectUri": origin,
-    "responseType": "id_token token",
-    "state": urlToBase64(location.href)
+  domain: DOMAIN,
+  clientID: CLIENT_ID,
+  audience: AUDIENCE,
+  scope:
+    "read:roles update:current_user_metadata name nickname picture email profile openid offline_access", 
+  redirectUri: origin,   
+  responseType: "id_token",
+  state: urlToBase64(location.href),
 })
 
-// Logout functionality
 const logout = () => {
-    localStorage.removeItem("userToken")
-    delete window.TPEN_USER
-    document.querySelectorAll('[is="auth-creator"]').forEach(el=>el.connectedCallback())
-    webAuth.logout({ returnTo: origin })
+  webAuth.logout({ origin }) 
 }
-// Login functionality, supports passing custom configuration
-const login = (custom) => {
-    webAuth.authorize(Object.assign({ authParamsMap: { 'app': 'glossing' } },custom))
-}
+
+const login = (custom) =>
+  webAuth.authorize(Object.assign({ authParamsMap: { app: "tpen" } }, custom))
+
 // Helper function to get referring page from URL state
 const getReferringPage = () => {
     try {
@@ -77,26 +74,71 @@ function urlToBase64(url) {
 function performLogin(){
   // Immediately do checkSession() stuff
   console.log("Hey buddy!  Thanks for logging in.")
-  const ref = getReferringPage()
-  webAuth.checkSession({}, (err, result) => {
-      if (err) {
-          login() // Perform login if not authenticated.
-      }
-      if (!(result?.idToken ?? result?.accessToken)){
-          console.error("There was missing token information from the login. Reset the cached User")
-          window.TPEN_USER = {}
-          window.TPEN_USER.authorization = "none"
-          localStorage.removeItem("userToken")
-          return
-      }
-      localStorage.setItem("userToken", result.idToken)
-      window.TPEN_USER = result.idTokenPayload
-      window.TPEN_USER.authorization = result.accessToken
-      const loginEvent = new CustomEvent('tpen-authenticated',{detail:window.TPEN_USER})
-      document.dispatchEvent(loginEvent)
-  })
+  let redir = processRedirect()
+  let refer = getReferringPage()
+  let idTok = location.hash.includes("id_token=") ? location.hash.split("id_token=")[1].split("&")[0] : ""
 
+  // A login occurred and we came back to this page with the idToken and state
+  if(idTok){
+    console.log("We logged in")
+    console.log(`redir: ${redir}`)
+    console.log(`refer: ${refer}`)
+
+    // We will have a refer to use to redirect.
+    let referLink = new URL(refer)
+    const referQueryString = referLink.search
+    const referURLParams = new URLSearchParams(referQueryString)
+    const hackHash = referLink.hash
+
+    // The refer link has a redirect link as a URL parameter itself
+    let redirect = referURLParams.get('redirectTo') ?? origin
+    let redirectLink = new URL(redirect)
+    let redirectQueryString = redirectLink.search
+
+    if(redirectQueryString) redirectQueryString+=`&idToken=${idTok}`
+    else redirectQueryString=`?idToken=${idTok}`
+    if(hackHash) redirectQueryString+=hackHash
+
+    location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
+    return
+  }
+  login()
+  // webAuth.checkSession({}, (err, result) => {
+  //     if (err) {
+  //         login() // Perform login if not authenticated.
+  //         return
+  //     }
+  //     idTok = result.idToken ?? ""
+  //     if (!idTok){
+  //         console.error("There was missing token information from the login. Reset the cached User")
+  //         window.TPEN_USER = {}
+  //         window.TPEN_USER.authorization = "none"
+  //         localStorage.removeItem("userToken")
+  //         // TODO redirect still with some kind of error?
+  //         // No redirect but let them know an error happened.
+  //         return
+  //     }
+  //     // Redirect to the referring page, or the default page.
+  //     if(!refer) refer = redir
+  //     let redirectLink = new URL(refer)
+  //     let redirectQueryString = redirectLink.search
+
+  //     if(redirectQueryString) redirectQueryString+=`&idToken=${idTok}`
+  //     else redirectQueryString=`?idToken=${idTok}`
+  //     if(redirectLink.hash) redirectQueryString+=redirectLink.hash
+
+  //     location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
+  // })
+}
+
+function processRedirect(url){
+  let link = url ? new URL(url) : new URL(window.location.href)
+  const queryString = link.search
+  const urlParams = new URLSearchParams(queryString)
+  let redirect = urlParams.get('redirectTo') ?? origin
+  const hash = link.hash
+  if(hash) redirect+=hash
+  return redirect
 }
 
 window.onload = performLogin()
-
