@@ -36,6 +36,23 @@ const getReferringPage = () => {
 }
 
 /**
+ * Follows the 'base64url' rules to decode a string.
+ * @param {String} base64str from `state` parameter in the hash from Auth0
+ * @returns referring URL
+ */
+function b64toUrl(base64str) {
+    return window.atob(base64str.replace(/-/g, "+").replace(/_/g, "/"))
+}
+/**
+ * Follows the 'base64url' rules to encode a string.
+ * @param {String} url from `window.location.href`
+ * @returns encoded string to pass as `state` to Auth0
+ */
+function urlToBase64(url) {
+    return window.btoa(url).replace(/\//g, "_").replace(/\+/g, "-").replace(/=+$/, "")
+}
+
+/**
   * A user from a TPEN Interface at a third party source is trying to login.
   * They have initiated a https://three.t-pen.org/login from their source.
   * https://three.t-pen.org/ needs to perform a checkSession() for the user and follow the flow.
@@ -112,13 +129,12 @@ function performLogin(){
 *  Detect and get the value of redirectTo from the origin address /login/?redirectTo=
 *  If there is no redirectTo, default to the origin address /login/ for the redirect.
 */
-function processRedirect(url){
-  let link = url ? new URL(url) : new URL(window.location.href)
+function processRedirect(){
+  let link = new URL(window.location.href)
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
   let redirect = urlParams.get('redirectTo') ?? origin
   redirect = decodeURI(redirect)
-  if(link.hash) redirect+=link.hash
   return redirect
 }
 
