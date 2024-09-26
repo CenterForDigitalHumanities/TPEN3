@@ -12,7 +12,7 @@ const DOMAIN = "cubap.auth0.com"
 const origin = location.origin + location.pathname
 
 // Where should we go after logout?
-const afterLogout = origin
+const afterLogout = location.origin
 
 const webAuth = new auth0.WebAuth({
   domain: DOMAIN,
