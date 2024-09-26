@@ -10,7 +10,7 @@ const DOMAIN = "cubap.auth0.com"
 const origin = location.origin + location.pathname
 
 // Where should we go after logout?
-const afterLogout = location.origin
+const home = location.origin
 
 const webAuth = new auth0.WebAuth({
   domain: DOMAIN,
@@ -117,10 +117,14 @@ export function performLoginAndRedirect() {
 
     if(wantsToRedirect)
       location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
-    else
+    else{
       // We will still let you see the Token you ended up by adding it to your address bar.
+      alert("Please provide a ?returnTo= parameter when using this login.")
       window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
-
+      setTimeout(() => {
+        location.href = home
+      }, "5000")
+    } 
     return
   }
 
@@ -154,10 +158,15 @@ export function performLoginAndRedirect() {
 
     if (wantsToRedirect)
       location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
-    else
+    else{
       // We will still let you see the Token you ended up by adding it to your address bar.
+      alert("Please provide a ?returnTo= parameter when using this login.")
       window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
-    
+      setTimeout(() => {
+        location.href = home
+      }, "5000")  
+    }
+      
     return
   })
 }
@@ -170,6 +179,6 @@ export function performLoginAndRedirect() {
 */
 export function performLogout() {
   webAuth.logout({
-    returnTo: afterLogout
+    returnTo: home
   })
 }
