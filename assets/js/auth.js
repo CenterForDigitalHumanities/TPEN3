@@ -55,6 +55,19 @@ function urlToBase64(url) {
 }
 
 /**
+ *  Detect and get the value of redirectTo from the origin address /login/?redirectTo=
+ *  If there is no redirectTo, default to the origin address /login/ for the redirect.
+ */
+function processRedirect() {
+  let link = new URL(window.location.href)
+  const queryString = link.search
+  const urlParams = new URLSearchParams(queryString)
+  let redirect = urlParams.get('redirectTo') ?? origin
+  redirect = decodeURI(redirect)
+  return redirect
+}
+
+/**
   * A user from a TPEN Interface at a third party source is trying to login.
   * They have initiated a https://three.t-pen.org/login from their source.
   * https://three.t-pen.org/ needs to perform a checkSession() for the user and follow the flow.
@@ -140,21 +153,15 @@ export function performLoginAndRedirect() {
   })
 }
 
+/**
+  * A user from a TPEN Interface at a third party source is trying to logout.
+  * They have initiated a https://three.t-pen.org/logout from their source.
+  * Do they need to provide a redirect like login does?
+  * If we don't provide 'returnTo' logout picks the first entry in the 'Allowed Logout URLs'
+*/
 export function performLogout() {
   webAuth.logout({
     returnTo: afterLogout
   })
 }
 
-/**
- *  Detect and get the value of redirectTo from the origin address /login/?redirectTo=
- *  If there is no redirectTo, default to the origin address /login/ for the redirect.
- */
-function processRedirect() {
-  let link = new URL(window.location.href)
-  const queryString = link.search
-  const urlParams = new URLSearchParams(queryString)
-  let redirect = urlParams.get('redirectTo') ?? origin
-  redirect = decodeURI(redirect)
-  return redirect
-}
