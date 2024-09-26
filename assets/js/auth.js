@@ -8,6 +8,7 @@ const CLIENT_ID = "bBugFMWHUo1OhnSZMpYUXxi3Y1UJI7Kl"
 const DOMAIN = "cubap.auth0.com"
 
 // here localhost mocks three.t-pen.org/login/ and is hard coded
+// it's possible this can just be location.origin
 const origin = "http://localhost:3011/login/"
 
 // Where should we go after logout?
@@ -83,7 +84,8 @@ export function performLoginAndRedirect() {
     let referLink = new URL(refer)
     const referQueryString = referLink.search
     const referURLParams = new URLSearchParams(referQueryString)
-    const wantsToRedirect = referURLParams.has('redirectTo')
+    // If there was no ?redirectTo, they don't want to redirect.
+    if(!referURLParams.has('redirectTo')) return
 
     // The decoded ?state= contains the ?redirectTo= that we need the value of, which which may also have URL parameters and/or a hash itself
     let redirect = referURLParams.get('redirectTo') ?? origin
@@ -98,10 +100,7 @@ export function performLoginAndRedirect() {
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
     if (redirectLink.hash) redirectQueryString += redirectLink.hash
 
-    // If there was no ?redirectTo, they don't want to redirect.
-    if (wantsToRedirect)
-      location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
-    return
+    location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
   }
 
   // Determine whether or not we need to use universal login.
@@ -113,7 +112,6 @@ export function performLoginAndRedirect() {
     idTok = result.idToken ?? ""
     if (!idTok) {
       console.error("There was missing token information from the login. Reset the cached User")
-      // TODO don't need to redirect, but we should let the user know an error occurred.
       alert("The session did not respond with the token information we need.  Try logging in again.")
       return
     }
@@ -134,11 +132,10 @@ export function performLoginAndRedirect() {
 
     if (wantsToRedirect)
       location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
-    else {
-      // We will still let you see the idToken you ended up with in your address bar.
-      let updatedAddress = location.origin + location.pathname + redirectQueryString
-      window.history.replaceState({}, "", updatedAddress)
-    }
+    else
+      // We will still let you see the idToken you ended up by adding it to your address bar.
+      window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
+    
     return
   })
 }
