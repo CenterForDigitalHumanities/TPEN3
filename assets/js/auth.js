@@ -18,10 +18,11 @@ const webAuth = new auth0.WebAuth({
   domain: DOMAIN,
   clientID: CLIENT_ID,
   audience: AUDIENCE,
-  //scope: "update:current_user_metadata openid offline_access",
-  scope: "read:roles update:current_user_metadata name nickname picture email profile openid offline_access",
+  //audience: AUDIENCE,
+  scope: "update:current_user_metadata openid offline_access",
+  //scope: "read:roles update:current_user_metadata name nickname picture email profile openid offline_access",
   redirectUri: origin,
-  responseType: "id_token",
+  responseType: "id_token token",
   state: urlToBase64(location.href)
 })
 
@@ -56,14 +57,14 @@ function urlToBase64(url) {
 }
 
 /**
- *  Detect and get the value of redirectTo from the origin address /login/?redirectTo=
- *  If there is no redirectTo, default to the origin address /login/ for the redirect.
+ *  Detect and get the value of returnTo from the origin address /login/?returnTo=
+ *  If there is no returnTo, default to the origin address /login/ for the redirect.
  */
 function processRedirect() {
   let link = new URL(window.location.href)
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
-  let redirect = urlParams.get('redirectTo') ?? origin
+  let redirect = urlParams.get('returnTo') ?? origin
   redirect = decodeURI(redirect)
   return redirect
 }
@@ -73,43 +74,45 @@ function processRedirect() {
   * They have initiated a https://three.t-pen.org/login from their source.
   * https://three.t-pen.org/ needs to perform a checkSession() for the user and follow the flow.
   * Once a token is known, three.t-pen.org will recieve that token and needs to pass it back into the interface it came from.
-  * /login?redirectTo= gives the user the option to state where they would like to return.
+  * /login?returnTo= gives the user the option to state where they would like to return.
   * Note this expects URL formatted like...
   
-    /login/?redirectTo=https%3A%2F%2Ftranscribonanza.com%2Finterface.html%3FcustomParam%3Dhello%23hashValue
+    /login/?returnTo=https%3A%2F%2Ftranscribonanza.com%2Finterface.html%3FcustomParam%3Dhello%23hashValue
 
   *
 */
 export function performLoginAndRedirect() {
-  // Know the value for ?redirectTo.  You have this whether the login returned here or is initiated here, if provided.
+  // Know the value for ?returnTo.  You have this whether the login returned here or is initiated here, if provided.
   let redir = processRedirect()
-  // Know the value from state= after the universal login completes and redirects.  It will contain ?redirectTo (if provided) which is where you need to go.
+  // Know the value from state= after the universal login completes and redirects.  It will contain ?returnTo (if provided) which is where you need to go.
   let refer = getReferringPage()
-  // Know the ID token returned by a successful login in the universal login widget.  It is in the address bar as ?id_token=
+  // Know the ID Token returned by a successful login in the universal login widget.  It is in the address bar as ?id_token=
   let idTok = location.hash.includes("id_token=") ? location.hash.split("id_token=")[1].split("&")[0] : ""
+  // Know the Access Token returned by a successful login in the universal login widget.  It is in the address bar as ?id_token=
+  let accessTok = location.hash.includes("access_token=") ? location.hash.split("access_token=")[1].split("&")[0] : ""
 
-  if (idTok) {
+  if (accessTok) {
     /**
-     * A login occurred and we came back to this page with the idToken and state.
+     * A login occurred and we came back to this page with the idToken, accessToken, and state.
      * getReferringPage() processed the state into the URL used during login.
-     * ex. after it is processed - https://three.t-pen.org/login/?redirectTo=https://transcribonanza.com/interface.html
+     * ex. after it is processed - https://three.t-pen.org/login/?returnTo=https://transcribonanza.com/interface.html
      * We will have refer, which is that decoded ?state=.  
      */
     let referLink = new URL(refer)
     const referQueryString = referLink.search
     const referURLParams = new URLSearchParams(referQueryString)
-    // If there was no ?redirectTo, they don't want to redirect.
-    const wantsToRedirect = referURLParams.has('redirectTo')
+    // If there was no ?returnTo, they don't want to redirect.
+    const wantsToRedirect = referURLParams.has('returnTo')
 
-    // The decoded ?state= contains the ?redirectTo= that we need the value of, which which may also have URL parameters and/or a hash itself
-    let redirect = referURLParams.get('redirectTo') ?? origin
+    // The decoded ?state= contains the ?returnTo= that we need the value of, which which may also have URL parameters and/or a hash itself
+    let redirect = referURLParams.get('returnTo') ?? origin
     redirect = decodeURI(redirect)
     let redirectLink = new URL(redirect)
     let redirectQueryString = redirectLink.search
 
-    // add idToken= into the redirect link next to any URL parameters it may have already contained
-    if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
-    else redirectQueryString = `?idToken=${idTok}`
+    // add accessToken= into the redirect link next to any URL parameters it may have already contained
+    if (redirectQueryString) redirectQueryString += `&accessToken=${accessTok}`
+    else redirectQueryString = `?accessToken=${accessTok}`
 
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
     if (redirectLink.hash) redirectQueryString += redirectLink.hash
@@ -117,7 +120,7 @@ export function performLoginAndRedirect() {
     if(wantsToRedirect)
       location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
     else
-      // We will still let you see the idToken you ended up by adding it to your address bar.
+      // We will still let you see the Token you ended up by adding it to your address bar.
       window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
 
     return
@@ -130,7 +133,8 @@ export function performLoginAndRedirect() {
       return
     }
     idTok = result.idToken ?? ""
-    if (!idTok) {
+    accessTok = result.accessToken ?? ""
+    if (!accessTok) {
       console.error("There was missing token information from the login. Reset the cached User")
       alert("The session did not respond with the token information we need.  Try logging in again.")
       return
@@ -138,7 +142,7 @@ export function performLoginAndRedirect() {
     /**
      * We have an active session and were given an ID token.  We do not need to use universal login.
      * Redirect using the refer info.  If there is no referring page b/c we didn't need to log in, use the redirect from processRedirect()
-     * If we end up referring to the origin because no ?redirectTo was involved, then we don't want to redirect.
+     * If we end up referring to the origin because no ?returnTo was involved, then we don't want to redirect.
      */
     if (!refer) refer = redir
     refer = decodeURI(refer)
@@ -146,14 +150,14 @@ export function performLoginAndRedirect() {
     let redirectLink = new URL(refer)
     let redirectQueryString = redirectLink.search
 
-    if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
-    else redirectQueryString = `?idToken=${idTok}`
+    if (redirectQueryString) redirectQueryString += `&accessToken=${accessTok}`
+    else redirectQueryString = `?accessToken=${accessTok}`
     if (redirectLink.hash) redirectQueryString += redirectLink.hash
 
     if (wantsToRedirect)
       location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
     else
-      // We will still let you see the idToken you ended up by adding it to your address bar.
+      // We will still let you see the Token you ended up by adding it to your address bar.
       window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
     
     return
