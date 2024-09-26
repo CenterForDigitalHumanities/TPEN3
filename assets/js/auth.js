@@ -7,8 +7,6 @@ const ISSUER_BASE_URL = "cubap.auth0.com"
 const CLIENT_ID = "bBugFMWHUo1OhnSZMpYUXxi3Y1UJI7Kl"
 const DOMAIN = "cubap.auth0.com"
 
-// here localhost mocks three.t-pen.org/login/ and is hard coded
-// it's possible this can just be location.origin
 const origin = location.origin + location.pathname
 
 // Where should we go after logout?
