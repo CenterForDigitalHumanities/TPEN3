@@ -49,12 +49,8 @@
         </header>
         <section id="content" class="wrapper dark">
 
-            loading modules...
-            <ul>
-                {% for module in page.modules %}
-                <li>{{module | split: '/' | last }}</li>
-                {% endfor %}
-            </ul>
+            {{ content }}
+
         </section>
         <footer class="wrapper">
             <a href="{{ " /" | absolute_url }}">Return to the home page.</a>
