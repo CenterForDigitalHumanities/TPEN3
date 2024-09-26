@@ -9,10 +9,10 @@ const DOMAIN = "cubap.auth0.com"
 
 // here localhost mocks three.t-pen.org/login/ and is hard coded
 // it's possible this can just be location.origin
-const origin = "http://localhost:3011/login/"
+const origin = location.origin + location.pathname
 
 // Where should we go after logout?
-const afterLogout = "http://localhost:3011/"
+const afterLogout = origin
 
 const webAuth = new auth0.WebAuth({
   domain: DOMAIN,
