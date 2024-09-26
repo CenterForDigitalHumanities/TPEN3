@@ -18,6 +18,7 @@ const webAuth = new auth0.WebAuth({
   domain: DOMAIN,
   clientID: CLIENT_ID,
   audience: AUDIENCE,
+  //scope: "update:current_user_metadata openid offline_access",
   scope: "read:roles update:current_user_metadata name nickname picture email profile openid offline_access",
   redirectUri: origin,
   responseType: "id_token",
@@ -98,7 +99,7 @@ export function performLoginAndRedirect() {
     const referQueryString = referLink.search
     const referURLParams = new URLSearchParams(referQueryString)
     // If there was no ?redirectTo, they don't want to redirect.
-    if(!referURLParams.has('redirectTo')) return
+    const wantsToRedirect = referURLParams.has('redirectTo')
 
     // The decoded ?state= contains the ?redirectTo= that we need the value of, which which may also have URL parameters and/or a hash itself
     let redirect = referURLParams.get('redirectTo') ?? origin
@@ -113,7 +114,13 @@ export function performLoginAndRedirect() {
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
     if (redirectLink.hash) redirectQueryString += redirectLink.hash
 
-    location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
+    if(wantsToRedirect)
+      location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
+    else
+      // We will still let you see the idToken you ended up by adding it to your address bar.
+      window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
+
+    return
   }
 
   // Determine whether or not we need to use universal login.
@@ -164,4 +171,3 @@ export function performLogout() {
     returnTo: afterLogout
   })
 }
-
