@@ -239,6 +239,7 @@
 
 // Annotation Page
 {
+   "@context": "http://www.w3.org/ns/anno.jsonld",
    "@id":"https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf",
    "type":"AnnotationPage",
    "label":{
@@ -265,6 +266,7 @@
 
 // Annotation
 {
+   "@context": "http://www.w3.org/ns/anno.jsonld",
    "@id":"https://devstore.rerum.io/v1/id/66fd80dc91b50d9f5b1ef5f8",
    "type":"Annotation",
    "motivation":"tagging",
