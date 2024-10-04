@@ -21,79 +21,6 @@
    }
 }
 
-// Layer
-{
-   "_id":"66fd826f6d4fd13aaa75ba81",
-   "@type":"Layer",
-   "label":"Fixture Layer 1",
-   "items":[
-      {
-           "_id":"66fd813344b9285591c05abf",
-           "@type":"Page",
-           "metadata":[],
-           "name":{
-              "none":"Fixture Page 1"
-           },
-           "project":{
-              "id":"66fd704e021ef957b034eb95",
-              "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95",
-              "tools":[
-                 
-              ],
-              "options":{
-                 
-              },
-              "license":"CC-BY"
-           },
-           "annotations":[
-              "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
-           ],
-           "target":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json",
-           "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95/66fd813344b9285591c05abf",
-           "partOf": "66fd826f6d4fd13aaa75ba81"
-        }
-   ],
-   "creator":"62572ba71d974d1311abd673"
-}
-
-// Page
-{
-   "_id":"66fd813344b9285591c05abf",
-   "@type":"Page",
-   "label": "Fixture Page 1",
-   "project":{
-      "id":"66fd704e021ef957b034eb95",
-      "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95",
-      "tools":[
-         
-      ],
-      "options":{
-         
-      },
-      "license":"CC-BY"
-   },
-   "canvas":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json",
-   "partOf": "66fd826f6d4fd13aaa75ba81",
-   "annotations":[
-      "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
-   ],
-   "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95/66fd813344b9285591c05abf",
-   "creator":"62572ba71d974d1311abd673",
-}
-
-// Line
-{
-   "_id":"66fd80dc91b50d9f5b1ef5f8",
-   "@type":"Line",
-   "creator":"62572ba71d974d1311abd673",
-   "textualBody":"MAP CONTENT",
-   "project":"66fd704e021ef957b034eb95",
-   "canvas":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json",
-   "layer":"66fd826f6d4fd13aaa75ba81",
-   "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95/66fd813344b9285591c05abf/66fd80dc91b50d9f5b1ef5f8",
-   "license":"CC-BY"
-}
-
 // Group of 3 Users
 {
    "_id":"66fd7d0f3d5367e49b2d7bb5",
@@ -148,6 +75,8 @@
       "favorite_color":"purple"
    }
 }
+
+// IIIF Presentation API 3
 
 // Manifest
 {
@@ -277,4 +206,96 @@
       "language":"en"
    },
    "target":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json#xywh=920,3600,1510,3000"
+}
+
+
+// IIIF Presentation API 2
+
+// sc:Manifest
+// TODO
+
+// sc:AnnotationList
+// TODO
+
+// sc:Annotation
+// TODO
+
+
+
+
+
+
+// Below is conceptual data that is more meta than real.  A TPEN3 GET will return the 'W3C Annotation' of these.
+
+// Layer
+{
+   "_id":"66fd826f6d4fd13aaa75ba81",
+   "@type":"Layer",
+   "label":"Fixture Layer 1",
+   "items":[
+      {
+           "_id":"66fd813344b9285591c05abf",
+           "@type":"Page",
+           "metadata":[],
+           "name":{
+              "none":"Fixture Page 1"
+           },
+           "project":{
+              "id":"66fd704e021ef957b034eb95",
+              "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95",
+              "tools":[
+                 
+              ],
+              "options":{
+                 
+              },
+              "license":"CC-BY"
+           },
+           "annotations":[
+              "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
+           ],
+           "target":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json",
+           "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95/66fd813344b9285591c05abf",
+           "partOf": "66fd826f6d4fd13aaa75ba81"
+        }
+   ],
+   "creator":"62572ba71d974d1311abd673"
+}
+
+// Page
+{
+   "_id":"66fd813344b9285591c05abf",
+   "@type":"Page",
+   "label": "Fixture Page 1",
+   "project":{
+      "id":"66fd704e021ef957b034eb95",
+      "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95",
+      "tools":[
+         
+      ],
+      "options":{
+         
+      },
+      "license":"CC-BY"
+   },
+   "canvas":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json",
+   "partOf": "66fd826f6d4fd13aaa75ba81",
+   "annotations":[
+      "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
+   ],
+   "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95/66fd813344b9285591c05abf",
+   "creator":"62572ba71d974d1311abd673",
+}
+
+// Line
+{
+   "_id":"66fd80dc91b50d9f5b1ef5f8",
+   "@type":"Line",
+   "creator":"62572ba71d974d1311abd673",
+   "textualBody":"MAP CONTENT",
+   "project":"66fd704e021ef957b034eb95",
+   "canvas":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json",
+   "layer":"66fd826f6d4fd13aaa75ba81",
+   "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95/66fd813344b9285591c05abf/66fd80dc91b50d9f5b1ef5f8",
+   "license":"CC-BY"
 }
