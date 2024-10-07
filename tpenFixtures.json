@@ -222,6 +222,7 @@
       }
    ]
 }
+
 // Annotation Collection
 {
    "@context":"http://www.w3.org/ns/anno.jsonld",
@@ -572,6 +573,7 @@
    ],
    "creator":"661d43bc490d045b8ba04d38"
 }
+
 // Presentation API 2 based Page
 {
    "_id":"6704071a44b9285591c05ac8",
