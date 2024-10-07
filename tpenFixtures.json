@@ -1,4 +1,4 @@
-// Project
+/** TPEN3 Project -- Presentation API 2 TODO */
 {
    "_id":"66fd704e021ef957b034eb95",
    "@type":"Project",
@@ -21,7 +21,34 @@
    }
 }
 
-// Group of 3 Users
+
+
+/** TPEN3 Project -- Presentation API 3 TODO */
+{
+   "_id":"66fd704e021ef957b034eb95",
+   "@type":"Project",
+   "title":"Fixture Project 1",
+   "metadata":[],
+   "layers":[
+      "66fd826f6d4fd13aaa75ba81"
+   ],
+   "group":"66fd7d0f3d5367e49b2d7bb5",
+   "creator":"62572ba71d974d1311abd673",
+   "manifest":"https://devstore.rerum.io/v1/id/66fd818673a1f9339012d26c",
+   "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95",
+   "lastModified":"",
+   "license":"CC-BY",
+   "tools":[
+      
+   ],
+   "options":{
+      
+   }
+}
+
+
+
+/** Group of 3 Users */
 {
    "_id":"66fd7d0f3d5367e49b2d7bb5",
    "@type":"Group",
@@ -76,7 +103,9 @@
    }
 }
 
-// IIIF Presentation API 3
+
+
+/** IIIF Presentation API 3 Resources */
 
 // Manifest
 {
@@ -209,23 +238,187 @@
 }
 
 
-// IIIF Presentation API 2
+
+/** IIIF Presentation API 2 Resources */
 
 // sc:Manifest
-// TODO
+{
+   "@context":"http://iiif.io/api/presentation/2/context.json",
+   "@id": "https://devstore.rerum.io/v1/id/67040a3973a1f9339012d277",
+   "@type":"sc:Manifest",
+   "label":"Fixture Manifest 1",
+   "sequences":[
+      {
+         "@id":"http://example.org/iiif/book1/sequence/normal",
+         "@type":"sc:Sequence",
+         "label":"Current Page Order",
+         "viewingDirection":"left-to-right",
+         "viewingHint":"paged",
+         "canvases":[
+            {
+               "@context":"http://iiif.io/api/presentation/2/context.json",
+               "@id":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276",
+               "@type":"sc:Canvas",
+               "label":"Chesapeake and Ohio Canal Pamphlet",
+               "width":5212,
+               "height":7072,
+               "images":[
+                  {
+                     "@type":"oa:Annotation",
+                     "motivation":"sc:painting",
+                     "resource":[
+                        {
+                           "@id":"https://iiif.io/api/image/3.0/example/reference/43153e2ec7531f14dd1c9b2fc401678a-88695674/full/max/0/default.jpg",
+                           "@type":"dctypes:Image",
+                           "format":"image/jpeg",
+                           "motivation":"painting",
+                           "service":{
+                              "@context":"http://iiif.io/api/image/2/context.json",
+                              "@id":"https://iiif.io/api/image/3.0/example/reference/43153e2ec7531f14dd1c9b2fc401678a-88695674",
+                              "profile":"http://iiif.io/api/image/2/level1.json"
+                           },
+                           "width":5212,
+                           "height":7072,
+                           "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276"
+                        }
+                     ]
+                  }
+               ],
+               "otherContent":[
+                  {
+                     "@id":"https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+                     "@type":"sc:AnnotationList",
+                     "label":"Fixture Page 1",
+                     "resources":[
+                        {
+                           "@id":"https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
+                           "@type":"oa:Annotation",
+                           "motivation":"sc:painting",
+                           "resource":{
+                              "@type":"cnt:ContentAsText",
+                              "chars":"MAP CONTENT",
+                              "format":"text/plain",
+                              "language":"en"
+                           },
+                           "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
+                        }
+                     ],
+                     "within":"https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
+// Layer
+{
+  "@id": "https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b",
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@type": "sc:Layer",
+  "label":"Fixture Layer 1",
+  "total": 1,
+  "first": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+  "last": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+  "otherContent":["https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8"]
+}
 
 // sc:AnnotationList
-// TODO
+{
+   "@context": "http://www.w3.org/ns/anno.jsonld",
+   "@id": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+   "@type":"sc:AnnotationList",
+   "label": "Fixture Page 1",
+   "resources":[
+      {
+         "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
+         "@type": "oa:Annotation",
+         "motivation":"sc:painting",
+         "resource":{
+          "@type": "cnt:ContentAsText",
+          "chars": "MAP CONTENT",
+          "format": "text/plain",
+          "language": "en"
+         },
+         "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
+      }
+   ],
+   "within":"https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b"
+}
 
 // sc:Annotation
-// TODO
+{
+   "@context": "http://www.w3.org/ns/anno.jsonld",
+   "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
+   "@type": "oa:Annotation",
+   "motivation":"sc:painting",
+   "resource":{
+    "@type": "cnt:ContentAsText",
+    "chars": "MAP CONTENT",
+    "format": "text/plain",
+    "language": "en"
+   },
+   "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
+}
+
+// sc:Canvas
+{
+   "@context": "http://iiif.io/api/presentation/2/context.json",
+   "@id":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276",
+   "@type":"sc:Canvas",
+   "label":"Chesapeake and Ohio Canal Pamphlet",
+   "width":5212,
+   "height":7072,
+   "images":[
+      {
+         "@type":"oa:Annotation",
+         "motivation":"sc:painting",
+         "resource":[
+            {
+               "@id":"https://iiif.io/api/image/3.0/example/reference/43153e2ec7531f14dd1c9b2fc401678a-88695674/full/max/0/default.jpg",
+               "@type":"dctypes:Image",
+               "format":"image/jpeg",
+               "motivation":"painting",
+               "service":{
+                  "@context":"http://iiif.io/api/image/2/context.json",
+                  "@id":"https://iiif.io/api/image/3.0/example/reference/43153e2ec7531f14dd1c9b2fc401678a-88695674",
+                  "profile":"http://iiif.io/api/image/2/level1.json"
+               },
+               "width":5212,
+               "height":7072,
+               "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276"
+            }
+         ]
+      }
+   ],
+   "otherContent":[
+      {
+         "@id": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+         "@type":"sc:AnnotationList",
+         "label": "Fixture Page 1",
+         "resources":[
+            {
+               "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
+               "@type": "oa:Annotation",
+               "motivation":"sc:painting",
+               "resource":{
+                "@type": "cnt:ContentAsText",
+                "chars": "MAP CONTENT",
+                "format": "text/plain",
+                "language": "en"
+               },
+               "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
+            }
+         ],
+         "within":"https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b"
+      }
+   ]
+}
 
 
 
-
-
-
-// Below is conceptual data that is more meta than real.  A TPEN3 GET will return the 'W3C Annotation' of these.
+/** TPEN3 Conceptual Data.  A TPEN3 GET will return the 'W3C Annotation' of these. */
 
 // Layer
 {
