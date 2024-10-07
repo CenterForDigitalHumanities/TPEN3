@@ -8,7 +8,7 @@
       "670408426d4fd13aaa75ba8b"
    ],
    "group":"66fd7d0f3d5367e49b2d7bb5",
-   "creator":"62572ba71d974d1311abd673",
+   "creator":"661d43bc490d045b8ba04d38",
    "manifest":"https://devstore.rerum.io/v1/id/67040a3973a1f9339012d277",
    "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd",
    "lastModified":"",
@@ -23,17 +23,17 @@
 
 
 
-/** TPEN3 Project -- Presentation API 3 TODO */
+/** TPEN3 Project -- Presentation API 3 */
 {
    "_id":"66fd704e021ef957b034eb95",
-   "@type":"Project",
+   "type":"Project",
    "title":"Fixture Project (Presentation API 3)",
    "metadata":[],
    "layers":[
       "66fd826f6d4fd13aaa75ba81"
    ],
    "group":"66fd7d0f3d5367e49b2d7bb5",
-   "creator":"62572ba71d974d1311abd673",
+   "creator":"661d43bc490d045b8ba04d38",
    "manifest":"https://devstore.rerum.io/v1/id/66fd818673a1f9339012d26c",
    "viewer":"https://static.t-pen.org/66fd704e021ef957b034eb95",
    "lastModified":"",
@@ -51,7 +51,7 @@
 /** Group of 3 Users */
 {
    "_id":"66fd7d0f3d5367e49b2d7bb5",
-   "@type":"Group",
+   "type":"Group",
    "name":"Fixture Group 1",
    "contributors": {
       "66fd78343f9bfbbf656690fc": {
@@ -492,7 +492,7 @@
            "partOf": "66fd826f6d4fd13aaa75ba81"
         }
    ],
-   "creator":"62572ba71d974d1311abd673"
+   "creator":"661d43bc490d045b8ba04d38"
 }
 
 // Presentation API 3 based Page
@@ -517,14 +517,14 @@
       "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
    ],
    "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd/66fd813344b9285591c05abf",
-   "creator":"62572ba71d974d1311abd673",
+   "creator":"661d43bc490d045b8ba04d38",
 }
 
 // Presentation API 3 based Line
 {
    "_id":"66fd80dc91b50d9f5b1ef5f8",
    "type":"Line",
-   "creator":"62572ba71d974d1311abd673",
+   "creator":"661d43bc490d045b8ba04d38",
    "textualBody":"MAP CONTENT",
    "project":"66fd704e021ef957b034eb95",
    "canvas":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json",
@@ -560,10 +560,10 @@
             "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8"
          ],
          "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd/6704071a44b9285591c05ac8",
-         "creator":"62572ba71d974d1311abd673"
+         "creator":"661d43bc490d045b8ba04d38"
       }
    ],
-   "creator":"62572ba71d974d1311abd673"
+   "creator":"661d43bc490d045b8ba04d38"
 }
 
 // Presentation API 2 based Page
@@ -588,14 +588,14 @@
       "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8"
    ],
    "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd/6704071a44b9285591c05ac8",
-   "creator":"62572ba71d974d1311abd673"
+   "creator":"661d43bc490d045b8ba04d38"
 }
 
 // Presentation API 2 based Layer Line
 {
    "_id":"6703fe2344b9285591c05ac7",
    "type":"Line",
-   "creator":"62572ba71d974d1311abd673",
+   "creator":"661d43bc490d045b8ba04d38",
    "textualBody":"MAP CONTENT",
    "project":"6704228ee49a75e00e5dc3cd",
    "canvas":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276",
