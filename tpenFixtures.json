@@ -3,7 +3,9 @@
    "_id":"6704228ee49a75e00e5dc3cd",
    "type":"Project",
    "title":"Fixture Project (Presentation API 2)",
-   "metadata":[],
+   "metadata":[
+      
+   ],
    "layers":[
       "670408426d4fd13aaa75ba8b"
    ],
@@ -28,7 +30,9 @@
    "_id":"66fd704e021ef957b034eb95",
    "type":"Project",
    "title":"Fixture Project (Presentation API 3)",
-   "metadata":[],
+   "metadata":[
+      
+   ],
    "layers":[
       "66fd826f6d4fd13aaa75ba81"
    ],
@@ -53,55 +57,55 @@
    "_id":"66fd7d0f3d5367e49b2d7bb5",
    "type":"Group",
    "name":"Fixture Group 1",
-   "contributors": {
-      "66fd78343f9bfbbf656690fc": {
-       "displayName": "VICTOR",
-       "email": "victor@rerum.io",
-       "agent":"https://store.rerum.io/v1/id/66fd78343f9bfbbf656690fc",
-       "roles": [
-         "CONTRIBUTOR"
-       ],
-       "permissions": [
-         "READ_*_MEMBER",
-         "UPDATE_TEXT_*",
-         "UPDATE_ORDER_*",
-         "UPDATE_SELECTOR_*",
-         "CREATE_SELECTOR_*",
-         "DELETE_*_LINE",
-         "UPDATE_DESCRIPTION_LAYER",
-         "CREATE_*_LAYER"
-       ]
-     },
-     "771d43bc490d045b8ba04d39": {
-       "displayName": "PATRICK",
-       "email": "patrick@rerum.io",
-       "agent":"https://store.rerum.io/v1/id/771d43bc490d045b8ba04d39",
-       "roles": [
-         "MANAGER"
-       ],
-       "permissions": [
-         "READ_*_MEMBER",
-         "READ_*_GROUP",
-         "READ_*_PROJECT",
-         "UPDATE_*_GROUP",
-         "UPDATE_*_PROJECT"
-       ]
-     },
-     "661d43bc490d045b8ba04d38": {
-       "displayName": "BRYAN",
-       "email": "bryan@rerum.io",
-       "agent":"https://store.rerum.io/v1/id/661d43bc490d045b8ba04d38",
-       "roles": [
-         "ADMINISTRATOR"
-       ],
-       "permissions": [
-         "*_*_*"
-       ]
-     }
+   "contributors":{
+      "66fd78343f9bfbbf656690fc":{
+         "displayName":"VICTOR",
+         "email":"victor@rerum.io",
+         "agent":"https://store.rerum.io/v1/id/66fd78343f9bfbbf656690fc",
+         "roles":[
+            "CONTRIBUTOR"
+         ],
+         "permissions":[
+            "READ_*_MEMBER",
+            "UPDATE_TEXT_*",
+            "UPDATE_ORDER_*",
+            "UPDATE_SELECTOR_*",
+            "CREATE_SELECTOR_*",
+            "DELETE_*_LINE",
+            "UPDATE_DESCRIPTION_LAYER",
+            "CREATE_*_LAYER"
+         ]
+      },
+      "771d43bc490d045b8ba04d39":{
+         "displayName":"PATRICK",
+         "email":"patrick@rerum.io",
+         "agent":"https://store.rerum.io/v1/id/771d43bc490d045b8ba04d39",
+         "roles":[
+            "MANAGER"
+         ],
+         "permissions":[
+            "READ_*_MEMBER",
+            "READ_*_GROUP",
+            "READ_*_PROJECT",
+            "UPDATE_*_GROUP",
+            "UPDATE_*_PROJECT"
+         ]
+      },
+      "661d43bc490d045b8ba04d38":{
+         "displayName":"BRYAN",
+         "email":"bryan@rerum.io",
+         "agent":"https://store.rerum.io/v1/id/661d43bc490d045b8ba04d38",
+         "roles":[
+            "ADMINISTRATOR"
+         ],
+         "permissions":[
+            "*_*_*"
+         ]
+      }
    }
 }
 
-// 3 Users.  
+// 3 Users
 {
    "_id":"771d43bc490d045b8ba04d39",
    "type":"User",
@@ -116,9 +120,8 @@
       "favorite_color":"orange"
    }
 }
-
 {
-   "_id": "661d43bc490d045b8ba04d38",
+   "_id":"661d43bc490d045b8ba04d38",
    "type":"User",
    "name":"Bryan H.",
    "email":"bryan@rerum.io",
@@ -127,10 +130,9 @@
       "nickname":"Habes",
       "github_username":"thehabes",
       "playstation_username":"thehabes",
-      "favorite_number": 13
+      "favorite_number":13
    }
 }
-
 {
    "_id":"66fd78343f9bfbbf656690fc",
    "type":"User",
@@ -145,12 +147,13 @@
 }
 
 
+
 /** IIIF Presentation API 3 Resources */
 
 // Manifest
 {
-   "@context": "http://iiif.io/api/presentation/3/context.json",
-   "@id": "https://devstore.rerum.io/v1/id/66fd818673a1f9339012d26c",
+   "@context":"http://iiif.io/api/presentation/3/context.json",
+   "@id":"https://devstore.rerum.io/v1/id/66fd818673a1f9339012d26c",
    "type":"Manifest",
    "label":{
       "en":[
@@ -198,18 +201,18 @@
          ],
          "annotations":[
             {
-               "@id": "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf",
+               "@id":"https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf",
                "type":"AnnotationPage",
                "items":[
                   {
-                     "@id": "https://devstore.rerum.io/v1/id/66fd80dc91b50d9f5b1ef5f8",
+                     "@id":"https://devstore.rerum.io/v1/id/66fd80dc91b50d9f5b1ef5f8",
                      "type":"Annotation",
                      "motivation":"tagging",
                      "body":{
-                        "type" : "TextualBody",
-                        "value" : "MAP CONTENT",
-                        "format" : "text/html",
-                        "language" : "en"
+                        "type":"TextualBody",
+                        "value":"MAP CONTENT",
+                        "format":"text/html",
+                        "language":"en"
                      },
                      "target":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json#xywh=920,3600,1510,3000"
                   }
@@ -219,25 +222,24 @@
       }
    ]
 }
-
 // Annotation Collection
 {
-  "@context": "http://www.w3.org/ns/anno.jsonld",
-  "@id": "https://devstore.rerum.io/v1/id/66fd826f6d4fd13aaa75ba81",
-  "type": "AnnotationCollection",
-  "label":{
+   "@context":"http://www.w3.org/ns/anno.jsonld",
+   "@id":"https://devstore.rerum.io/v1/id/66fd826f6d4fd13aaa75ba81",
+   "type":"AnnotationCollection",
+   "label":{
       "en":[
          "Fixture Layer 1"
       ]
    },
-  "total": 1,
-  "first": "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf",
-  "last": "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
+   "total":1,
+   "first":"https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf",
+   "last":"https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
 }
 
 // Annotation Page
 {
-   "@context": "http://www.w3.org/ns/anno.jsonld",
+   "@context":"http://www.w3.org/ns/anno.jsonld",
    "@id":"https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf",
    "type":"AnnotationPage",
    "label":{
@@ -264,7 +266,7 @@
 
 // Annotation
 {
-   "@context": "http://www.w3.org/ns/anno.jsonld",
+   "@context":"http://www.w3.org/ns/anno.jsonld",
    "@id":"https://devstore.rerum.io/v1/id/66fd80dc91b50d9f5b1ef5f8",
    "type":"Annotation",
    "motivation":"tagging",
@@ -284,7 +286,7 @@
 // sc:Manifest
 {
    "@context":"http://iiif.io/api/presentation/2/context.json",
-   "@id": "https://devstore.rerum.io/v1/id/67040a3973a1f9339012d277",
+   "@id":"https://devstore.rerum.io/v1/id/67040a3973a1f9339012d277",
    "@type":"sc:Manifest",
    "label":"Fixture Manifest 1",
    "sequences":[
@@ -354,7 +356,7 @@
 
 // sc:Canvas
 {
-   "@context": "http://iiif.io/api/presentation/2/context.json",
+   "@context":"http://iiif.io/api/presentation/2/context.json",
    "@id":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276",
    "@type":"sc:Canvas",
    "label":"Chesapeake and Ohio Canal Pamphlet",
@@ -384,19 +386,19 @@
    ],
    "otherContent":[
       {
-         "@id": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+         "@id":"https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
          "@type":"sc:AnnotationList",
-         "label": "Fixture Page 1",
+         "label":"Fixture Page 1",
          "resources":[
             {
-               "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
-               "@type": "oa:Annotation",
+               "@id":"https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
+               "@type":"oa:Annotation",
                "motivation":"sc:painting",
                "resource":{
-                "@type": "cnt:ContentAsText",
-                "chars": "MAP CONTENT",
-                "format": "text/plain",
-                "language": "en"
+                  "@type":"cnt:ContentAsText",
+                  "chars":"MAP CONTENT",
+                  "format":"text/plain",
+                  "language":"en"
                },
                "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
             }
@@ -408,32 +410,34 @@
 
 // sc:Layer
 {
-  "@id": "https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b",
-  "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@type": "sc:Layer",
-  "label":"Fixture Layer 1",
-  "total": 1,
-  "first": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
-  "last": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
-  "otherContent":["https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8"]
+   "@id":"https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b",
+   "@context":"http://iiif.io/api/presentation/2/context.json",
+   "@type":"sc:Layer",
+   "label":"Fixture Layer 1",
+   "total":1,
+   "first":"https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+   "last":"https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+   "otherContent":[
+      "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8"
+   ]
 }
 
 // sc:AnnotationList
 {
-   "@context": "http://www.w3.org/ns/anno.jsonld",
-   "@id": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+   "@context":"http://www.w3.org/ns/anno.jsonld",
+   "@id":"https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
    "@type":"sc:AnnotationList",
-   "label": "Fixture Page 1",
+   "label":"Fixture Page 1",
    "resources":[
       {
-         "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
-         "@type": "oa:Annotation",
+         "@id":"https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
+         "@type":"oa:Annotation",
          "motivation":"sc:painting",
          "resource":{
-          "@type": "cnt:ContentAsText",
-          "chars": "MAP CONTENT",
-          "format": "text/plain",
-          "language": "en"
+            "@type":"cnt:ContentAsText",
+            "chars":"MAP CONTENT",
+            "format":"text/plain",
+            "language":"en"
          },
          "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
       }
@@ -443,15 +447,15 @@
 
 // sc:Annotation
 {
-   "@context": "http://www.w3.org/ns/anno.jsonld",
-   "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
-   "@type": "oa:Annotation",
+   "@context":"http://www.w3.org/ns/anno.jsonld",
+   "@id":"https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
+   "@type":"oa:Annotation",
    "motivation":"sc:painting",
    "resource":{
-    "@type": "cnt:ContentAsText",
-    "chars": "MAP CONTENT",
-    "format": "text/plain",
-    "language": "en"
+      "@type":"cnt:ContentAsText",
+      "chars":"MAP CONTENT",
+      "format":"text/plain",
+      "language":"en"
    },
    "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
 }
@@ -468,30 +472,32 @@
    "label":"Fixture Layer 1",
    "items":[
       {
-           "_id":"66fd813344b9285591c05abf",
-           "@type":"Page",
-           "metadata":[],
-           "name":{
-              "none":"Fixture Page 1"
-           },
-           "project":{
-              "id":"6704228ee49a75e00e5dc3cd",
-              "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd",
-              "tools":[
-                 
-              ],
-              "options":{
-                 
-              },
-              "license":"CC-BY"
-           },
-           "annotations":[
-              "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
-           ],
-           "target":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276",
-           "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd/66fd813344b9285591c05abf",
-           "partOf": "66fd826f6d4fd13aaa75ba81"
-        }
+         "_id":"66fd813344b9285591c05abf",
+         "@type":"Page",
+         "metadata":[
+            
+         ],
+         "name":{
+            "none":"Fixture Page 1"
+         },
+         "project":{
+            "id":"6704228ee49a75e00e5dc3cd",
+            "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd",
+            "tools":[
+               
+            ],
+            "options":{
+               
+            },
+            "license":"CC-BY"
+         },
+         "annotations":[
+            "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
+         ],
+         "target":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276",
+         "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd/66fd813344b9285591c05abf",
+         "partOf":"66fd826f6d4fd13aaa75ba81"
+      }
    ],
    "creator":"661d43bc490d045b8ba04d38"
 }
@@ -500,7 +506,7 @@
 {
    "_id":"66fd813344b9285591c05abf",
    "type":"Page",
-   "label": "Fixture Page 1",
+   "label":"Fixture Page 1",
    "project":{
       "id":"6704228ee49a75e00e5dc3cd",
       "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd",
@@ -513,12 +519,12 @@
       "license":"CC-BY"
    },
    "canvas":"https://iiif.io/api/cookbook/recipe/0139-geolocate-canvas-fragment/canvas.json",
-   "partOf": "66fd826f6d4fd13aaa75ba81",
+   "partOf":"66fd826f6d4fd13aaa75ba81",
    "annotations":[
       "https://devstore.rerum.io/v1/id/66fd813344b9285591c05abf"
    ],
    "viewer":"https://static.t-pen.org/6704228ee49a75e00e5dc3cd/66fd813344b9285591c05abf",
-   "creator":"661d43bc490d045b8ba04d38",
+   "creator":"661d43bc490d045b8ba04d38"
 }
 
 // Presentation API 3 based Line
@@ -543,7 +549,7 @@
       {
          "_id":"6704071a44b9285591c05ac8",
          "type":"Page",
-         "label": "Fixture Page 1",
+         "label":"Fixture Page 1",
          "project":{
             "id":"6704228ee49a75e00e5dc3cd",
             "viewer":"https://static.t-pen.org/6704071a44b9285591c05ac8",
@@ -556,7 +562,7 @@
             "license":"CC-BY"
          },
          "canvas":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276",
-         "partOf": "670408426d4fd13aaa75ba8b",
+         "partOf":"670408426d4fd13aaa75ba8b",
          "annotations":[
             "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8"
          ],
@@ -566,12 +572,11 @@
    ],
    "creator":"661d43bc490d045b8ba04d38"
 }
-
 // Presentation API 2 based Page
 {
    "_id":"6704071a44b9285591c05ac8",
    "type":"Page",
-   "label": "Fixture Page 1",
+   "label":"Fixture Page 1",
    "project":{
       "id":"6704228ee49a75e00e5dc3cd",
       "viewer":"https://static.t-pen.org/6704071a44b9285591c05ac8",
@@ -584,7 +589,7 @@
       "license":"CC-BY"
    },
    "canvas":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276",
-   "partOf": "670408426d4fd13aaa75ba8b",
+   "partOf":"670408426d4fd13aaa75ba8b",
    "annotations":[
       "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8"
    ],
