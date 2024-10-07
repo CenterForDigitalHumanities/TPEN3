@@ -1,7 +1,7 @@
 /** TPEN3 Project -- Presentation API 2 TODO */
 {
    "_id":"6704228ee49a75e00e5dc3cd",
-   "@type":"Project",
+   "type":"Project",
    "title":"Fixture Project (Presentation API 2)",
    "metadata":[],
    "layers":[
@@ -352,56 +352,6 @@
    ]
 }
 
-// Layer
-{
-  "@id": "https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b",
-  "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@type": "sc:Layer",
-  "label":"Fixture Layer 1",
-  "total": 1,
-  "first": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
-  "last": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
-  "otherContent":["https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8"]
-}
-
-// sc:AnnotationList
-{
-   "@context": "http://www.w3.org/ns/anno.jsonld",
-   "@id": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
-   "@type":"sc:AnnotationList",
-   "label": "Fixture Page 1",
-   "resources":[
-      {
-         "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
-         "@type": "oa:Annotation",
-         "motivation":"sc:painting",
-         "resource":{
-          "@type": "cnt:ContentAsText",
-          "chars": "MAP CONTENT",
-          "format": "text/plain",
-          "language": "en"
-         },
-         "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
-      }
-   ],
-   "within":"https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b"
-}
-
-// sc:Annotation
-{
-   "@context": "http://www.w3.org/ns/anno.jsonld",
-   "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
-   "@type": "oa:Annotation",
-   "motivation":"sc:painting",
-   "resource":{
-    "@type": "cnt:ContentAsText",
-    "chars": "MAP CONTENT",
-    "format": "text/plain",
-    "language": "en"
-   },
-   "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
-}
-
 // sc:Canvas
 {
    "@context": "http://iiif.io/api/presentation/2/context.json",
@@ -455,6 +405,57 @@
       }
    ]
 }
+
+// sc:Layer
+{
+  "@id": "https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b",
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@type": "sc:Layer",
+  "label":"Fixture Layer 1",
+  "total": 1,
+  "first": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+  "last": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+  "otherContent":["https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8"]
+}
+
+// sc:AnnotationList
+{
+   "@context": "http://www.w3.org/ns/anno.jsonld",
+   "@id": "https://devstore.rerum.io/v1/id/6704071a44b9285591c05ac8",
+   "@type":"sc:AnnotationList",
+   "label": "Fixture Page 1",
+   "resources":[
+      {
+         "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
+         "@type": "oa:Annotation",
+         "motivation":"sc:painting",
+         "resource":{
+          "@type": "cnt:ContentAsText",
+          "chars": "MAP CONTENT",
+          "format": "text/plain",
+          "language": "en"
+         },
+         "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
+      }
+   ],
+   "within":"https://devstore.rerum.io/v1/id/670408426d4fd13aaa75ba8b"
+}
+
+// sc:Annotation
+{
+   "@context": "http://www.w3.org/ns/anno.jsonld",
+   "@id": "https://devstore.rerum.io/v1/id/6703fe2344b9285591c05ac7",
+   "@type": "oa:Annotation",
+   "motivation":"sc:painting",
+   "resource":{
+    "@type": "cnt:ContentAsText",
+    "chars": "MAP CONTENT",
+    "format": "text/plain",
+    "language": "en"
+   },
+   "on":"https://devstore.rerum.io/v1/id/670406e373a1f9339012d276#xywh=920,3600,1510,3000"
+}
+
 
 
 
@@ -591,7 +592,7 @@
    "creator":"661d43bc490d045b8ba04d38"
 }
 
-// Presentation API 2 based Layer Line
+// Presentation API 2 based Line
 {
    "_id":"6703fe2344b9285591c05ac7",
    "type":"Line",
