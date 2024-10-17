@@ -173,12 +173,11 @@ export function performLoginAndRedirect() {
   * If we don't provide 'returnTo' logout picks the first entry in the 'Allowed Logout URLs'
 */
 export function performLogout() {
-  // Know the value for ?returnTo.  You have this whether the login returned here or is initiated here, if provided.
-  // FIXME we can only redirect home.  Any way to support a returnTo redirect here?
-  const redir = processRedirect() || location.origin
+  // Know the value for ?returnTo if provided.  That's where the user wants to go to after logout, they must provide it.
+  // If they don't provide one, then we will use  the TPEN3 home.
+  const redir = processRedirect()
   const callback = logoutCallback + `?returnTo=${encodeURIComponent(redir)}`
   webAuth.logout({
     returnTo: callback
   })
-  // NO CODE PAST HERE
 }

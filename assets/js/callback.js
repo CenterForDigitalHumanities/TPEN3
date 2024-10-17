@@ -1,8 +1,8 @@
 window.onload = processRedirect()
 
 /**
- *  Detect and get the value of returnTo from the origin address /login/?returnTo=
- *  If there is no returnTo, default to the origin address /login/ for the redirect.
+ *  Detect and get the value of returnTo from the origin address /callback/?returnTo=
+ *  If there is no returnTo, default to the origin homepage.
  */
 function processRedirect() {
   let link = new URL(window.location.href)
@@ -10,5 +10,5 @@ function processRedirect() {
   const urlParams = new URLSearchParams(queryString)
   let redirect = urlParams.get('returnTo') ?? location.origin
   redirect = decodeURI(redirect)
-  document.location.href = redirect
+  location.href = redirect
 }
