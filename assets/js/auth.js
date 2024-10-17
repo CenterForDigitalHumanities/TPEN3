@@ -81,7 +81,7 @@ export function performLoginAndRedirect() {
   let refer = getReferringPage()
   // Know the ID Token returned by a successful login in the universal login widget.  It is in the address bar as ?id_token=
   let idTok = location.hash.includes("id_token=") ? location.hash.split("id_token=")[1].split("&")[0] : ""
-  // Know the Access Token returned by a successful login in the universal login widget.  It is in the address bar as ?id_token=
+  // Know the Access Token returned by a successful login in the universal login widget.  It is in the address bar as ?access_token=
   let accessTok = location.hash.includes("access_token=") ? location.hash.split("access_token=")[1].split("&")[0] : ""
 
   if (idTok) {
