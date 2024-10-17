@@ -6,11 +6,8 @@ const AUDIENCE = "https://cubap.auth0.com/api/v2/"
 const ISSUER_BASE_URL = "cubap.auth0.com"
 const CLIENT_ID = "bBugFMWHUo1OhnSZMpYUXxi3Y1UJI7Kl"
 const DOMAIN = "cubap.auth0.com"
-
 const origin = location.origin + location.pathname
-
-// Where should we go after logout?
-const home = location.origin
+const logoutCallback = location.origin +"/callback/"
 
 const webAuth = new auth0.WebAuth({
   domain: DOMAIN,
@@ -21,8 +18,6 @@ const webAuth = new auth0.WebAuth({
   responseType: "id_token token",
   state: urlToBase64(location.href)
 })
-//scope: "update:current_user_metadata openid offline_access",
-
 
 const login = (custom) =>
   webAuth.authorize(Object.assign({ authParamsMap: { app: "tpen" } }, custom))
@@ -122,7 +117,7 @@ export function performLoginAndRedirect() {
       window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
       alert("Please provide a ?returnTo= parameter when using this login.")
       setTimeout(() => {
-        location.href = home
+        location.href = location.origin
       }, "5000")
     } 
     return
@@ -163,7 +158,7 @@ export function performLoginAndRedirect() {
       window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
       alert("Please provide a ?returnTo= parameter when using this login.")
       setTimeout(() => {
-        location.href = home
+        location.href = location.origin
       }, "5000")  
     }
       
@@ -180,8 +175,10 @@ export function performLoginAndRedirect() {
 export function performLogout() {
   // Know the value for ?returnTo.  You have this whether the login returned here or is initiated here, if provided.
   // FIXME we can only redirect home.  Any way to support a returnTo redirect here?
-  let redir = processRedirect() || home
+  const redir = processRedirect() || location.origin
+  const callback = logoutCallback + `?returnTo=${encodeURIComponent(redir)}`
   webAuth.logout({
-    returnTo: home
+    returnTo: callback
   })
+  // NO CODE PAST HERE
 }

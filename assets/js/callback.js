@@ -1,24 +1,14 @@
-function redirectUser() {
-  location.href = getReferringPage() ?? "https://www.tpen.org/interfaces"
-}
-
-function getReferringPage() {
-  try {
-    const base64Hash = location.hash.split("state=")[1].split("&")[0]
-    const decodedUrl = b64toUrl(base64Hash)
-    return decodedUrl
-  } catch (err) {
-    return false
-  }
-}
+window.onload = processRedirect()
 
 /**
- * Follows the 'base64url' rules to decode a string.
- * @param {String} base64str from `state` parameter in the hash from Auth0
- * @returns referring URL
+ *  Detect and get the value of returnTo from the origin address /login/?returnTo=
+ *  If there is no returnTo, default to the origin address /login/ for the redirect.
  */
-function b64toUrl(base64str) {
-  return window.atob(base64str.replace(/\-/g, "+").replace(/_/g, "/"))
+function processRedirect() {
+  let link = new URL(window.location.href)
+  const queryString = link.search
+  const urlParams = new URLSearchParams(queryString)
+  let redirect = urlParams.get('returnTo') ?? location.origin
+  redirect = decodeURI(redirect)
+  document.location.href = redirect
 }
-
-window.onload = redirectUser()
