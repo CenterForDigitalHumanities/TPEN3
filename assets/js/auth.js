@@ -178,6 +178,9 @@ export function performLoginAndRedirect() {
   * If we don't provide 'returnTo' logout picks the first entry in the 'Allowed Logout URLs'
 */
 export function performLogout() {
+  // Know the value for ?returnTo.  You have this whether the login returned here or is initiated here, if provided.
+  // FIXME we can only redirect home.  Any way to support a returnTo redirect here?
+  let redir = processRedirect() || home
   webAuth.logout({
     returnTo: home
   })
