@@ -169,14 +169,19 @@ export function performLoginAndRedirect() {
 /**
   * A user from a TPEN Interface at a third party source is trying to logout.
   * They have initiated a https://three.t-pen.org/logout from their source.
-  * Do they need to provide a redirect like login does?
-  * If we don't provide 'returnTo' logout picks the first entry in the 'Allowed Logout URLs'
+  * Once the logout is complete they will redirect to https://three.t-pen.org/callback
+  * /logout?returnTo= gives the user the option to state where they would like to return.
+  * Note this must redirect to https://three.t-pen.org/callback but can pass forward the ?returnTo already provided.
+  * Note this expects URL formatted like...
+
+    /logout/?returnTo=https%3A%2F%2Ftranscribonanza.com%2Finterface.html%3FcustomParam%3Dhello%23hashValue
+
+  *
 */
 export function performLogout() {
-  // Know the value for ?returnTo if provided.  That's where the user wants to go to after logout, they must provide it.
-  // If they don't provide one, then we will use  the TPEN3 home.
   const redir = processRedirect()
   const callback = logoutCallback + `?returnTo=${encodeURIComponent(redir)}`
+  // Ex. https://three.t-pen.org/callback/?returnTo=https%3A%2F%2Ftranscribonanza.com%2Finterface.html%3FcustomParam%3Dhello%23hashValue
   webAuth.logout({
     returnTo: callback
   })

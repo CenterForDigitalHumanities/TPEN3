@@ -3,6 +3,7 @@ window.onload = processRedirect()
 /**
  *  Detect and get the value of returnTo from the origin address /callback/?returnTo=
  *  If there is no returnTo, default to the origin homepage.
+ *  Note that performLogout() in auth.js will always add a returnTo, and it may just be the origin homepage.
  */
 function processRedirect() {
   let link = new URL(window.location.href)
