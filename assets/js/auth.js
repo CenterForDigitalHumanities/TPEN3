@@ -89,7 +89,7 @@ export function performLoginAndRedirect() {
   // Know the Access Token returned by a successful login in the universal login widget.  It is in the address bar as ?id_token=
   let accessTok = location.hash.includes("access_token=") ? location.hash.split("access_token=")[1].split("&")[0] : ""
 
-  if (accessTok) {
+  if (idTok) {
     /**
      * A login occurred and we came back to this page with the idToken, accessToken, and state.
      * getReferringPage() processed the state into the URL used during login.
@@ -108,9 +108,9 @@ export function performLoginAndRedirect() {
     let redirectLink = new URL(redirect)
     let redirectQueryString = redirectLink.search
 
-    // add accessToken= into the redirect link next to any URL parameters it may have already contained
-    if (redirectQueryString) redirectQueryString += `&accessToken=${accessTok}`
-    else redirectQueryString = `?accessToken=${accessTok}`
+    // add idToken= into the redirect link next to any URL parameters it may have already contained
+    if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
+    else redirectQueryString = `?idToken=${idTok}`
 
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
     if (redirectLink.hash) redirectQueryString += redirectLink.hash
@@ -136,7 +136,7 @@ export function performLoginAndRedirect() {
     }
     idTok = result.idToken ?? ""
     accessTok = result.accessToken ?? ""
-    if (!accessTok) {
+    if (!idTok) {
       console.error("There was missing token information from the login. Reset the cached User")
       alert("The session did not respond with the token information we need.  Try logging in again.")
       return
@@ -152,8 +152,8 @@ export function performLoginAndRedirect() {
     let redirectLink = new URL(refer)
     let redirectQueryString = redirectLink.search
 
-    if (redirectQueryString) redirectQueryString += `&accessToken=${accessTok}`
-    else redirectQueryString = `?accessToken=${accessTok}`
+    if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
+    else redirectQueryString = `?idToken=${idTok}`
     if (redirectLink.hash) redirectQueryString += redirectLink.hash
 
     if (wantsToRedirect)
