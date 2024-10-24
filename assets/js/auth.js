@@ -100,22 +100,28 @@ export function performLoginAndRedirect() {
     // The decoded ?state= contains the ?returnTo= that we need the value of, which which may also have URL parameters and/or a hash itself
     let redirect = referURLParams.get('returnTo') ?? origin
     redirect = decodeURI(redirect)
-    let redirectLink = new URL(redirect)
-    let redirectQueryString = redirectLink.search
+    let redirectLink
+    try {
+      redirectLink = new URL(redirect)
+    }
+    catch(err) {
+      redirectLink = undefined
+    }
+    let redirectQueryString = redirectLink?.search
 
     // add idToken= into the redirect link next to any URL parameters it may have already contained
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
 
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
-    if (redirectLink.hash) redirectQueryString += redirectLink.hash
+    if (redirectLink?.hash) redirectQueryString += redirectLink.hash
 
-    if(wantsToRedirect)
+    if(wantsToRedirect && redirectLink)
       location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
     else{
       // We will still let you see the Token you ended up by adding it to your address bar.
       window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
-      alert("Please provide a ?returnTo= parameter when using this login.")
+      alert("Please provide a valid URL in the ?returnTo= parameter when using this login.")
       setTimeout(() => {
         location.href = location.origin
       }, "5000")
@@ -144,19 +150,25 @@ export function performLoginAndRedirect() {
     if (!refer) refer = redir
     refer = decodeURI(refer)
     const wantsToRedirect = (refer !== origin)
-    let redirectLink = new URL(refer)
-    let redirectQueryString = redirectLink.search
+    let redirectLink
+    try {
+      redirectLink = new URL(refer)
+    }
+    catch(err) {
+      redirectLink = undefined
+    }
+    let redirectQueryString = redirectLink?.search
 
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
-    if (redirectLink.hash) redirectQueryString += redirectLink.hash
+    if (redirectLink?.hash) redirectQueryString += redirectLink.hash
 
-    if (wantsToRedirect)
+    if (wantsToRedirect && redirectLink)
       location.href = redirectLink.origin + redirectLink.pathname + redirectQueryString
     else{
       // We will still let you see the Token you ended up by adding it to your address bar.
       window.history.replaceState({}, "", location.origin + location.pathname + redirectQueryString)
-      alert("Please provide a ?returnTo= parameter when using this login.")
+      alert("Please provide a valid URL in the ?returnTo= parameter when using this login.")
       setTimeout(() => {
         location.href = location.origin
       }, "5000")  

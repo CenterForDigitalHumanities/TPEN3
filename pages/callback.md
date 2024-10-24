@@ -1,8 +1,7 @@
 ---
-title: Authentication Action
+layout: module
+title: Logout Callback
 permalink: /callback/
-layout: script
-scripts: [/assets/js/callback.js]
+modules: [/assets/js/callback.js]
 ---
-
-This should not appear.
+You will be logged out and redirected
