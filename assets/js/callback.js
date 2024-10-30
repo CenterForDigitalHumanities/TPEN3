@@ -12,11 +12,12 @@ function redirectUser() {
   let redirect = urlParams.get('returnTo') ?? location.origin
   redirect = decodeURI(redirect)
   try {
-    redirect = new URL(redirect)
+    redirect = new URL(redirect).toString()
   }
   catch(err) {
     redirect = undefined
   }
+
   if(!redirect || redirect === location.origin+"/logout/"){
     alert("Please provide a valid URL in the ?returnTo= parameter when logging out.")
     setTimeout(() => {
@@ -24,6 +25,7 @@ function redirectUser() {
     }, "5000")
     return
   }
+  console.log("REDIRECT TO "+redirect)
   location.href = redirect
   return
 }
