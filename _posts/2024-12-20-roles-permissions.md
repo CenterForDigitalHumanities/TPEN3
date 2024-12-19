@@ -2,10 +2,10 @@
 layout: post
 title: "Roles and Permissions"
 excerpt: "Understand the different roles and permissions available on the TPEN3 platform"
-date: "2024-12-20"
-categories: 
-  - "tutorials"
-  - "management"
+date: "2024-12-12"
+categories: "documentation"
+coverImage: '/assets/img/tpenUsers.png'
+author: "Patrick Cuba"
 ---
 
 ## Roles and Permissions
@@ -45,6 +45,23 @@ The format of the permissions follows the pattern of `Action_Scope_Entity` as se
 `defaultRoles` in the Group Class of [the TPEN API](https://github.com/CenterForDigitalHumanities/TPEN-services/blob/5c2c46415d60cad2cdafabe459ba25b623731ccf/classes/Group/Group.mjs#L274C4-L279C6). The "*" character serves as a wildcard for any value. While
 custom permissions can be created for use in a specific interface, the API will only recognize those from this set:
 
-| Action | Scope | Entity |
-| --- | --- | --- |
-| READ, UPDATE, DELETE, CREATE | METADATA, TEXT (content), ORDER, SELECTOR, DESCRIPTION | PROJECT, MEMBER, LAYER, PAGE, LINE, ROLE, PERMISSION |
+| Action  | Scope       | Entity     |
+| ------- | ----------- | ---------- |
+| READ    | METADATA    | PROJECT    |
+| UPDATE  | TEXT (content)        | MEMBER     |
+| DELETE  | ORDER       | LAYER      |
+| CREATE  | SELECTOR    | PAGE       |
+|         | DESCRIPTION | LINE       |
+|         |             | ROLE       |
+|         |             | PERMISSION |
+
+## Custom Roles and Permissions
+
+In addition to the core roles, a Project Leader can create custom roles with custom permissions. These roles can be used to create a more granular set of permissions for a specific Project. For example, a Project Leader may want to create a role that can only delete Layers or a role that can only rearrange Pages.
+
+Any single string can be used to name a Role. This custom Role is 
+then described with a set of permissions. If the format of Permissions is followed as described above, the API will recognize the custom Role and apply the permissions as described. It is also possible to create a Role with custom permissions, recognized only by the interface that created it. It should not be expected that any other interface will recognize these custom Roles. For example, if a `Teaching_Assistant` role is created with the permission to `CREATE_*_ASSIGNMENT`, another permission must be added to allow the TPEN API to allow a `CREATE_METADATA_PROJECT` where that data object may be stored.
+
+Note well that the TPEN Core Roles will inevitably be more broad and generic than some Custom Roles. This means that a Project designed for a specific bespoke interface may have a different data integrity profile if loaded into another interface. In a peer review interface, for example, a `Reviewer` may not have the ability to see the creator of an Annotation, while on the vanilla TPEN interface, this information is available to all Contributors.
+A Group Member with no `READ` permissions will not be considered a
+member of the Group and will not be able to access the Project.
