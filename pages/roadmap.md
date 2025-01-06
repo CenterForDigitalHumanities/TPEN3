@@ -176,4 +176,31 @@ Any Project should be able to be managed by the Owner and any Leaders. The
 relationship between the Manifest and the Project will be carefully managed 
 to honor the original document, even when we build it ourselves. The Pages 
 become important to track well, as they are the primary unit of work in TPEN.
-    
+
+#### Transcription and Annotation
+
+```mermaid
+graph LR;
+    A[Login] --> B[Project List];
+    B --> C[Open Transcription Interface];
+    C --> D[Transcribe Page];
+    D --> E[Basic Tools];
+    D --> F[Image Parsing];
+```
+
+The Transcription Interface is the primary tool for the user to interact with 
+the project. The user can transcribe the text on the page, add annotations, 
+and save the work. For the Beta, we are focusing on the basic tools and 
+features required to transcribe a page:
+
+- **Text Entry**: The user can type text into a text box and it is saved to 
+  the Page. At this point, we do not need to support multiple Layers, but a 
+  Page will definitely have multiple lines.
+- **Image Parsing**: The user can see the image of the page and draw boxes 
+  around the text to be transcribed. This will be a place to attach many 
+  options in the future, such as computer vision and external tools, but for 
+  the Beta, we are focusing on the user's ability to draw boxes as in 2.8.
+- **Basic Tools**: Split screen tools are part of TPEN's history, so it is 
+  likely there will be some similar interfaces in the future. For the Beta, 
+  a single tool offering a preview of the transcription and the ability to 
+  navigate the page by clicking on a text line is sufficient.
