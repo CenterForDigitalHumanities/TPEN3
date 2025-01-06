@@ -29,6 +29,10 @@ the new platform.
 
 ## Phase 1: 2024
 
+Establish the foundation for the new platform, including the technology stack,
+data management, and user interface. Develop a set of core interfaces and 
+workflows for project creation, annotation, and transcription.
+
 ---
 
 > *1. Evaluate and select a technology stack for data management and user 
@@ -212,3 +216,44 @@ big push to make TPEN 3.0 more interoperable. In the future, these interactions
 may be more complicated, with a caching layer or sockets to keep from hammering 
 RERUM with minor updates, so anything we are doing now should include at least 
 a minor abstraction to allow for that.
+
+## Phase 2: July 2025
+
+The Beta release is the first opportunity for the public to interact with the 
+new platform. The Advisory Board members and Research Assistants will be the 
+first to test the platform, followed by a wider group of test users. The Beta 
+includes periods of feedback and focused features to improve the platform, 
+which will be used to prioritize work for the final release.
+
+---
+
+> *1. Public Beta enabling Advisory Board members, Research Assistants, and test users to create and interact with simple Projects.*
+
+The release of the Beta is a major milestone for the project. Launching it 
+requires a stable platform with a set of core features that are ready for 
+testing. We should also have drafted our license and terms of service before 
+inviting members of the public to use the platform. A direct feedback tool 
+should be evaluated and included before the Beta release.
+
+Expectations for the users and their data should be set before the Beta. As 
+a guide, we should acknowledge that we will attempt to preserve the data but 
+that changes to structure may render it unusable or the formal launch may 
+require us to reset the database. We should also be clear about the licensing 
+specifically in the case of the Beta, as we will regularly dig into users' 
+contributions and activity to improve the platform. This may be something a 
+User could opt out of in a final product.
+
+---
+
+> *2. User feedback and improvements to the platform.*
+
+There are scheduled meetings for feedback from the Advisory Board which will 
+select a subset of features to focus on for the final release. Some features, 
+per the funding proposal, are required for the final release and others are 
+simply proposed as possible and will be scheduled for work after delivery. It 
+is up to the Advisory Board to decide which features are most impactful.
+
+Users will also provide feedback and there should be a combination of simple 
+ways to do this. Some GitHub issue templates will help, but there should also 
+be a persistent feedback tool on each interface. Contact via email or forms 
+must be easy to access and regularly reviewed.
