@@ -204,3 +204,11 @@ features required to transcribe a page:
   likely there will be some similar interfaces in the future. For the Beta, 
   a single tool offering a preview of the transcription and the ability to 
   navigate the page by clicking on a text line is sufficient.
+
+These changes should all be saved in the Page and Layer objects, which are 
+`Annotation Collection`s and `Annotation Page`s annotated onto the `Canvas` 
+and `Manifest` objects. All these also belong in RERUM, which is our first 
+big push to make TPEN 3.0 more interoperable. In the future, these interactions 
+may be more complicated, with a caching layer or sockets to keep from hammering 
+RERUM with minor updates, so anything we are doing now should include at least 
+a minor abstraction to allow for that.
