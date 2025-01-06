@@ -140,3 +140,40 @@ graph LR;
     I --> F & B;
 ```
 
+This is the first target workflow for TPEN 3.0. The user logs in, creates a
+project, invites collaborators, transcribes a page, and saves the annotation.
+The user can then return to the project list to start a new project or 
+continue working on the current project.
+
+This simplest case was originally planned for December 2024 but has not been 
+completed. It is required for the planned public Beta and is considered ASAP.
+
+#### Project creation and management
+
+```mermaid
+graph LR;
+    A[Login] --> B[Project List];
+    B --> C[Create New Project];
+    C --> D[Build Manifest];
+    D --> E[Add Pages];
+    E --> F[Save New Project];
+    B --> G[Manage Project];
+    G --> H[Edit Pages];
+    G --> I[Edit Metadata];
+    G --> J[Manage Collaborators];
+```
+
+This workflow covers the basic project requirements for the Beta release. 
+In addition to a new project from a IIIF Manifest link, this workflow allows 
+for the creation of a new project from scratch. The user can add pages, edit 
+metadata, and manage collaborators. An external or forked Manifest Builder may 
+be called for, but in general, the user should be able to create a project 
+from a set of images that they provide. This hole is very deep and we may 
+ultimately offer lots of options like create from TEI/XML or upload private images 
+to a GitHub repository, but these are for consideration after the Beta.
+
+Any Project should be able to be managed by the Owner and any Leaders. The 
+relationship between the Manifest and the Project will be carefully managed 
+to honor the original document, even when we build it ourselves. The Pages 
+become important to track well, as they are the primary unit of work in TPEN.
+    
