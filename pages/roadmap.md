@@ -129,19 +129,19 @@ advanced features and integrations for later phases.
 #### End-to-End (Simplest Case)
 
 ```mermaid
-graph LR;
-    A[Login] --> B[Project List];
-    B --> C[Import New IIIF Manifest];
-    C --> D[Generate Pages];
-    D --> E[Create New Project];
-    E --> F[Open Transcription Interface];
-    F --> G[Assert Transcription];
-    G --> I[Save New Annotation to Page];
-    E --> H[Manage Collaborators];
-    H --> J[Invite Collaborators];
-    J --> K[Assign Roles/Permissions];
-    K --> E & B;
-    I --> F & B;
+graph LR
+   A[Login] --> B[Project List]
+   B --> C[Import New IIIF Manifest]
+   C --> D[Generate Pages]
+   D --> E[Create New Project]
+   E --> F[Open Transcription Interface]
+   F --> G[Assert Transcription]
+   G --> I[Save New Annotation to Page]
+   E --> H[Manage Collaborators]
+   H --> J[Invite Collaborators]
+   J --> K[Assign Roles/Permissions]
+   K --> E & B
+   I --> F & B;
 ```
 
 This is the first target workflow for TPEN 3.0. The user logs in, creates a
@@ -155,16 +155,16 @@ completed. It is required for the planned public Beta and is considered ASAP.
 #### Project creation and management
 
 ```mermaid
-graph LR;
-    A[Login] --> B[Project List];
-    B --> C[Create New Project];
-    C --> D[Build Manifest];
-    D --> E[Add Pages];
-    E --> F[Save New Project];
-    B --> G[Manage Project];
-    G --> H[Edit Pages];
-    G --> I[Edit Metadata];
-    G --> J[Manage Collaborators];
+graph LR
+   A[Login] --> B[Project List]
+   B --> C[Create New Project]
+   C --> D[Build Manifest]
+   D --> E[Add Pages]
+   E --> F[Save New Project]
+   B --> G[Manage Project]
+   G --> H[Edit Pages]
+   G --> I[Edit Metadata]
+   G --> J[Manage Collaborators];
 ```
 
 This workflow covers the basic project requirements for the Beta release. 
@@ -184,12 +184,12 @@ become important to track well, as they are the primary unit of work in TPEN.
 #### Transcription and Annotation
 
 ```mermaid
-graph LR;
-    A[Login] --> B[Project List];
-    B --> C[Open Transcription Interface];
-    C --> D[Transcribe Page];
-    D --> E[Basic Tools];
-    D --> F[Image Parsing];
+graph LR
+   A[Login] --> B[Project List]
+   B --> C[Open Transcription Interface]
+   C --> D[Transcribe Page]
+   D --> E[Basic Tools]
+   D --> F[Image Parsing];
 ```
 
 The Transcription Interface is the primary tool for the user to interact with 
