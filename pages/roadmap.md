@@ -129,7 +129,7 @@ advanced features and integrations for later phases.
 #### End-to-End (Simplest Case)
 
 ```mermaid
-graph LR
+flowchart LR
    A[Login] --> B[Project List]
    B --> C[Import New IIIF Manifest]
    C --> D[Generate Pages]
@@ -155,7 +155,7 @@ completed. It is required for the planned public Beta and is considered ASAP.
 #### Project creation and management
 
 ```mermaid
-graph LR
+flowchart LR
    A[Login] --> B[Project List]
    B --> C[Create New Project]
    C --> D[Build Manifest]
@@ -184,7 +184,7 @@ become important to track well, as they are the primary unit of work in TPEN.
 #### Transcription and Annotation
 
 ```mermaid
-graph LR
+flowchart LR
    A[Login] --> B[Project List]
    B --> C[Open Transcription Interface]
    C --> D[Transcribe Page]
