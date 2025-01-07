@@ -257,3 +257,90 @@ Users will also provide feedback and there should be a combination of simple
 ways to do this. Some GitHub issue templates will help, but there should also 
 be a persistent feedback tool on each interface. Contact via email or forms 
 must be easy to access and regularly reviewed.
+
+---
+
+> *3. Test cases and focused features based on feedback and recommendations.*
+
+There are three main ways to prioritize work for the final release:
+
+1. **Required Features**: These are features that are required for the final 
+   release. They are the most important and will be prioritized first. As a 
+   rule of thumb, any feature not carried forward from TPEN 2.8 must be 
+   intentionally left behind. The features named in the proposal may be listed 
+   here later as well.
+
+2. **Advisory Board Features**: These are features that the Advisory Board 
+   has selected as important for the final release. They are the next most 
+   important and will be prioritized second. The Advisory Board will meet 
+   regularly to discuss the progress and provide feedback.
+
+3. **User Features**: These are features that users have requested or that 
+   fulfill the special cases of the test users. Some may be simply selected 
+   by the developers, but no feature should be added without a clear use case.
+
+## Phase 3: March 2026
+
+The final phase of development focuses on training and documentation, 
+migration from TPEN 2.8, community demonstrations, and feedback. The launch 
+of TPEN 3.0 is scheduled for December 2026.
+
+---
+
+> *1. Training and documentation for users and developers.*
+
+The training and documentation for TPEN 3.0 will be available on the website 
+and integrated into the core interfaces. The documentation will be written 
+with the user in mind, providing clear instructions and examples for common 
+tasks. 
+
+Developer guidance will include blog posts and code documentation, as well as
+a set of examples for building custom interfaces and workflows. The core 
+interfaces themselves should be well-documented and serve as a template for 
+new projects.
+
+It is possible a workshop may be held to introduce the new platform to the 
+community. This would be a good opportunity to gather feedback and provide 
+hands-on training for users and developers.
+
+---
+
+> *2. Migration from TPEN 2.8 to TPEN 3.0.*
+
+The data models of TPEN 2.8 and TPEN 3.0 are not compatible, so a migration 
+tool will be developed to move projects and annotations from the old platform 
+to the new one. The migration tool will be available to all users and will 
+be supported by the TPEN team. Users should only opt into the migration, and 
+it may be kept to a project-at-a-time basis to prevent moving forward stale or 
+empty projects.
+
+Eventually, creating new projects on TPEN 2.8 will be disabled and all users 
+will be required to migrate to TPEN 3.0. A new TPEN user may have a TPEN 2.8 
+account, but the projects are not linked directly. When TPEN 2.8 is eventually 
+end-of-life, the projects may all be exported to a static manifest to carry forward.
+
+---
+
+> *3. Community Demonstrations and Feedback.*
+
+The TPEN team will host a series of community demonstrations to showcase the 
+new platform and gather feedback from users. These demonstrations will be 
+at public conferences like the IIIF annual meeting and the SMRS conference. 
+Additionally, the team will consider webinars or in-person workshops to 
+introduce the platform to a wider audience, though this will largely happen 
+after the launch and outside of the funding period.
+
+---
+
+> *4. Launch of TPEN 3.0 (December 2026).*
+
+The launch of TPEN 3.0 is scheduled for December 2026. The platform will be 
+available to the public and delivered as a stable, feature-complete product. 
+All relevant materials will be submitted as deliverables to the funders and 
+the platform will be maintained by the TPEN team for the foreseeable future.
+
+After launch, the project will be configured as an open-source project, 
+solliticing contributions from the community. The TPEN team will continue to 
+develop the platform and provide support for users and developers. The data 
+will be maintained and backed up regularly, with a plan for long-term 
+preservation and sustainability.
