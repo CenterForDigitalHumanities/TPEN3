@@ -8,7 +8,7 @@ permalink: /
 ## Transcription for Paleographical and Editorial Notation
 
 <button role="button"> Log in </button>
-Open an account to start recording annotations on images from al over the world and across time.
+Open an account to start recording annotations on images from all over the world and across time.
 
 ---
 {% assign today_date = 'now' | date: '%s' %}
