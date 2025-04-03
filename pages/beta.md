@@ -94,22 +94,24 @@ To support these behaviors, we will need to create a set of interfaces that are 
 
 ```mermaid
 graph TD
-    LoginPage["Login Page"]
     AuthenticatedUserPage["Landing Page"]
+    LoginPage["Login Page"]
     ProjectManagementPage["Project Management Page"]
     TranscriptionPage["Transcription Page"]
     BoundingAnnotationPage["Line Marking Page"]
     CollaborationPage["Collaboration Page"]
     ProjectCreationPage["Project Creation Page"]
 
+    AuthenticatedUserPage --> LoginPage
     LoginPage --> AuthenticatedUserPage
+    AuthenticatedUserPage --> ProjectCreationPage
     AuthenticatedUserPage --> ProjectManagementPage
     AuthenticatedUserPage --> TranscriptionPage
     ProjectManagementPage --> TranscriptionPage
     TranscriptionPage --> ProjectManagementPage
-    TranscriptionPage --> BoundingAnnotationPage
-    TranscriptionPage --> AuthenticatedUserPage
+    ProjectCreationPage --> ProjectManagementPage
     ProjectManagementPage --> CollaborationPage
     CollaborationPage --> ProjectManagementPage
-    CollaborationPage --> AuthenticatedUserPage
+    TranscriptionPage --> BoundingAnnotationPage
+    BoundingAnnotationPage --> TranscriptionPage
 ```
