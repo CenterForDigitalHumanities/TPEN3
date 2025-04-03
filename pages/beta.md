@@ -33,7 +33,7 @@ Each user should be able to create an account, start their own project, collabor
 - [ ] Create a new project
     - [ ] Import from TPEN 2.0
     - [ ] Import from IIIF Manifest 2.x
-    - [ ] Import from IIIF Manifest 3.x
+    - [ ] Import from IIIF Manifest 3.x ([Learn more about IIIF Presentation 3 API](https://iiif.io/api/presentation/3.0/))
 - [ ] Add collaborators
     - [ ] Add existing user
     - [ ] Invite a new user
@@ -115,3 +115,15 @@ graph TD
     TranscriptionPage --> BoundingAnnotationPage
     BoundingAnnotationPage --> TranscriptionPage
 ```
+
+## Schemata for Document Types
+
+In addition to the developers own comfort with the data formats, we should be able to describe the types of data we are recording to the user. A document will need to be drafted with them in mind as part of the on-boarding for the beta and possibly for new Users.
+
+### Document Types
+
+- **Project** is the container for all of the data in TPEN. It only exists in the TPEN 3.0 system. Though it has `metadata` and `label` fields, it does not conform to an external standard and is only meant for use within TPEN Interfaces. Importantly, a Project contains the `collaborators`, listing the owner and other user roles; the `layers` which contain references to all the user-created data, including annotations; and a variety of other bookkeeping fields for attributing source documents, configuration, and associated tools.
+
+- **Layer** is a set of related Annotations in a specified order. Pages within a Layer are a nonexclusive subset of all the Pages in the Project that share a cohesive purpose like "base text", "music", "commentary", etc. Layers do not follow an external standard, but are represented by **Annotation Collection** documents saved on RERUM (https://store.rerum.io).
+
+- **Manifest** is used to start a Project or as a static export format for Project data. This will always be a JSON-LD file as the IIIF Manifest 3.x format ([Learn more about IIIF Presentation 3 API](https://iiif.io/api/presentation/3.0/)).
