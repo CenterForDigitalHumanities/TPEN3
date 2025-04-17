@@ -10,6 +10,9 @@
         mermaid.initialize({startOnLoad:true,theme:'neutral'})
         await mermaid.run({querySelector:'code.language-mermaid'})
     </script>
+    {% for module in page.modules %}
+    <script src="{{ module }}" type="module"></script>
+    {% endfor %}
     <link rel="stylesheet" href="{{ "/assets/css/main.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
