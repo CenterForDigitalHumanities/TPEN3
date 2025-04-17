@@ -133,6 +133,24 @@ h3 {
     grid-area: excerpt;
     margin: 1em;
 }
+.hidden {
+    display: none;
+}
+a.button {
+    background-color: var(--primary-color);
+    color           : var(--white);
+    padding         : 0.5em 1em;
+    text-decoration  : none;
+    font-size       : 1.2em;
+    border-radius    : 5px;
+    box-shadow       : 0 0 3px var(--darkest);
+    transition       : all .2s ease-in-out;
+}
+a.button:hover {
+    background-color: var(--primary-light);
+    color           : var(--darkest);
+    box-shadow      : 0 0 3px var(--white);
+}   
 
 .wrapper {
     min-height: 100vh;
@@ -243,7 +261,22 @@ dd {
     width                : 100%;
 }
 
-.gridly>div {
+.gridly>li {
+    list-style: none;
+    padding   : 1em;
+    margin    : 0;
+}
+.gridly>li>a {
+    text-decoration: none;
+    color: var(--white);
+    transition: all .2s ease-in-out;
+}
+
+.gridly>li>a:hover {
+    color: var(--primary-light);
+}
+
+.gridly>* {
     background-color: var(--darkest);
     padding         : 1em;
 }
