@@ -34,12 +34,11 @@ flowchart TD
     LinkAccount([Link TPEN 2.8 Account])
     ManageProfile([Manage Profile/Password])
 
-
     subgraph LandingPage[Landing Page]
         direction LR
         Recents
         List
-        subgraph ActionLinks[ Action Links ]
+        subgraph ActionLinks[ Tasks Links ]
             direction TB
             NewProject
             ImportResource
@@ -56,28 +55,21 @@ flowchart TD
     Detail --> Config
     Detail --> Options
     Detail --> Management
-    Management --> PageLayers
-    Management --> ManageUsers
-    Management --> Tools
+    Management <--> PageLayers
+    Management <--> ManageUsers
     Management --> Interfaces
     Management --> EditDesc
-    ManageUsers --> AddUsers
-    ManageUsers --> DefineRoles
+    ManageUsers <--> AddUsers
+    ManageUsers <--> DefineRoles
+    Config --> Tools
     Config --> DefineLines
-    Config --> ExportLink
+    Management --> ExportLink
     Options --> Annotate
     Options --> EditDesc
-    Tools --> Transcribe
-    Tools --> Annotate
     Interfaces --> Transcribe
     Interfaces --> Annotate
     EditDesc --> Management
-    PageLayers --> Management
-    AddUsers --> ManageUsers
-    DefineRoles --> ManageUsers
-    ExportLink --> Config
-    Transcribe --> Tools
-    Annotate --> Tools
+    Transcribe --> Annotate
 ```
 
 > **Note:** Update this chart as new interfaces or workflow steps are defined.
