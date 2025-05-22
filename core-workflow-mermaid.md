@@ -140,7 +140,7 @@ This section outlines the steps a user follows to create a new project and invit
 flowchart LR
     LandingPage([Landing Page])
     NewProject([Create a New Project])
-    Management([Project Mangement])
+    Management([Project Management])
     ManageUsers([Manage Users & Roles])
     AddUsers([Add Users])
     DefineRoles([Define Roles])
