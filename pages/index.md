@@ -2,13 +2,18 @@
 layout: default
 title: TPEN
 permalink: /
+modules: [/assets/js/isKnown.js]
 ---
 > `This site is scheduled for launch in 2026 and not intended for public use at this time.`{: .notice}
 
 ## Transcription for Paleographical and Editorial Notation
 
-<button role="button"> Log in </button>
-Open an account to start recording annotations on images from al over the world and across time.
+{: .unauthenticated}
+[Signup](./login?returnTo={{site.url}}){: .button role="button"}
+Open an account to start recording annotations on images from all over the world and across time.
+
+{: .authenticated.hidden}
+Welcome back! [Launch TPEN 3.0](https://app.t-pen.org){: .button role="button"}
 
 ---
 {% assign today_date = 'now' | date: '%s' %}
@@ -74,7 +79,14 @@ Established in 2010, the project is still active and growing.
 
 ## Transcribe Now
 
-Open your account to get started: <button role="button"> Log in </button>
+{: .unauthenticated}
+Open your account to get started: [Login](./login?returnTo={{site.url}}){: .button role="button"}
+
+{: .authenticated.hidden}
+Head over to the TPEN app to work on any of your projects:
+
+{: .project-list.hidden.gridly}
+Your projects
 
 ---
 
@@ -99,7 +111,7 @@ Share your Project in a readonly viewer
 
 ---
 
-![old TPEN logo]({{site.baseurl}}/assets/img/tpen_clearShadowSmall.png)
+![old TPEN logo]({{site.baseurl}}assets/img/tpen_clearShadowSmall.png)
 This tool is the evolution of the 21st century transcription platform at [t‑pen.org](https://t-pen.org).
 Originally targeting Medieval manuscripts, users have fostered a community of carefully
 transcribed images of scripts, engravings, and calligraphy from all over the world across time.

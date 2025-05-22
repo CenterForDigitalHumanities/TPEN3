@@ -5,9 +5,11 @@ permalink: /updates/
 ---
 
 {% for category in site.categories %}
+
 ## {{ category[0] | capitalize }}
-    {% for post in category[1] %}
+
   <ul class="post-list">
+    {% for post in category[1] %}
     <li class="post-list-item">
       <h3>
         <a href="{{ post.url | absolute_url}}">{{ post.title }}
