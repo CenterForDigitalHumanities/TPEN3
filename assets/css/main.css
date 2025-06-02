@@ -83,6 +83,9 @@ h3 {
 .notice a {
     color:  white;
 }
+.notice p {
+    margin:  0;
+}
 .post-cover-image-banner {
     background-image: var(--bg-image);
     background-size: cover;
