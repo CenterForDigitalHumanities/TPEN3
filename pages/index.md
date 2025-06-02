@@ -4,7 +4,9 @@ title: TPEN
 permalink: /
 modules: [/assets/js/isKnown.js]
 ---
-> `This site is scheduled for launch in 2026 and not intended for public use at this time.`{: .notice}
+{: .notice}
+> This site is scheduled for launch in 2026 and not intended for public use at this time.
+> Help us drive features and follow releases.  [Sign up as a pilot user today](./login?returnTo={{site.url}})!
 
 ## Transcription for Paleographical and Editorial Notation
 
