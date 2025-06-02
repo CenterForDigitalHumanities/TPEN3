@@ -6,7 +6,7 @@ modules: [/assets/js/isKnown.js]
 ---
 {: .notice}
 > This site is scheduled for launch in 2026 and not intended for public use at this time.
-> Help us drive features and follow releases.  [Sign up as a pilot user today](./login?returnTo={{site.url}})!
+> [Sign up as a pilot user today](./login?returnTo={{site.url}})!  Follow releases and help us drive features.
 
 ## Transcription for Paleographical and Editorial Notation
 
