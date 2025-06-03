@@ -11,7 +11,7 @@ modules: [/assets/js/isKnown.js]
 ## Transcription for Paleographical and Editorial Notation
 
 {: .unauthenticated}
-[Signup](./login?returnTo={{site.url}}){: .button role="button"}
+[Signup](./login?returnTo={{site.url}}/roadmap){: .button role="button"}
 Open an account to start recording annotations on images from all over the world and across time.
 
 {: .authenticated.hidden}
