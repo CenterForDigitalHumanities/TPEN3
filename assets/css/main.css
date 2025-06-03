@@ -77,6 +77,14 @@ h3 {
     top:0;
     left:0;
     width: 100%;
+    font-family:  monospace;
+    margin:  0;
+}
+.notice a {
+    color:  white;
+}
+.notice p {
+    margin:  0;
 }
 .post-cover-image-banner {
     background-image: var(--bg-image);
