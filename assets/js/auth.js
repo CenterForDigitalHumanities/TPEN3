@@ -77,11 +77,11 @@ function getInviteCode() {
 /**
  *  Detect and get the value of inviteCode from the origin address /login/?inviteCode=
  */
-function getInviteHash() {
+function getInviteId() {
   let link = new URL(window.location.href)
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
-  let hash = urlParams.get('inviteHash') ?? ""
+  let hash = urlParams.get('inviteId') ?? ""
   return hash
 }
 
@@ -109,7 +109,7 @@ export function performLoginAndRedirect() {
   // Know an invite code from user invitation email links
   let inviteCode = getInviteCode()
   // Know a user _id to use for the agent from user invitation email links
-  let inviteHash = getInviteHash()
+  let inviteId = getInviteId()
   if (idTok) {
     /**
      * A login occurred and we came back to this page with the idToken, accessToken, and state.
@@ -139,7 +139,7 @@ export function performLoginAndRedirect() {
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
 
-    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}&inviteHash=${inviteHash}`
+    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}&inviteId=${inviteId}`
 
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
@@ -161,7 +161,7 @@ export function performLoginAndRedirect() {
   webAuth.checkSession({}, (err, result) => {
     if (err) {
       // Perform login if not authenticated.
-      if(inviteCode && inviteHash) login({"inviteCode":inviteCode, "inviteHash":inviteHash})
+      if(inviteCode && inviteId) login({"inviteCode":inviteCode, "inviteId":inviteId})
       else { login() } 
       return
     }
@@ -192,7 +192,7 @@ export function performLoginAndRedirect() {
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
 
-    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}`
+    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}&inviteId=${inviteId}`
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
 
     if (wantsToRedirect && redirectLink)
