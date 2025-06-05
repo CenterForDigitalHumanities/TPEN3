@@ -19,8 +19,10 @@ const webAuth = new auth0.WebAuth({
   state: urlToBase64(location.href)
 })
 
-const login = (custom) =>
+const login = (custom) => {
+
   webAuth.authorize(Object.assign({ authParamsMap: { app: "tpen" } }, custom))
+}
 
 // Helper function to get referring page from URL state
 const getReferringPage = () => {
@@ -63,6 +65,28 @@ function processRedirect() {
 }
 
 /**
+ *  Detect and get the value of inviteCode from the origin address /login/?inviteCode=
+ */
+function getInviteCode() {
+  let link = new URL(window.location.href)
+  const queryString = link.search
+  const urlParams = new URLSearchParams(queryString)
+  let code = urlParams.get('inviteCode') ?? ""
+  return code
+}
+
+/**
+ *  Detect and get the value of inviteCode from the origin address /login/?inviteCode=
+ */
+function getInviteHash() {
+  let link = new URL(window.location.href)
+  const queryString = link.search
+  const urlParams = new URLSearchParams(queryString)
+  let hash = urlParams.get('inviteHash') ?? ""
+  return hash
+}
+
+/**
   * A user from a TPEN Interface at a third party source is trying to login.
   * They have initiated a https://three.t-pen.org/login from their source.
   * https://three.t-pen.org/ needs to perform a checkSession() for the user and follow the flow.
@@ -83,7 +107,10 @@ export function performLoginAndRedirect() {
   let idTok = location.hash.includes("id_token=") ? location.hash.split("id_token=")[1].split("&")[0] : ""
   // Know the Access Token returned by a successful login in the universal login widget.  It is in the address bar as ?access_token=
   let accessTok = location.hash.includes("access_token=") ? location.hash.split("access_token=")[1].split("&")[0] : ""
-
+  // Know an invite code from user invitation email links
+  let inviteCode = getInviteCode()
+  // Know a user _id to use for the agent from user invitation email links
+  let inviteHash = getInviteHash()
   if (idTok) {
     /**
      * A login occurred and we came back to this page with the idToken, accessToken, and state.
@@ -113,6 +140,8 @@ export function performLoginAndRedirect() {
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
 
+    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}`
+
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
 
@@ -132,7 +161,9 @@ export function performLoginAndRedirect() {
   // Determine whether or not we need to use universal login.
   webAuth.checkSession({}, (err, result) => {
     if (err) {
-      login() // Perform login if not authenticated.
+      // Perform login if not authenticated.
+      if(inviteCode && inviteHash) login({"inviteCode":inviteCode, "inviteHash":inviteHash})
+      else { login() } 
       return
     }
     idTok = result.idToken ?? ""
@@ -161,6 +192,8 @@ export function performLoginAndRedirect() {
 
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
+
+    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}`
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
 
     if (wantsToRedirect && redirectLink)
