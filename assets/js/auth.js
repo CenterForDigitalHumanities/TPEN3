@@ -20,7 +20,6 @@ const webAuth = new auth0.WebAuth({
 })
 
 const login = (custom) => {
-
   webAuth.authorize(Object.assign({ authParamsMap: { app: "tpen" } }, custom))
 }
 
@@ -140,7 +139,7 @@ export function performLoginAndRedirect() {
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
 
-    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}`
+    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}&inviteHash=${inviteHash}`
 
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
