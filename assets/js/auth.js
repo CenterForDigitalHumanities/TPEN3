@@ -20,7 +20,11 @@ const webAuth = new auth0.WebAuth({
 })
 
 const login = (custom) => {
-  webAuth.authorize(Object.assign({ authParamsMap: { app: "tpen" } }, custom))
+  console.log("LOGIN WITH")
+  let params = Object.assign({ app: "tpen" } , custom)
+  let params_map = { authParamsMap: params }
+  console.log(params_map)
+  webAuth.authorize(params_map)
 }
 
 // Helper function to get referring page from URL state
@@ -66,23 +70,12 @@ function processRedirect() {
 /**
  *  Detect and get the value of inviteCode from the origin address /login/?inviteCode=
  */
-function getInviteCode() {
+function getInviteParam(paramName) {
   let link = new URL(window.location.href)
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
-  let code = urlParams.get('inviteCode') ?? ""
-  return code
-}
-
-/**
- *  Detect and get the value of inviteCode from the origin address /login/?inviteCode=
- */
-function getInviteId() {
-  let link = new URL(window.location.href)
-  const queryString = link.search
-  const urlParams = new URLSearchParams(queryString)
-  let hash = urlParams.get('inviteId') ?? ""
-  return hash
+  let paramVal = urlParams.get(paramName) ?? ""
+  return paramVal
 }
 
 /**
@@ -107,9 +100,9 @@ export function performLoginAndRedirect() {
   // Know the Access Token returned by a successful login in the universal login widget.  It is in the address bar as ?access_token=
   let accessTok = location.hash.includes("access_token=") ? location.hash.split("access_token=")[1].split("&")[0] : ""
   // Know an invite code from user invitation email links
-  let inviteCode = getInviteCode()
+  let inviteGroupId = getInviteParam("tpenGroupId")
   // Know a user _id to use for the agent from user invitation email links
-  let inviteId = getInviteId()
+  let inviteAgentId = getInviteParam("tpenUserId")
   if (idTok) {
     /**
      * A login occurred and we came back to this page with the idToken, accessToken, and state.
@@ -139,7 +132,7 @@ export function performLoginAndRedirect() {
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
 
-    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}&inviteId=${inviteId}`
+    if (inviteGroupId && inviteAgentId) redirectQueryString += `&tpenGroupId=${invteGroupId}&tpenUserId=${invteAgentId}`
 
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
@@ -161,7 +154,7 @@ export function performLoginAndRedirect() {
   webAuth.checkSession({}, (err, result) => {
     if (err) {
       // Perform login if not authenticated.
-      if(inviteCode && inviteId) login({"inviteCode":inviteCode, "inviteId":inviteId})
+      if(inviteGroupId && inviteAgentId) login({"tpenGroupId":inviteGroupId, "tpenAgentId":inviteAgentId})
       else { login() } 
       return
     }
@@ -192,7 +185,7 @@ export function performLoginAndRedirect() {
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
 
-    if (inviteCode) redirectQueryString += `&inviteCode=${inviteCode}&inviteId=${inviteId}`
+    if (inviteGroupId && inviteAgentId) redirectQueryString += `&tpenGroupId=${invteGroupId}&tpenUserId=${invteAgentId}`
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
 
     if (wantsToRedirect && redirectLink)
