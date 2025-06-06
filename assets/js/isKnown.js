@@ -1,6 +1,16 @@
 import TPEN from "https://app.t-pen.org/api/TPEN.js"
 
 const token = new URLSearchParams(location.search).get("idToken") ?? TPEN.getAuthorization()
+const inviteGroupId = new URLSearchParams(location.search).get("tpenGroupId") ?? null
+const inviteUserId = new URLSearchParams(location.search).get("tpenUserId") ?? null
+console.log("TPEN recieved the following variables from a login")
+console.log("token")
+console.log(token)
+console.log("group")
+console.log(inviteGroupId)
+console.log("user")
+console.log(inviteUserId)
+
 history.replaceState(null, "", location.pathname + location.search.replace(/[\?&]idToken=[^&]+/, ''))
 
 if (token) {
