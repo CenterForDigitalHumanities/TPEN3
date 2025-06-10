@@ -99,10 +99,8 @@ export function performLoginAndRedirect() {
   let idTok = location.hash.includes("id_token=") ? location.hash.split("id_token=")[1].split("&")[0] : ""
   // Know the Access Token returned by a successful login in the universal login widget.  It is in the address bar as ?access_token=
   let accessTok = location.hash.includes("access_token=") ? location.hash.split("access_token=")[1].split("&")[0] : ""
-  // Know an invite code from user invitation email links
-  let inviteGroupId = getInviteParam("tpenGroupId")
-  // Know a user _id to use for the agent from user invitation email links
-  let inviteAgentId = getInviteParam("tpenUserId")
+  // Process an invite code for the login() to give to Auth0
+  let inviteAgentId = getInviteParam("inviteCode")
   if (idTok) {
     /**
      * A login occurred and we came back to this page with the idToken, accessToken, and state.
@@ -132,8 +130,6 @@ export function performLoginAndRedirect() {
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
 
-    if (inviteGroupId && inviteAgentId) redirectQueryString += `&tpenGroupId=${invteGroupId}&tpenUserId=${invteAgentId}`
-
     // If the redirect link contains a hash, we would like that hash to appear at the end of the link after the query string(s)
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
 
@@ -154,7 +150,7 @@ export function performLoginAndRedirect() {
   webAuth.checkSession({}, (err, result) => {
     if (err) {
       // Perform login if not authenticated.
-      if(inviteGroupId && inviteAgentId) login({"tpenGroupId":inviteGroupId, "tpenAgentId":inviteAgentId})
+      if(inviteAgentId) login({"agentID":inviteAgentId})
       else { login() } 
       return
     }
@@ -185,7 +181,6 @@ export function performLoginAndRedirect() {
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
 
-    if (inviteGroupId && inviteAgentId) redirectQueryString += `&tpenGroupId=${invteGroupId}&tpenUserId=${invteAgentId}`
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
 
     if (wantsToRedirect && redirectLink)
