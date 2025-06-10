@@ -20,10 +20,8 @@ const webAuth = new auth0.WebAuth({
 })
 
 const login = (custom) => {
-  console.log("LOGIN WITH")
   let params = Object.assign({ app: "tpen" } , custom)
   let params_map = { authParamsMap: params }
-  console.log(params_map)
   webAuth.authorize(params_map)
 }
 
