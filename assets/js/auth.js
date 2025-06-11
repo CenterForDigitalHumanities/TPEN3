@@ -19,8 +19,11 @@ const webAuth = new auth0.WebAuth({
   state: urlToBase64(location.href)
 })
 
-const login = (custom) =>
-  webAuth.authorize(Object.assign({ authParamsMap: { app: "tpen" } }, custom))
+const login = (custom) => {
+  let params = Object.assign({ app: "tpen" } , custom)
+  let params_map = { authParamsMap: params }
+  webAuth.authorize(params_map)
+}
 
 // Helper function to get referring page from URL state
 const getReferringPage = () => {
@@ -63,6 +66,17 @@ function processRedirect() {
 }
 
 /**
+ *  Detect and get the value of inviteCode from the origin address /login/?inviteCode=
+ */
+function getInviteParam(paramName) {
+  let link = new URL(window.location.href)
+  const queryString = link.search
+  const urlParams = new URLSearchParams(queryString)
+  let paramVal = urlParams.get(paramName) ?? ""
+  return paramVal
+}
+
+/**
   * A user from a TPEN Interface at a third party source is trying to login.
   * They have initiated a https://three.t-pen.org/login from their source.
   * https://three.t-pen.org/ needs to perform a checkSession() for the user and follow the flow.
@@ -83,7 +97,8 @@ export function performLoginAndRedirect() {
   let idTok = location.hash.includes("id_token=") ? location.hash.split("id_token=")[1].split("&")[0] : ""
   // Know the Access Token returned by a successful login in the universal login widget.  It is in the address bar as ?access_token=
   let accessTok = location.hash.includes("access_token=") ? location.hash.split("access_token=")[1].split("&")[0] : ""
-
+  // Process an invite code for the login() to give to Auth0
+  let inviteAgentId = getInviteParam("inviteCode")
   if (idTok) {
     /**
      * A login occurred and we came back to this page with the idToken, accessToken, and state.
@@ -132,7 +147,9 @@ export function performLoginAndRedirect() {
   // Determine whether or not we need to use universal login.
   webAuth.checkSession({}, (err, result) => {
     if (err) {
-      login() // Perform login if not authenticated.
+      // Perform login if not authenticated.
+      if(inviteAgentId) login({"agentID":inviteAgentId})
+      else { login() } 
       return
     }
     idTok = result.idToken ?? ""
@@ -161,6 +178,7 @@ export function performLoginAndRedirect() {
 
     if (redirectQueryString) redirectQueryString += `&idToken=${idTok}`
     else redirectQueryString = `?idToken=${idTok}`
+
     if (redirectLink?.hash) redirectQueryString += redirectLink.hash
 
     if (wantsToRedirect && redirectLink)
