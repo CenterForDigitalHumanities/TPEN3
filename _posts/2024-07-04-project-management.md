@@ -35,7 +35,7 @@ This section mostly consists of links into more complicated interfaces. Customiz
 
 * **Collection**: Projects can be made up of several manuscripts and so an existing Project may be considered as a composition of documents that can be added after a Project is created.
 * **Page/Layer Order**: Especially when a smaller portion of a large linked document is desired, users may want to remove or rearrange the pages. This can be done uniformly for all Layers or the Project may require that each Layer be individually ordered.
-* **Transcription Hotkeys**: The transcription interface may benefit from the inclusion of customized hotkeys or buttons to provide the paleographer with simple access to characters or markup tags that are difficult or repetitive to type.
+* **Transcription QuickType Shortcuts**: The transcription interface may benefit from the inclusion of customized QuickType shortcuts or buttons to provide the paleographer with simple access to characters or markup tags that are difficult or repetitive to type.
 * **Interface Defaults**: Instead of the TPEN standard, the Project may be set up to point to a different interface for transcription, image segmentation, or other tasks.
 * **Transcription Tools**: One common feature to long-time TPEN users is the splitscreen tool, which places a useful resource directly aside the transcription workspace. This section allows for the simple toggling of built-in tools or the implementation of new ones through iframes.
 
