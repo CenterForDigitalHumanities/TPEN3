@@ -4,28 +4,60 @@ title: Roadmap
 permalink: /roadmap/
 ---
 
-## Expected Development Timeline
+{: .notice}
+> **TPEN 3 is now in Early Access!** [Get started today →]({{site.url}}/getting-started)
 
-The funding period for TPEN 3.0 is from 2024-2026. The development will take 
-place in three phases:
+## Development Timeline
 
-1. **Phase 1: 2024**
-    - **New platform design**
-    - **Project creation and management**
-    - **Interfaces and Workflows**
-2. **Phase 2: July 2025**
-    - **Public Beta**
-    - **User feedback and improvements**
-    - **Test cases and focused features**
-3. **Phase 3: March 2026**
-    - **Training and documentation**
-    - **Migration from TPEN 2.8**
-    - **Community Demonstrations and Feedback**
-    - **Launch of TPEN 3.0 (December 2026)**
+The funding period for TPEN 3.0 is from 2024-2026. Development has progressed through these phases:
 
-As each of these phases are completed, this page will be updated with the 
-latest information on the development progress and the expected features of 
-the new platform.
+1. **✅ Phase 1: 2024** (Completed)
+    - New platform design
+    - Project creation and management
+    - Core interfaces and workflows
+2. **🚀 Phase 2: 2025** (In Progress - Early Access)
+    - Early access release (November 2025)
+    - User feedback and improvements
+    - Additional interfaces and features
+    - Test cases and focused features
+3. **📅 Phase 3: 2026** (Upcoming)
+    - Comprehensive training and documentation
+    - Streamlined TPEN 2.8 migration tools
+    - Community demonstrations and workshops
+    - Full public launch (December 2026)
+
+---
+
+## Current Status: Early Access (November 2025)
+
+TPEN 3 is now available for early access! Core features are functional and we're actively gathering feedback from early adopters.
+
+### Available Now
+
+- ✅ User authentication and account management
+- ✅ Project creation from images, IIIF Manifests, and TPEN 2.8 import
+- ✅ Classic transcription interface
+- ✅ Role-based collaboration and permissions
+- ✅ Web Annotation and IIIF standard compliance
+- ✅ Export in multiple formats
+- ✅ Public API for custom integrations
+
+### Coming Soon
+
+- 🔄 Additional transcription interfaces (complex layouts, specialized workflows)
+- 🔄 Enhanced manifest editing capabilities
+- 🔄 Advanced image manipulation tools
+- 🔄 Expanded export format options (TEI, custom schemas)
+- 🔄 Repository integrations and cloud storage support
+- 🔄 Comprehensive migration tools for TPEN 2.8 projects
+
+[View detailed feature comparison →]({{site.url}}/announcements/2025/11/24/whats-new-tpen3.html)
+
+---
+
+## Historical Timeline
+
+This page documents our development journey. For an overview of what changed from TPEN 2.8, see [What's New]({{site.url}}/announcements/2025/11/24/whats-new-tpen3.html).
 
 ## Phase 1: 2024
 

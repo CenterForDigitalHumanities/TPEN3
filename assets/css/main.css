@@ -161,10 +161,18 @@ a.button:hover {
 }   
 
 .wrapper {
-    min-height: 100vh;
-    width     : 100%;
-    padding   : 4em calc(50% - 430px);
+    width: 100%;
+    max-width: 860px; /* replaces calc centering hack */
+    margin: 0 auto;   /* center horizontally */
+    padding: 2.5rem 1.5rem 4rem; /* reduce top padding for compact header */
+    min-height: 60px; /* account for fixed/compact header height */
     box-sizing: border-box;
+}
+
+/* Larger top spacing for homepage hero layout */
+.home .wrapper {
+    padding-top: 4rem;
+    min-height: 100vh; /* full viewport height for homepage */
 }
 
 .darkest {

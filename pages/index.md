@@ -82,10 +82,14 @@ Established in 2010, the project is still active and growing.
 ## Transcribe Now
 
 {: .unauthenticated}
-Open your account to get started: [Login](./login?returnTo={{site.url}}){: .button role="button"}
+Open your account to get started: [Sign Up](./login?returnTo={{site.url}}/getting-started){: .button role="button"}
 
 {: .authenticated.hidden}
-Head over to the TPEN app to work on any of your projects:
+Welcome back! Ready to continue your work?
+
+[Launch TPEN 3 →](https://app.t-pen.org){: .button role="button"}
+[Getting Started Guide →]({{site.url}}/getting-started)
+[View Tutorials →]({{site.url}}/category/tutorials)
 
 {: .project-list.hidden.gridly}
 Your projects

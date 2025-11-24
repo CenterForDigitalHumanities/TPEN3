@@ -24,10 +24,34 @@
 <body>
     <div>
         {% if site.logo and page.layout == "default" %}
-        <header class="wrapper">
-            <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" style="width:100%;"/></a>
-        </header>
+            {% if page.url == "/" %}
+            <!-- Large hero logo for homepage only -->
+            <header class="wrapper">
+                <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" style="width:100%;"/></a>
+                <nav style="margin-top: 1rem; padding: 0.5rem 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
+                    <a href="{{ "/getting-started" | absolute_url }}" style="margin-right: 1.5rem;">Getting Started</a>
+                    <a href="{{ "/category/tutorials" | absolute_url }}" style="margin-right: 1.5rem;">Tutorials</a>
+                    <a href="{{ "/about" | absolute_url }}" style="margin-right: 1.5rem;">About</a>
+                    <a href="{{ "/api" | absolute_url }}" style="margin-right: 1.5rem;">API</a>
+                    <a href="https://app.t-pen.org" style="margin-right: 1.5rem;">Launch App →</a>
+                </nav>
+            </header>
             {% else %}
+            <!-- Compact header for internal pages -->
+            <header class="wrapper" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; border-bottom: 2px solid #ccc;">
+                <a href="{{ "/" | absolute_url }}" style="flex-shrink: 0;">
+                    <img src="{{site.logo | relative_url}}" alt="TPEN Logo" style="height: 60px; width: auto;"/>
+                </a>
+                <nav style="display: flex; gap: 1.5rem; align-items: center;">
+                    <a href="{{ "/getting-started" | absolute_url }}">Getting Started</a>
+                    <a href="{{ "/category/tutorials" | absolute_url }}">Tutorials</a>
+                    <a href="{{ "/about" | absolute_url }}">About</a>
+                    <a href="{{ "/api" | absolute_url }}">API</a>
+                    <a href="https://app.t-pen.org" style="font-weight: bold;">Launch App →</a>
+                </nav>
+            </header>
+            {% endif %}
+        {% else %}
             <header style="position: fixed;background-color: var(--darkest);width: 100%;z-index:15;">
                 <h1 style="margin: 0;"><a href="{{ "/" | absolute_url }}" style="text-decoration: none;">{{ site.title | default: site.github.repository_name }}</a>
                     <div class="cube">

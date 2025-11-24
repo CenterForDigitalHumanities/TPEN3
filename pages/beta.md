@@ -1,16 +1,25 @@
 ---
 layout: default
-title: TPEN 3.0 Beta Planning
+title: Early Access
 permalink: /beta/
 ---
 
-# Release Goals for the July Beta Testing
+{: .notice}
+> **TPEN 3 Early Access is Live!** [Get started now →]({{site.url}}/getting-started)
 
-1. Complete simple transcription workflow
-2. Reliable schema for all document types
-3. User authentication and invite system
-4. User feedback and bug reporting infrastructure
-5. Summary punchlist of forthcoming features
+# Early Access Release
+
+TPEN 3 is now available for early access! The beta testing phase has evolved into a public early access release where users can start transcribing with core features while we continue development.
+
+## ✅ What's Available Now
+
+1. ✅ Complete simple transcription workflow
+2. ✅ Reliable schema for all document types
+3. ✅ User authentication and collaboration system
+4. ✅ In-app feedback and bug reporting
+5. ✅ Standards-compliant data (IIIF, Web Annotation)
+
+[See full feature list →]({{site.url}}/announcements/2025/11/24/whats-new-tpen3.html)
 
 ## Complete Workflow
 
