@@ -5,13 +5,13 @@ permalink: /
 modules: [/assets/js/isKnown.js]
 ---
 {: .notice}
-> This site is scheduled for launch in 2026 and not intended for public use at this time.
-> [Sign up as a pilot user today](./login?returnTo={{site.url}}/roadmap)!  Follow releases and help us drive features.
+> TPEN3 is now in early access! [Learn what's new]({{site.url}}/announcements/2025/11/24/whats-new-tpen3.html) and
+> [sign up today](./login?returnTo={{site.url}}/announcements/2025/11/24/whats-new-tpen3.html) to start transcribing with the latest features.
 
 ## Transcription for Paleographical and Editorial Notation
 
 {: .unauthenticated}
-[Signup](./login?returnTo={{site.url}}/roadmap){: .button role="button"}
+[Sign Up](./login?returnTo={{site.url}}/announcements/2025/11/24/whats-new-tpen3.html){: .button role="button"}
 Open an account to start recording annotations on images from all over the world and across time.
 
 {: .authenticated.hidden}
@@ -82,12 +82,12 @@ Established in 2010, the project is still active and growing.
 ## Transcribe Now
 
 {: .unauthenticated}
-Open your account to get started: [Login](./login?returnTo={{site.url}}){: .button role="button"}
+Open your account to get started: [Sign Up](./login?returnTo={{site.url}}/announcements/2025/11/24/whats-new-tpen3.html){: .button role="button"}
 
 {: .authenticated.hidden}
 Head over to the TPEN app to work on any of your projects:
 
-{: .project-list.hidden.gridly}
+{: .project-list.authenticated.hidden.gridly}
 Your projects
 
 ---

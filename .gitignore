@@ -46,3 +46,6 @@ Temporary Items
 /node_modules
 .jekyll-cache/
 _site/
+/bin
+Gemfile
+*.lock
