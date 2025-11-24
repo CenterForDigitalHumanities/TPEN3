@@ -60,6 +60,7 @@ The Classic Interface is available first, offering:
 - Image zoom and navigation
 - Auto-save functionality
 - Column and layer organization
+- Split-screen tools and QuickType shortcuts
 
 More interfaces are coming soon for complex layouts and specialized workflows.
 
@@ -77,8 +78,7 @@ Access the **Project Management** page to add collaborators.
 ### Project Organization
 
 - Create **multiple layers** for main text, glosses, and commentary
-- Organize pages into **groups** or columns
-- Define **text flow** across non-sequential pages
+- Organize pages into ordered and labeled **columns**
 - Add project metadata and license information
 
 ---
@@ -88,22 +88,25 @@ Access the **Project Management** page to add collaborators.
 ### Everything is Linked Open Data
 
 Your transcriptions are automatically stored as:
+
 - **Web Annotations** - W3C standard format
 - **IIIF Manifests** - Interoperable image structure
 - Published to **RERUM** - Public Linked Data repository
 
 This means your work is:
+
 - Immediately accessible to other tools
 - Discoverable across the scholarly web
-- Yours to export in standard formats
+- Yours to export or remix in standard formats
 
 ### Non-Destructive Annotation
 
-TPEN 3 never modifies original images. Your transcriptions are:
+TPEN 3 never modifies, mirrors, or claims original images. Your transcriptions are:
+
 - Separate annotation layers
 - Linked to precise image regions
 - Versioned and trackable
-- Exportable independently
+- Independently dereferenceable
 
 ---
 
@@ -151,7 +154,7 @@ This is an early access release, so some features are still in development:
 - **Limited interface options** - Classic interface only (complex layout and specialized interfaces coming soon)
 - **Export formats** - Plain text, IIIF, and Web Annotation available (TEI and other formats planned)
 - **Manifest editing** - Coming in future updates
-- **Advanced image manipulation** - Basic zoom/pan available (rotation, color adjustment planned)
+- **Advanced image manipulation** - Basic zoom/pan, color adjustment available (rotation or segmenting planned)
 
 We appreciate your patience and feedback as we continue development!
 
@@ -166,14 +169,8 @@ We appreciate your patience and feedback as we continue development!
 
 ---
 
-## Questions?
+## Found a bug?
 
-**Can't find what you need?** 
-- Browse [all tutorials]({{site.url}}/category/tutorials)
-- Check the [API documentation]({{site.url}}/api) for developers
-- Ask in [GitHub Discussions](https://github.com/CenterForDigitalHumanities/TPEN3/discussions)
-
-**Found a bug?**
 - Use the in-app feedback tool
 - Report on [GitHub Issues](https://github.com/CenterForDigitalHumanities/TPEN3/issues)
 
