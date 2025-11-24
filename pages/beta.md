@@ -77,7 +77,7 @@ Each user should be able to create an account, start their own project, collabor
 > - [ ] Simple autodetect lines
 > - [ ] Apply existing Annotations
 > - [ ] Linebreak text block
-> - [ ] Hotkeys, autotext
+> - [ ] QuickTypes, autotext
 > - [ ] Page and Image tools
 > - [ ] Splitscreen resources
 > - [ ] History/Undo
