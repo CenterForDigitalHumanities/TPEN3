@@ -87,13 +87,6 @@ Open your account to get started: [Sign Up](./login?returnTo={{site.url}}/gettin
 
 {: .authenticated.hidden}
 Welcome back! Ready to continue your work?
-<<<<<<< Updated upstream
-=======
-
-[Launch TPEN 3 →](https://app.t-pen.org){: .button role="button"}
-[Getting Started Guide →]({{site.url}}/getting-started)
-[View Tutorials →]({{site.url}}/category/tutorials)
->>>>>>> Stashed changes
 
 [Launch TPEN 3 →](https://app.t-pen.org){: .button role="button"}
 [Getting Started Guide →]({{site.url}}/getting-started)
