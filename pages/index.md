@@ -83,6 +83,7 @@ Established in 2010, the project is still active and growing.
 
 {: .unauthenticated}
 Open your account to get started: [Sign Up](./login?returnTo={{site.url}}/getting-started){: .button role="button"}
+Open your account to get started: [Sign Up](./login?returnTo={{site.url}}/getting-started){: .button role="button"}
 
 {: .authenticated.hidden}
 Welcome back! Ready to continue your work?
