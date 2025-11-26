@@ -6,7 +6,7 @@ categories:
   - "tutorials"
 tags:
   - "user-interface"
-coverImage: "https://github.com/CenterForDigitalHumanities/TPEN3/assets/1119165/f0347edf-4274-419d-8be4-47377719312f"
+coverImage: "/assets/img/create_account.png"
 author: "Patrick Cuba"
 ---
 
@@ -27,10 +27,10 @@ If you do not have an existing account, you can create a new one.
 
 ![signup form]({{ site.baseurl }}assets/img/signup_form.png)
 
-1. Go to the [TPEN3 website](https://t-pen.org/).
+1. Go to the [TPEN3 website](https://three.t-pen.org/).
 2. Click on the "Log In" button in the top right corner.
 3. Click on the "Sign up" link.
-4. Select a username, enter your email address, and select a password.
+4. Select a username, enter your email address (or link a social account), and select a password.
 5. Click on the "Continue" button.
 6. Follow the prompts on screen to confirm your account and enjoy using TPEN!
 

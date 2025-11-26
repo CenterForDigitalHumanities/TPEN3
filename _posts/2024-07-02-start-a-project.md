@@ -24,6 +24,8 @@ with others using the basic TPEN interfaces or any customized experience.
 
 From the TPEN 3 application at [app.t-pen.org](https://app.t-pen.org), authenticated users can create a new project by clicking the **"Create Project"** button on the landing page. This opens the Project Creation interface, which provides several options for importing content:
 
+![new project](/assets/img/new_project.png)
+
 1. **Single Image** - Upload or provide a URL to a digital image
 2. **IIIF Manifest** - Import from a IIIF Presentation 2.x or 3.x Manifest
 3. **TPEN 2.8 Project** - Import an existing project from the legacy platform
@@ -79,7 +81,7 @@ TPEN 3 supports:
 
 Even if you only want to transcribe a few pages from a longer resource, importing the full IIIF Manifest is recommended - you can hide or skip pages you don't need.
 
-## Annotate a Lacuna
+## Annotate a Lacuna (planned feature)
 
 A Lacuna refers to a missing or undigitized portion of a folio, an entire folio, or perhaps even entire sections of a manuscript. It can also be a purposefully placed blank page. Within TPEN, you can represent lacunae as IIIF Canvas resources with placeholder images. This is useful when:
 
@@ -100,13 +102,13 @@ Existing users of the legacy TPEN platform at [t-pen.org](https://t-pen.org) can
    - Converts project metadata and settings
    - Recreates the project structure using IIIF Presentation 3.0 and Web Annotation standards
    - Generates new Annotation Collections and Pages in RERUM (store.rerum.io)
-4. **Review and continue work** - Verify the imported content and begin transcribing
+4. **Review and continue work** - Verify the imported content and resume transcribing
 
 **Important Notes on Migration:**
 
 - This is a **one-way import**, not a sync - changes in TPEN 3 won't affect the TPEN 2.8 original
 - Some TPEN 2.8 features may not have direct equivalents in TPEN 3
-- Projects remain available in TPEN 2.8 as a backup
+- Projects in TPEN 2.8 are unaware that they have been forked
 - The migration uses open standards, making your data more portable and future-proof
 
 ## Digital Project Resources
