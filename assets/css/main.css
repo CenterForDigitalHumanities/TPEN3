@@ -144,6 +144,96 @@ h3 {
 .hidden {
     display: none;
 }
+
+.tldr-container {
+    margin-block: 2em;
+    padding: 1em;
+    background-color: var(--dark);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.tldr-toggle {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.5em 1em;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 3px var(--darkest);
+    transition: all .2s ease-in-out;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.tldr-toggle:hover {
+    background-color: var(--primary-light);
+    color: var(--darkest);
+    box-shadow: 0 0 3px var(--white);
+}
+
+.tldr-toggle i {
+    margin-right: 0.25em;
+}
+
+.tldr-content {
+    margin-top: 1em;
+    padding: 1em;
+    background-color: var(--darkest);
+    border-radius: 4px;
+    animation: slide-down 0.3s ease-out;
+}
+
+.tldr-content[hidden] {
+    display: none;
+}
+
+.tldr-content ul,
+.tldr-content ol {
+    margin: 0.5em 0;
+    padding-left: 1.5em;
+}
+
+.tldr-content li {
+    margin: 0.25em 0;
+}
+
+.tldr-content h4 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+}
+
+.tldr-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5em 0;
+}
+
+.tldr-content th,
+.tldr-content td {
+    padding: 0.5em;
+    border: 1px solid var(--gray);
+    text-align: left;
+}
+
+.tldr-content th {
+    background-color: var(--dark);
+    font-weight: bold;
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 a.button {
     background-color: var(--primary-color);
     color           : var(--white);

@@ -9,12 +9,26 @@ tags:
   - "development"
 coverImage: "https://github.com/CenterForDigitalHumanities/TPEN3/assets/1119165/1b4e0530-5543-4cb6-9d73-605d2076bd8c"
 author: "Patrick Cuba"
+tldr: |
+  **For Developers:**
+  
+  | Component | Purpose | API Endpoint |
+  |-----------|---------|-------------|
+  | User | Auth token & permissions | Authorization event (Bearer token) |
+  | Project | Config & permissions | `/project/{id}` |
+  | Manifest | IIIF images & metadata | project.manifest |
+  | Layers | Annotation Collections | Ordered pages per layer |
+  | Pages | Annotation Pages | Line annotations with selectors |
+  
+  **Update Text:** `PATCH /line/{id}/text` with Bearer token
+  
+  **Key Standards:** IIIF Presentation 3, Web Annotations, Linked Open Data
 ---
 
 A referral to a transcription interface from TPEN will include just enough data to enable the interface to load the correct presentation and correctly apply modifications to the TPEN data services.
 
 ```html
-  https://example.org/transcription.html?projectID=1a2b3c4d5e6f&page=9a8f7d6c4b
+https://app.t-pen.org/transcribe?projectID=1a2b3c4d5e6f&pageID=9a8f7d6c4b
 ```
 
 ## Data Objects
@@ -29,13 +43,13 @@ The most typical transcription interface may require access to several classes a
 
 ### User
 
-The [TPEN authentication system](#new) will allow a user to log into this interface and provide the `authorization` token required for any modifications using the TPEN services. The `tpen-authorized` event, triggered on login, provides a User that includes at least these values:
+The TPEN authentication integrates with RERUM/Okta (Auth0). On login, the interface dispatches an authorization event that provides the Bearer token required for API calls. The event provides a User object that includes at least these values:
 
 ```json
 {
     "http://store.rerum.io/agent": "http://store.rerum.io/v1/id/60b15c64ed01e9941",
     "http://rerum.io/app_flag": [ "tpen" ],
-    "nickname": "paleogreg",
+    "nickname": "PaleoGreg",
     "name": "pgreg",
     "picture": "https://s.gravatar.com/avatar/180ee1b0cf77c.png",
     "updated_at": "2024-06-27T20:53:23.310Z",
@@ -45,18 +59,18 @@ The [TPEN authentication system](#new) will allow a user to log into this interf
 }
 ```
 
-* `name` and `nickname` are what the user has provided to the identity service and may not be what is registered with TPEN
-* `app_flag` should always contain "tpen" but may also include other authorized applications
-* `authorization` is the Bearer token that will be used to authenticate any modifications
-* `exp` should not represent an expired token, but may be worth confirming.
-* `http://store.rerum.io/agent` is the URI of the user's public Agent in the RERUM service.
+* `name` and `nickname` come from the identity provider and may differ from TPEN profile
+* `app_flag` includes authorized applications (e.g., "tpen")
+* `authorization` is the Bearer token used for authenticated API requests
+* `exp` indicates token expiry and should be checked by clients
+* `http://store.rerum.io/agent` is the URI of the user's public Agent in RERUM
 
 While this data is technically enough to identify the user, it lacks the context of the TPEN user. The `my/profile` service, authorized with the Bearer token, will return the TPEN user:
 
 ```json
 { 
-  "_id_": "60b15c64ed01e9941", 
-  "agent": "http://store.rerum.io/v1/id/60b15c64ed01e9941", 
+  "_id": "60b15c64ed01e9941", 
+  "agent": "https://store.rerum.io/v1/id/60b15c64ed01e9941", 
   "profile": {
     "https://orchid.id" : "0000-0000-3245-1188",
     "display_name" : "PaleoGreg",
@@ -70,7 +84,7 @@ The `profile` property is flexible and is only guaranteed to contain the `displa
 
 ### Project
 
-TPEN will always include a `projectID` parameter in the query string of a referral to a transcription interface. This ID matches the hexadecimal identifier of the Project in the TPEN database. Although it is possible to load only a single page and annotate it, the Project is the source of permissions and configuration settings. The complete interface object for a Project can be accessed openly at the `/project/{id}` service.
+TPEN Interfaces include a `projectID` parameter in the query string. This matches the hexadecimal identifier of the Project in the TPEN Services database. Although it is possible to load only a single page and annotate it, the Project is the source of permissions and configuration settings. The complete interface object for a Project can be accessed at the `GET /project/{id}` service.
 
 ```html
   https://api.t-pen.org/project/88b15c63bc41e9697
@@ -126,7 +140,7 @@ The `manifest` property represents the external content of the Project, the digi
 * [IIIF Manifest (Presentation 2)](https://iiif.io/api/presentation/2.1/) - The older version of the IIIF Manifest standard will not be used by TPEN, but is still used by many content providers. The Manifesto library in [IIIF Commons](https://iiif-commons.github.io/manifesto/) can be used to convert a Presentation 2 Manifest to Presentation 3.
 * [IIIF Collection](https://iiif.io/api/presentation/3.0/#51-collection) - Many Projects will draw on multiple IIIF Manifests, such as a collection of books. The `manifest` property will be a reference to the Collection, which will contain references to all of the individual Manifests. A repository may provide its own Collections or TPEN will create a Collection for Projects with multiple Manifests. These types of Collections may combine Presentation 2 and 3 Manifests, TPEN-generated and external, even other Collections, together in one Collection. Although it is highly abnormal as a use of a IIIF Collection, it is a convenient way to allow users to assemble a Project from multiple sources.
 
-*Note: When a content provider provides a resolvable URI for their Canvas resources, it is possible to present and transcribe a single "page" without ever resolving the `manifest` property. It is possible, however, for the Manifest to be the only place to dereference a Canvas resource, so the location of both will always be provided.*
+*Note: If the content provider exposes resolvable Canvas URIs, it is possible to present and transcribe a single "page" without resolving the `manifest` property. In many cases, however, the Manifest is necessary to dereference Canvas resources, so both locations are provided.*
 
 ### Layers
 
@@ -174,7 +188,7 @@ While the manuscript content belongs to an external resource, there are some way
 
 The most regular initial state of a new Project will include a linked Manifest that has no transcription annotations of its own. In these cases, TPEN will create a new Annotation Collection and Annotation Page for each folio. On first load, these will be empty until bounded regions are added to indicate lines. If the line selection process has already completed, the query string "page" will be the active Annotation Page, its `target` will identify which Canvas these Annotations should be targeting, and the `items` array will be populated with Annotations and Fragment Selectors (or selector syntax like "#xywh=") to which the entered text should be recorded.
 
-Users whose permissions include "MODIFY" for "ALL", "PAGES", or "TEXT" are allowed to contribute to these Annotations. The TPEN API Service will check the Bearer token for permission, but the interface has enough information to check this before sending the request as well. The TPEN Line API is the simplest way to makes these changes.
+Users with permissions to modify text can contribute to these Annotations. TPEN Services validates permissions using the Bearer token; clients may pre-check based on Project roles. Use the Line API for text updates.
 
 An empty line Annotation from our example above might look like this:
 
@@ -203,10 +217,10 @@ after adding the typed text, "Leve fit, quod bene fertur opus", the Annotation w
 }
 ```
 
-Since the only property changing is the `body`, it is safest to simply PATCH the change.
+Since only the `body` changes, PATCH the line text.
 
 ```javascript
-fetch("https://api.t-pen.org/setText/d3763b1944c", {
+fetch("https://api.t-pen.org/line/d3763b1944c/text", {
   method: "PATCH", 
   headers: {
     "Content-Type": "application/json",
@@ -221,6 +235,15 @@ fetch("https://api.t-pen.org/setText/d3763b1944c", {
 })
 ```
 
-*<small>These `type`, `format` defaults and the optional `language` can be omitted by setting the "Content-Type" header to "text/plain" and only sending the new string.</small>*
+*<small>These `type`, `format` defaults and the optional `language` can be omitted by setting the "Content-Type" header to "text/plain" and sending only the new string.</small>*
+
+---
+
+### API and Interfaces References
+
+- TPEN Services OpenAPI: `https://api.t-pen.org/API.html`
+- TPEN Interfaces: `https://app.t-pen.org/` (transcription and project dashboards)
+
+Endpoints and payloads evolve; consult the Services docs for the latest contract and supported operations.
 
 The existing version of the Annotation will continue to exist, but the TPEN API will update the Line and all related documents, returning the updated Line id to the client.

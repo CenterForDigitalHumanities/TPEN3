@@ -9,6 +9,15 @@ tags:
   - "paleography"
 coverImage: "https://github.com/CenterForDigitalHumanities/TPEN3/assets/1119165/71790fdd-005e-4a7b-bdeb-72a66b4b1718"
 author: "Patrick Cuba"
+tldr: |
+  **Transcription Workflow:**
+  1. **Segment Images** - Mark text lines/fragments, group into columns/sections, assign to layers
+  2. **Set Text Flow** - Order sections, lines, and pages for continuous reading
+  3. **Type Transcriptions** - Enter text for each fragment line-by-line
+  
+  **Three Interfaces Available:** Classic (TPEN 2.8-style), Modern (streamlined), Complex (glosses/challenging layouts)
+  
+  **Extensible:** Public API allows custom transcription interfaces for specialized needs or crowd-sourcing
 ---
 
 ## Reading the Page

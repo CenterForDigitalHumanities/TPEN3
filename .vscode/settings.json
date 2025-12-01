@@ -1,0 +1,5 @@
+{
+  "terminal.integrated.env.windows": {
+    "PATH": "C:\\Ruby33-x64\\bin;${env:PATH}"
+  }
+}

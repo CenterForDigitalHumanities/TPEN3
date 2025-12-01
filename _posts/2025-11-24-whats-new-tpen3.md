@@ -6,6 +6,17 @@ categories:
   - "announcements"
 coverImage: "/assets/img/logo_feat.png"
 author: "Patrick Cuba"
+tldr: |
+  **Key Improvements:**
+  - 🌐 **Open Standards** - Full IIIF & Web Annotation support, instant Linked Open Data
+  - 👥 **Team Collaboration** - Role-based access (Owner/Leader/Contributor/Viewer) with custom permissions
+  - 🖥️ **Multiple Interfaces** - Classic, Complex Layout, and Unconventional interfaces + public API for custom tools
+  - 📁 **Flexible Projects** - Import from TPEN 2.8, single images, IIIF Collections/Manifests
+  - 📊 **Advanced Organization** - Multiple layers, groups, text flow, fragment selection
+  - 🔐 **Modern Auth** - Auth0 with social login, passwordless options, enhanced security
+  - ⚡ **Better Performance** - Microservices architecture, API-first design, continuous deployment
+  - 🔄 **Smooth Migration** - One-click TPEN 2.8 upgrade, no forced migration
+  - [🔗 Get to Work!](https://app.t-pen.org)
 ---
 
 ## Welcome to TPEN 3: A New Era for Digital Transcription
@@ -25,7 +36,9 @@ TPEN 3 fully embraces **IIIF** (International Image Interoperability Framework) 
 - Compatible with any IIIF-compliant viewer or tool
 - Discoverable and reusable across the scholarly graph
 
-**TPEN 2.8** generated compatible formats for external use and created redundant containers. **TPEN 3** annotations are ready to use anywhere, immediately, directly targeting the original resources.
+**TPEN 2.8** generated compatible formats for external use and created redundant containers.
+ 
+**TPEN 3** annotations are ready to use anywhere, immediately, directly targeting the original resources.
 
 ---
 
@@ -42,7 +55,9 @@ TPEN 3 introduces a sophisticated permissions system with clearly defined roles:
 
 **Custom roles** can be created with granular permissions, enabling you to design the perfect workflow for your team.
 
-**TPEN 2.8** had limited collaboration features and basic user roles. **TPEN 3** puts team coordination and customization at the forefront.
+**TPEN 2.8** had limited collaboration features and basic user roles.
+
+**TPEN 3** puts team coordination and customization at the forefront.
 
 ### Real-Time Team Coordination
 
@@ -61,9 +76,11 @@ TPEN 3 is designed to support **multiple distinct transcription interfaces**, ea
 
 1. **Classic Interface** - Familiar TPEN 2.8 style with enhanced grouping and ordering features available first, streamlined for efficiency
 2. **Complex Layout Interface** - Purpose-built for challenging texts with interlinear glosses, marginal notes, and several layers of content
-3. **Unconventional Interface** - None rectangular text regions, freeform annotations, and flexible layouts for unique manuscript types
+3. **Unconventional Interface** - Non-rectangular text regions, freeform annotations, and flexible layouts for unique manuscript types
 
-**TPEN 2.8** offered a single interface. **TPEN 3** adapts to your manuscript's complexity and your preferred working style without breaking the data.
+**TPEN 2.8** offered a single interface. 
+
+**TPEN 3** adapts to your manuscript's complexity and your preferred working style without breaking the data.
 
 ### Build Your Own Interface
 
@@ -101,7 +118,9 @@ TPEN 3 plans support for multiple project creation methods:
 - **Cloud Storage Links** - Import images from Google Drive, Dropbox, etc.
 - **Local File Access** - Annotate images directly from your computer
 
-**TPEN 2.8** required more manual setup and the automatic links into existing repositories continued to degrade. **TPEN 3** seeks to remark any open resource.
+**TPEN 2.8** required more manual setup and the automatic links into existing repositories continued to degrade.
+
+**TPEN 3** seeks to remark durably upon any open resource in place.
 
 ---
 
@@ -138,7 +157,9 @@ TPEN 3 provides leaders with powerful project management capabilities:
 - **Version Control** - Track changes and manage project evolution
 - **Interface Selection** - Choose default interfaces for your team
 
-**TPEN 2.8** had configuration options limited by its own interfaces. **TPEN 3** gives you complete control.
+**TPEN 2.8** had configuration options limited by its own interfaces.
+
+**TPEN 3** gives you complete control.
 
 ### Standards-Based Export
 
@@ -203,11 +224,11 @@ In addition to simpler maintenance, TPEN 3's architecture allows for modular upg
 
 ## Early Access
 
-We're launching early access with these core features and will continue to evolve based on community feedback. TPEN 3 is developed openly on [GitHub](https://github.com/CenterForDigitalHumanities/TPEN 3), and we welcome your input.
+We're launching early access with these core features and will continue to evolve based on community feedback. TPEN 3 is developed openly on [GitHub](https://github.com/CenterForDigitalHumanities/TPEN3), and we welcome your input.
 
 **Ready to get started?** [Create your account]({{site.url}}/login) and begin transcribing today!
 
-**Have questions?** Start the conversation in our [community discussions](https://github.com/CenterForDigitalHumanities/TPEN 3/discussions) or use the feedback form within the application.
+**Have questions?** Start the conversation in our [community discussions](https://github.com/CenterForDigitalHumanities/TPEN3/discussions) or use the feedback form within the application.
 ![feedback tool](/assets/img/feedback-tool.png)
 
 ---

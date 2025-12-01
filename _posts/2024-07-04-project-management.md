@@ -9,6 +9,14 @@ tags:
   - "paleography"
 coverImage: "https://github.com/CenterForDigitalHumanities/TPEN3/assets/1119165/cf698685-bd84-49d0-9fcd-be650bbe9e66"
 author: "Patrick Cuba"
+tldr: |
+  **Dashboard Functions:**
+  - **Switch Projects** - Access and manage your project list
+  - **Describe** - Edit title, description, metadata (date, location, language)
+  - **Share** - Control public/private access, manage user roles, generate share links
+  - **Customize** - Configure collections, page/layer order, QuickType shortcuts, interface defaults, transcription tools
+  
+  **Advanced:** Project pipelines can trigger external services (HTR, moderation queues, notifications)
 ---
 
 ## Project Dashboard

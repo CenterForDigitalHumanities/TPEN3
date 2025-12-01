@@ -8,6 +8,13 @@ tags:
   - "user-interface"
 coverImage: "https://github.com/CenterForDigitalHumanities/TPEN3/assets/1119165/f0347edf-4274-419d-8be4-47377719312f"
 author: "Patrick Cuba"
+tldr: |
+  **Quick Steps:**
+  1. Go to [t-pen.org](https://t-pen.org/) → Click "Log In" → "Sign up"
+  2. Choose username, enter email, create password
+  3. Confirm account and start using TPEN
+  
+  **Note:** TPEN 2.8 users can use the same email for easier migration. All accounts managed through Rerum service with minimal data collection and strong privacy protection.
 ---
 
 ## TPEN Users by Rerum

@@ -6,6 +6,17 @@ date: "2024-12-12"
 categories: "documentation"
 coverImage: '/assets/img/tpenUsers.png'
 author: "Patrick Cuba"
+tldr: |
+  **Core Roles:**
+  
+  | Role | Capabilities |
+  |------|-------------|
+  | **Owner** | Full control, assign roles, delete project, transfer ownership |
+  | **Leader** | Manage project, assign roles (except Owner), coordinate team |
+  | **Contributor** | Add/modify annotations and pages (no config access) |
+  | **Viewer** | Read-only access to project content |
+  
+  **Custom Roles:** Leaders can create roles with granular permissions using format: `Action_Scope_Entity` (e.g., `CREATE_METADATA_PROJECT`, `UPDATE_TEXT_LINE`)
 ---
 
 ## Roles and Permissions

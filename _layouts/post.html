@@ -36,6 +36,18 @@ layout: default
     <div class="post-cover-image-banner" style="--bg-image: url('{{ page.coverImage }}');">
     </div>
     {% endif %}
+    
+    {% if page.tldr %}
+    <div class="tldr-container">
+      <button class="tldr-toggle" onclick="toggleTLDR()" aria-expanded="false">
+        <i class="bi bi-lightning-fill"></i> TL;DR
+      </button>
+      <div class="tldr-content" id="tldr-content" hidden>
+        {{ page.tldr | markdownify }}
+      </div>
+    </div>
+    {% endif %}
+    
     <div id="markdown-content">
       {{ content }}
     </div>

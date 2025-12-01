@@ -8,6 +8,15 @@ tags:
   - "paleography"
 coverImage: "https://github.com/CenterForDigitalHumanities/TPEN3/assets/1119165/4cf83476-e73c-47ad-9fdf-90406405e5dd"
 author: "Patrick Cuba"
+tldr: |
+  **Project Creation Methods:**
+  - **Single Image** - Drag & drop any web-accessible image
+  - **Image Collection** - Upload/organize multiple images
+  - **IIIF Resource** - Import IIIF Manifests/Collections (recommended)
+  - **TPEN 2.8 Import** - Seamlessly upgrade legacy projects
+  - **Lacuna Pages** - Add placeholders for missing folios
+  
+  **What Gets Created:** TPEN Project (private), IIIF Manifest (shareable), Annotation Collection & Pages (Linked Open Data)
 ---
 
 ## A Commentary on Knowledge

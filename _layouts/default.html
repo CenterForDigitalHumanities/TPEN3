@@ -28,7 +28,7 @@
             <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" style="width:100%;"/></a>
         </header>
             {% else %}
-            <header style="position: fixed;background-color: var(--darkest);width: 100%;z-index:15;">
+            <header style="position: fixed;background-color: var(--darkest);box-shadow: 0 0 8px var(--darkest);width: 100%;z-index:15;">
                 <h1 style="margin: 0;"><a href="{{ "/" | absolute_url }}" style="text-decoration: none;">{{ site.title | default: site.github.repository_name }}</a>
                     <div class="cube">
                         <div class="top"> </div>
@@ -71,6 +71,7 @@
         </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/tldr.js" | relative_url }}"></script>
 </body>
 
 </html>
