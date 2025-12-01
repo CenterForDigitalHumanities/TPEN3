@@ -17,6 +17,7 @@ tldr: |
   - ⚡ **Better Performance** - Microservices architecture, API-first design, continuous deployment
   - 🔄 **Smooth Migration** - One-click TPEN 2.8 upgrade, no forced migration
   - [🔗 Get to Work!](https://app.t-pen.org)
+pinned: true
 ---
 
 ## Welcome to TPEN 3: A New Era for Digital Transcription

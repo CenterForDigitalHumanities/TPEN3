@@ -18,11 +18,18 @@ Open an account to start recording annotations on images from all over the world
 Welcome back! [Launch TPEN 3.0](https://app.t-pen.org){: .button role="button"}
 
 ---
-{% assign today_date = 'now' | date: '%s' %}
-{% assign pre_date = site.posts.first.date | date: '%s' %}
-{% assign diff = today_date | minus: pre_date %}
-{% if diff < 604800 %}
-  {% assign post = site.posts.first %}
+{% assign pinned_posts = site.posts | where_exp: "p", "p.pinned == true" %}
+{% if pinned_posts and pinned_posts.size > 0 %}
+  {% assign post = pinned_posts.first %}
+{% else %}
+  {% assign today_date = 'now' | date: '%s' %}
+  {% assign pre_date = site.posts.first.date | date: '%s' %}
+  {% assign diff = today_date | minus: pre_date %}
+  {% if diff < 604800 %}
+    {% assign post = site.posts.first %}
+  {% endif %}
+{% endif %}
+{% if post %}
 <ul class="post-list">
     <li class="post-list-item">
       <h3>
