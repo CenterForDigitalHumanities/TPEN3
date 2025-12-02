@@ -1,16 +1,25 @@
 ---
 layout: default
-title: TPEN 3.0 Beta Planning
+title: Early Access
 permalink: /beta/
 ---
 
-# Release Goals for the July Beta Testing
+{: .notice}
+> **TPEN 3 Early Access is Live!** [Get started now →]({{site.url}}/getting-started)
 
-1. Complete simple transcription workflow
-2. Reliable schema for all document types
-3. User authentication and invite system
-4. User feedback and bug reporting infrastructure
-5. Summary punchlist of forthcoming features
+# Early Access Release
+
+TPEN 3 is now available for early access! The beta testing phase has evolved into a public early access release where users can start transcribing with core features while we continue development.
+
+## ✅ What's Available Now
+
+1. ✅ Complete simple transcription workflow
+2. ✅ Reliable schema for all document types
+3. ✅ User authentication and collaboration system
+4. ✅ In-app feedback and bug reporting
+5. ✅ Standards-compliant data (IIIF, Web Annotation)
+
+[See full feature list →]({{site.url}}/announcements/2025/11/24/whats-new-tpen3.html)
 
 ## Complete Workflow
 
@@ -18,43 +27,43 @@ Each user should be able to create an account, start their own project, collabor
 
 ### Account Management
 
-- [ ] New User Account creation
-- [ ] Existing User login/logout
-- [ ] User Profile management
+- [x] New User Account creation
+- [x] Existing User login/logout
+- [x] User Profile management
 
 > *Reach goals:*
 >
-> - [ ] Link to TPEN 2.0 account
+> - [x] Link to TPEN 2.0 account
 > - [ ] Add external identifier (Google, ORCID, etc.)
-> - [ ] Add external authentication (Google, GitHub, etc.)
+> - [x] Add external authentication (Google, GitHub, etc.)
 
 ### Project Management
 
-- [ ] Create a new project
-  - [ ] Import from TPEN 2.0
-  - [ ] Import from IIIF Manifest 2.x
-  - [ ] Import from IIIF Manifest 3.x ([Learn more about IIIF Presentation 3 API](https://iiif.io/api/presentation/3.0/))
+- [x] Create a new project
+  - [x] Import from TPEN 2.0
+  - [x] Import from IIIF Manifest 2.x
+  - [x] Import from IIIF Manifest 3.x ([Learn more about IIIF Presentation 3 API](https://iiif.io/api/presentation/3.0/))
 - [ ] Add collaborators
-  - [ ] Add existing user
-  - [ ] Invite a new user
-  - [ ] Remove a collaborator
-  - [ ] Change roles for collaborators
-  - [ ] Create custom roles
-- [ ] Add project metadata
-- [ ] Reorganize Pages
-  - [ ] Remove page
-  - [ ] Reorder pages
-  - [ ] Add new Layers
-- [ ] Continue a Project
-  - [ ] See recent Projects
-  - [ ] See all Projects
-  - [ ] Click to transcribe
-  - [ ] Click to manage
+  - [x] Add existing user
+  - [x] Invite a new user
+  - [x] Remove a collaborator
+  - [x] Change roles for collaborators
+  - [x] Create custom roles
+- [x] Add project metadata
+- [x] Reorganize Pages
+  - [x] Remove page
+  - [x] Reorder pages
+  - [x] Add new Layers
+- [x] Continue a Project
+  - [x] See recent Projects
+  - [x] See all Projects
+  - [x] Click to transcribe
+  - [x] Click to manage
 
 > *Reach goals:*
 >
 > - [ ] Project from Manifest Editor
-> - [ ] Project from Image(s) only
+> - [x] Project from Image(s) only
 > - [ ] Clone Group for new Project
 > - [ ] Collect Projects together
 > - [ ] Link metadata schemas
@@ -64,29 +73,29 @@ Each user should be able to create an account, start their own project, collabor
 
 ### Transcription
 
-- [ ] Mark xywh Line Boundaries
-- [ ] Add text content to Line
-- [ ] Navigate between Lines
-- [ ] Navigate between Pages
-- [ ] Switch Layers
-- [ ] Save progress
+- [x] Mark xywh Line Boundaries
+- [x] Add text content to Line
+- [x] Navigate between Lines
+- [x] Navigate between Pages
+- [x] Switch Layers
+- [x] Save progress
 - [ ] Show Attribution
 
 > *Reach goals:*
 >
 > - [ ] Simple autodetect lines
-> - [ ] Apply existing Annotations
-> - [ ] Linebreak text block
-> - [ ] QuickTypes, autotext
-> - [ ] Page and Image tools
-> - [ ] Splitscreen resources
-> - [ ] History/Undo
+> - [x] Apply existing Annotations
+> - [x] Linebreak text block
+> - [x] QuickTypes, autotext
+> - [x] Page and Image tools
+> - [x] Splitscreen resources
+> - [o] History/Undo
 
 ### Project Preferences
 
-- [ ] Access Project Tools
-- [ ] View Default Interfaces (transcription, data export, management, collaboration, sharing)
-- [ ] Delete Project
+- [x] Access Project Tools
+- [x] View Default Interfaces (transcription, data export, management, collaboration, sharing)
+- [x] Delete Project
 
 ## Interfaces
 
@@ -142,14 +151,14 @@ Anyone with an email address should be able to create an account. This will be t
 Users should be able to report bugs and provide feedback on the system. This will be done through a simple form that will be accessible from any page. The form will automatically record the user's information and the page they were on when they submitted the form. This will help us to track down bugs and improve the system.
 The form will also allow users to provide feedback on the system, including suggestions for new features and improvements.
 
-- [ ] Create a feedback form
-- [ ] Create a bug report form
-- [ ] Link form submissions to GitHub issues
+- [x] Create a feedback form
+- [x] Create a bug report form
+- [x] Link form submissions to GitHub issues
 - [ ] Create a user feedback dashboard
 
 **Reach goals:**
 
-- [ ] Create a user feedback forum
+- [x] Create a user feedback forum
 - [ ] Create a user feedback voting system
 - [ ] Create a user feedback leaderboard
 

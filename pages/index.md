@@ -92,7 +92,11 @@ Established in 2010, the project is still active and growing.
 Open your account to get started: [Sign Up](./login?returnTo={{site.url}}/announcements/2025/11/24/whats-new-tpen3.html){: .button role="button"}
 
 {: .authenticated.hidden}
-Head over to the TPEN app to work on any of your projects:
+Welcome back! Ready to continue your work?
+
+[Launch TPEN 3 →](https://app.t-pen.org){: .button role="button"}
+[Getting Started Guide →]({{site.url}}/getting-started)
+[View Tutorials →]({{site.url}}/category/tutorials)
 
 {: .project-list.authenticated.hidden.gridly}
 Your projects
