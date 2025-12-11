@@ -32,6 +32,7 @@ Work with teams:
 
 Take your projects further:
 - **[Developing Transcription Interfaces]({{site.url}}/tutorials/2022/07/05/developing-transcription-interfaces.html)** - Build custom interfaces
+- **[IIIF Manifests in TPEN 3]({{site.url}}/tutorials/2026/01/10/iiif-manifests-in-tpen3.html)** - Start projects, target images, export derivatives
 - Custom export formats (coming soon)
 - API integration (coming soon)
 

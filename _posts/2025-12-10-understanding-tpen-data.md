@@ -181,85 +181,43 @@ graph LR
 3. **Mark Lines** by drawing boxes around text fragments
 4. **Group into Columns** if your page has multiple sections
 5. **Type transcriptions** for each Line
-6. **Add Layers** if you need to annotate the same pages differently
-7. **Set reading order** so your text flows correctly across Pages and Columns
+6. **Set reading order** so your text flows correctly across Pages and Columns
+7. **Add Layers** if you need to annotate the same pages differently
 
 ---
 
 ## IIIF Resources: The Foundation
 
-TPEN 3 is built on the [IIIF](https://iiif.io/) (International Image Interoperability Framework) standard, which powers how images and transcriptions work together.
+TPEN 3 is built on the [IIIF](https://iiif.io/) (International Image Interoperability Framework) and [Web Annotation](https://www.w3.org/TR/annotation-model/) standards, linking images and transcriptions together.
 
 ### Manifests: Organizing Your Images
 
-A **IIIF Manifest** is like a table of contents for a digitized manuscript. It describes:
+A **IIIF Manifest** is a container for a digitized manuscript. It describes:
+
 - What images are in the manuscript
 - What order they appear in
 - Metadata like title, author, date, rights
 - How images relate to physical structure (pages, folios)
 
-**Three Ways TPEN Uses Manifests:**
+#### Three Ways TPEN Uses Manifests
 
-#### 1. Starting a Project
+1. Start projects from existing Manifests to auto-import images, order, and metadata.
+2. Target original images via Canvases; annotations reference xywh on source content (no copies).
+3. Export a derivative Manifest with your annotations and reading order for reuse in other tools.
 
-When you create a Project from a IIIF Manifest:
-- TPEN reads the Manifest to discover all the images
-- Each Canvas (image) in the Manifest becomes a Page
-- The Manifest's order determines the initial Page sequence
-- Metadata populates your Project description
+> If you're starting a new Project, TPEN creates a new Manifest for you. If you're starting from an existing Manifest, TPEN references the original one.
 
-**Example:** A medieval manuscript Manifest from the Bodleian Library might contain 200 Canvases representing 100 folios (recto and verso). TPEN imports all 200 as Pages, ready for transcription.
-
-**Where to find Manifests:**
-- Most major digital libraries (Bodleian, Gallica, Internet Archive, etc.)
-- Look for "IIIF" or "Share/Export" options on manuscript viewer pages
-- URLs typically end with `/manifest` or `/manifest.json`
-
-#### 2. Providing Image Targets
-
-TPEN doesn't copy or download images. Instead:
-- Your Line annotations **target** the original images in the Manifest
-- Images stay on the library's server
-- Annotations point to specific x,y,w,h coordinates on each Canvas
-- Anyone viewing your annotations sees the original, authoritative images
-
-**Benefits:**
-- No duplicate storage
-- Images benefit from the library's infrastructure (zoom, color correction)
-- Annotations remain valid even if image quality improves
-- You're citing the original source, not a copy
-
-#### 3. Exporting as a Derivative
-
-You can export your complete Project as a new IIIF Manifest that includes:
-- All the original image information
-- Your transcription annotations embedded
-- Metadata from your Project
-- Reading order reflecting your Columns and Pages
-
-**Uses for exported Manifests:**
-- Share your work in IIIF viewers like Mirador or Universal Viewer
-- Deposit in digital repositories
-- Enable text search in image viewers
-- Reuse in other scholarly tools
-- Create datasets for computational analysis
-
-**Example:** After transcribing a medieval recipe book, you export a Manifest. Researchers can now:
-- View the manuscript images
-- See your transcriptions overlaid on the images
-- Search the full text across all pages
-- Download the data for analysis
-- All in standard IIIF-compatible tools
+See the full guide: [IIIF Manifests in TPEN 3](/tutorials/2026/01/10/iiif-manifests-in-tpen3.html).
 
 ### Canvases: Individual Image Resources
 
 A **Canvas** is one image in a IIIF Manifest. It represents the "drawable surface" where content appears.
 
 **What you need to know:**
-- Each Page in TPEN links to one Canvas
-- Canvases have dimensions (width and height in pixels)
-- Your Line annotations use these dimensions to specify locations
-- Canvases can have multiple images (e.g., multispectral imaging) - you annotate the Canvas, not individual images
+
+- Pages in TPEN link to a Canvas
+- Your Line annotations target a fragment of a Canvas
+- TPEN Projects are made up of Pages that reference these Canvases, they are not "part of" the Project
 
 **Technical Detail:** When you draw a box around a Line, TPEN creates an annotation targeting that Canvas with coordinates like: `canvas#xywh=100,200,300,50` (starting at x:100, y:200, width:300, height:50).
 
@@ -268,40 +226,43 @@ A **Canvas** is one image in a IIIF Manifest. It represents the "drawable surfac
 One of TPEN 3's key principles: **images are not migrated or copied**.
 
 **How it works:**
-- Libraries host their images on their servers
+
+- Institutions host their images on their servers
 - IIIF Manifests point to these images
-- TPEN loads images directly from the source
+- t-pen.org loads images directly from the source
 - Your browser retrieves images as needed
-- Annotations reference the image URLs
+- Line annotations reference the image URLs
 
 **Advantages:**
-- **No storage costs** - TPEN doesn't duplicate large image files
-- **Always current** - If libraries update images, you see improvements
-- **Proper attribution** - Clear connection to the original source
-- **Better performance** - Libraries use CDNs and image servers optimized for delivery
 
-**What about access control?** 
+- **Reliability** - If institutions update images, you see improvements
+- **Attribution** - Clear connection to the original source
+- **Performance** - Institutions use CDNs and image servers optimized for delivery
+- **Portability** - Your annotations work with any IIIF viewer and can be integrated into any IIIF workflow
+
+**What about access control?**
+
 - If you can see the images in your browser, you can annotate them
-- Images behind authentication, CORS restrictions, or firewalls will work for you
+- Images behind authentication or paywalls can still work for *you*
 - Sharing your Project may require recipients to have access to the same images
+- Even with limited access, the transcription data is still yours to use and share, referencing the original images
 - Public IIIF resources work best for collaborative projects
 
 ### IIIF and Standards Compliance
 
-Every piece of data TPEN creates follows international standards:
+Every piece of data TPEN creates follows international standards and is stored at rerum.io, ensuring long-term preservation and accessibility. This means your work is not just in TPEN but also part of a broader ecosystem of digital humanities tools and platforms.:
 
 - **Projects** → Custom TPEN format, accessible via API
-- **Layers** → Web Annotation Collections
-- **Pages** → Web Annotation Pages  
-- **Lines** → Web Annotations
+- **Layers** → available as Web Annotation Collections
+- **Pages** → available as Web Annotation Pages  
+- **Lines** → available as Web Annotations
 - **Manifests** → IIIF Presentation 3.0
 
-**Why this matters:**
-- Your work isn't locked into TPEN
-- Other tools can read your annotations
-- Your data is citable and preservable
-- Future tools will still understand your work
-- You can combine TPEN data with other sources
+> - Your work isn't locked into TPEN
+> - Other tools can work directly with your annotations
+> - Your data is citable and preservable
+> - Future tools will still understand your work
+> - You can use other tools to prepare your data for TPEN
 
 ---
 
@@ -309,14 +270,14 @@ Every piece of data TPEN creates follows international standards:
 
 ### In the Transcription Interface
 
-When you transcribe, you're working with all five concepts simultaneously:
-
-1. **Select a Page** - Choose which folio to work on
-2. **Choose your Layer** - Switch between base text, commentary, etc.
-3. **Mark Lines** - Draw boxes around text on the image
-4. **Group into Columns** - Organize Lines into sections (if needed)
-5. **Set reading order** - Define sequence of Columns and Lines
-6. **Type transcriptions** - Enter text for each Line
+```mermaid
+flowchart TD
+    A["Select a Page<br/>Choose which folio to work on"] --> B["Choose your Layer<br/>Switch between base text, commentary, etc."]
+    B --> C["Mark Lines<br/>Draw boxes around text on the image"]
+    C --> D["Group into Columns<br/>Organize Lines into sections if needed"]
+    D --> E["Set reading order<br/>Define sequence of Columns and Lines"]
+    E --> F["Type transcriptions<br/>Enter text for each Line"]
+```
 
 The interface handles the technical details of creating proper Web Annotations, targeting IIIF Canvases, and storing everything correctly.
 
@@ -345,50 +306,29 @@ fetch('https://store.rerum.io/v1/id/page789')
 Because TPEN uses standards, your data works elsewhere:
 
 - **IIIF Viewers** (Mirador, Universal Viewer) - Display images with transcription overlays
-- **TEI Editors** - Export annotations as TEI XML
-- **Research platforms** - Query annotations as Linked Data
+- **TEI Editors** - Shim annotations as standoff TEI XML
+- **Research platforms** - Query annotations as Linked Open Usable Data
 - **Computational tools** - Analyze transcription text and metadata
-- **Digital repositories** - Deposit complete IIIF Manifests with annotations
-
----
-
-## Key Takeaways
-
-**For Daily Work:**
-- **Projects** contain everything for one manuscript
-- **Layers** separate different annotation types
-- **Pages** represent individual images/folios  
-- **Columns** organize complex layouts
-- **Lines** hold your actual transcriptions
-
-**For Understanding IIIF:**
-- **Images** stay at the source - you annotate remotely
-- **Manifests** organize images and can start Projects
-- **Canvases** are the image surfaces you annotate
-- **Export Manifests** to reuse your work elsewhere
-
-**The Power of Standards:**
-- Your work is portable, not locked in
-- Other tools can read and use your annotations
-- Data remains accessible long-term
-- Easy to combine with other resources
-
----
+- **Digital repositories** - Deposit complete IIIF Manifests with annotations or contribute supplements to existing ones
 
 ## Next Steps
 
 **Get Started:**
+
 - [Create your first Project](/tutorials/2022/07/02/start-a-project.html)
 - [Learn transcription workflows](/tutorials/2022/07/03/transcribing.html)
 - [Understand roles and permissions](/announcements/2024/12/20/roles-permissions.html)
 
 **Go Deeper:**
+
 - [Developing Transcription Interfaces](/tutorials/2022/07/05/developing-transcription-interfaces.html) - Technical deep dive
+- [IIIF Manifests in TPEN 3](/tutorials/2026/01/10/iiif-manifests-in-tpen3.html) - Full guide to starting, targeting, and exporting
 - [TPEN API Documentation](/api/) - Programmatic access
 - [IIIF Presentation 3.0 Spec](https://iiif.io/api/presentation/3.0/) - Standard details
 - [Web Annotation Model](https://www.w3.org/TR/annotation-model/) - Annotation standard
 
 **Questions?**
+
 - [Join the discussion](https://github.com/CenterForDigitalHumanities/TPEN3/discussions)
 - [Review API documentation](/api/)
 - [Explore the knowledge base](/tutorials/)
