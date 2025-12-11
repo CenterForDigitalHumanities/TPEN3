@@ -192,7 +192,7 @@ TPEN 3 is built on the [IIIF](https://iiif.io/) (International Image Interoperab
 
 ### Manifests: Organizing Your Images
 
-A **IIIF Manifest** is a container for a digitized manuscript. It describes:
+A **IIIF Manifest** is a container for a digitized resource.  For a digitized manuscript it describes:
 
 - What images are in the manuscript
 - What order they appear in
@@ -231,7 +231,7 @@ One of TPEN 3's key principles: **images are not migrated or copied**.
 - IIIF Manifests point to these images
 - t-pen.org loads images directly from the source
 - Your browser retrieves images as needed
-- Line annotations reference the image URLs
+- Line annotations reference the image URLs via the Canvas target
 
 **Advantages:**
 
@@ -250,7 +250,7 @@ One of TPEN 3's key principles: **images are not migrated or copied**.
 
 ### IIIF and Standards Compliance
 
-Every piece of data TPEN creates follows international standards and is stored at rerum.io, ensuring long-term preservation and accessibility. This means your work is not just in TPEN but also part of a broader ecosystem of digital humanities tools and platforms.:
+Every piece of data TPEN creates follows international standards and is stored at rerum.io, ensuring long-term preservation and accessibility. This means your work is not just in TPEN but also part of a broader ecosystem of digital humanities tools and platforms:
 
 - **Projects** → Custom TPEN format, accessible via API
 - **Layers** → available as Web Annotation Collections
@@ -331,4 +331,4 @@ Because TPEN uses standards, your data works elsewhere:
 
 - [Join the discussion](https://github.com/CenterForDigitalHumanities/TPEN3/discussions)
 - [Review API documentation](/api/)
-- [Explore the knowledge base](/tutorials/)
+- [Explore the knowledge base](/category/tutorials/)
