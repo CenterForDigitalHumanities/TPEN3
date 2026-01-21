@@ -9,6 +9,172 @@ permalink: /workflow
 
 This page visualizes the core workflow interfaces in the TPEN Application. This is a work in progress and will be updated as the workflow evolves.
 
+---
+
+## TPEN Navigation Map
+
+This diagram shows how the documentation site (t-pen.org) and the application interfaces (app.t-pen.org) interlink, providing a complete navigation overview of the TPEN ecosystem.
+
+```mermaid
+graph TB
+    %% Documentation Site (t-pen.org)
+    subgraph DocSite["Documentation Site (t-pen.org)"]
+        Home([Home/Landing Page])
+        GettingStarted([Getting Started])
+        Tutorials([Tutorials])
+        About([About])
+        API([API Docs])
+        Workflow([Workflow Diagrams])
+        Announcements([Announcements])
+        Roadmap([Roadmap])
+        Beta([Beta Program])
+    end
+    
+    %% Authentication Layer
+    subgraph Auth["Authentication"]
+        Login([Login/Sign Up])
+        Logout([Logout])
+        Callback([OAuth Callback])
+        Auth0[Auth0 Service]
+    end
+    
+    %% Application Interfaces (app.t-pen.org)
+    subgraph AppInterfaces["Application (app.t-pen.org)"]
+        direction TB
+        AppHome([Landing/Dashboard])
+        
+        subgraph ProjectViews["Project Views"]
+            ProjectList([Project List])
+            RecentActivity([Recent Activity])
+            ProjectDetail([Project Detail])
+        end
+        
+        subgraph ProjectManagement["Project Management"]
+            Management([Management Interface])
+            ManageUsers([Manage Users & Roles])
+            PageLayers([Organize Pages/Layers])
+            ProjectConfig([Project Configuration])
+            ProjectOptions([Project Options])
+            EditDesc([Edit Description])
+        end
+        
+        subgraph CoreWorkflow["Core Transcription Workflow"]
+            Transcribe([Transcription Interface])
+            DefineLines([Define Lines])
+            Annotate([Specialized Annotation])
+        end
+        
+        subgraph ProjectActions["Project Actions"]
+            NewProject([Create New Project])
+            ImportResource([Import Resource])
+            ExportLinks([Export/Share])
+        end
+        
+        subgraph UserManagement["User Management"]
+            ManageProfile([Manage Profile])
+            LinkAccount([Link TPEN 2.8 Account])
+        end
+    end
+    
+    %% External Services
+    subgraph External["External Services"]
+        RERUM[(RERUM Repository)]
+        IIIF[IIIF Image Services]
+        WebAnnotation[Web Annotation Standard]
+    end
+    
+    %% Documentation Site Navigation
+    Home --> GettingStarted
+    Home --> Tutorials
+    Home --> About
+    Home --> API
+    Home --> Announcements
+    Home --> Workflow
+    Home --> Login
+    GettingStarted --> Login
+    Tutorials --> AppHome
+    
+    %% Authentication Flow
+    Login --> Auth0
+    Auth0 --> Callback
+    Callback --> AppHome
+    AppHome --> Logout
+    
+    %% App Landing to Main Areas
+    AppHome --> ProjectList
+    AppHome --> RecentActivity
+    AppHome --> NewProject
+    AppHome --> ManageProfile
+    AppHome --> ImportResource
+    AppHome --> LinkAccount
+    
+    %% Project Views to Detail
+    ProjectList --> ProjectDetail
+    RecentActivity --> ProjectDetail
+    RecentActivity --> Transcribe
+    
+    %% Project Detail to Role-Based Actions
+    ProjectDetail --> Management
+    ProjectDetail --> Transcribe
+    ProjectDetail --> ExportLinks
+    
+    %% Management Flows
+    Management --> ManageUsers
+    Management --> PageLayers
+    Management --> ProjectConfig
+    Management --> ProjectOptions
+    Management --> EditDesc
+    
+    %% Configuration to Workflow
+    ProjectConfig --> DefineLines
+    DefineLines --> Transcribe
+    ProjectOptions --> Annotate
+    
+    %% Core Transcription Flow
+    Transcribe --> Annotate
+    
+    %% Data Flow to External Services
+    Annotate -.-> RERUM
+    Transcribe -.-> RERUM
+    ExportLinks -.-> RERUM
+    ImportResource -.-> IIIF
+    ProjectConfig -.-> IIIF
+    RERUM -.-> WebAnnotation
+    
+    %% Cross-references
+    API --> RERUM
+    Workflow --> AppHome
+    
+    %% Styling
+    classDef docStyle fill:#e1f5ff,stroke:#0077b6,stroke-width:2px
+    classDef authStyle fill:#fff4e6,stroke:#fd7e14,stroke-width:2px
+    classDef appStyle fill:#d4edda,stroke:#28a745,stroke-width:2px
+    classDef extStyle fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+    
+    class Home,GettingStarted,Tutorials,About,API,Workflow,Announcements,Roadmap,Beta docStyle
+    class Login,Logout,Callback,Auth0 authStyle
+    class AppHome,ProjectList,RecentActivity,ProjectDetail,Management,ManageUsers,PageLayers,ProjectConfig,ProjectOptions,EditDesc,Transcribe,DefineLines,Annotate,NewProject,ImportResource,ExportLinks,ManageProfile,LinkAccount appStyle
+    class RERUM,IIIF,WebAnnotation extStyle
+```
+
+**Navigation Overview:**
+
+- **Documentation Site (t-pen.org)**: Public-facing information, tutorials, and getting started guides
+- **Authentication Layer**: User sign-up/login via Auth0 integration
+- **Application Interface (app.t-pen.org)**: Core transcription and project management features
+- **External Services**: Integration with RERUM (Linked Open Data repository), IIIF image services, and Web Annotation standards
+
+**Key Navigation Paths:**
+
+1. **New User Journey**: Home → Getting Started → Login → App Landing → Create New Project → Transcription
+2. **Returning User**: Login → App Landing → Recent Activity → Continue Transcribing
+3. **Project Leader**: App Landing → Project Management → Configure → Manage Users → Set Roles
+4. **Data Export**: Transcription → Annotations → Export to RERUM
+
+> **Note:** Solid lines indicate direct navigation paths, dotted lines indicate data flow to external services.
+
+---
+
 ```mermaid
 flowchart TD
     LandingPage([Landing Page])
