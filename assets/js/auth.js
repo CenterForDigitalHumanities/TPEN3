@@ -113,7 +113,6 @@ export function performLoginAndRedirect() {
 
     // The decoded ?state= contains the ?returnTo= that we need the value of, which which may also have URL parameters and/or a hash itself
     let redirect = referURLParams.get('returnTo') ?? origin
-    redirect = decodeURI(redirect)
     let redirectLink
     try {
       redirectLink = new URL(redirect)
@@ -164,7 +163,6 @@ export function performLoginAndRedirect() {
      * If we end up referring to the origin because no ?returnTo was involved, then we don't want to redirect.
      */
     if (!refer) refer = redir
-    refer = decodeURI(refer)
     const wantsToRedirect = (refer !== origin)
     let redirectLink
     try {
