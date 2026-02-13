@@ -15,9 +15,12 @@ function showReturnToOption() {
     const link = document.createElement("a")
     link.href = redirect
     link.innerText = redirect
+    const note = document.createElement("p")
+    note.innerText = "*Never click links you do not recognize."
     const container = document.getElementById("returnToOption")
     if (!container) return
     container.appendChild(heading)
+    container.appendChild(note)
     container.appendChild(link)
   } catch(err) { }
 }
