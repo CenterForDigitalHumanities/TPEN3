@@ -58,7 +58,7 @@ function urlToBase64(url) {
  *    - For login default to location.origin + location.pathname so it redirects to itself for handling.
  *    - For logout default to location.origin so it suggests TPEN3 home at the callback page.
  * 
- * @param login A boolean as to whether your are processing for login or logout.
+ * @param login A boolean as to whether you are processing for login or logout.
  */
 function processRedirect(login = false) {
   let link = new URL(window.location.href)
@@ -116,7 +116,7 @@ export function performLoginAndRedirect() {
     // If there was no ?returnTo, they don't want to redirect.
     const wantsToRedirect = referURLParams.has('returnTo')
 
-    // The decoded ?state= contains the ?returnTo= that we need the value of, which which may also have URL parameters and/or a hash itself
+    // The decoded ?state= contains the ?returnTo= that we need the value of, which may also have URL parameters and/or a hash itself
     let redirect = referURLParams.get('returnTo') ?? origin
     let redirectLink
     try {
