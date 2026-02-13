@@ -56,7 +56,7 @@ function urlToBase64(url) {
  *  Detect and get the value of returnTo from the origin address /login/?returnTo=
  *  If there is no returnTo, default to the origin address /login/ for the redirect.
  */
-function processRedirect(login) {
+function processRedirect(login = false) {
   let link = new URL(window.location.href)
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
