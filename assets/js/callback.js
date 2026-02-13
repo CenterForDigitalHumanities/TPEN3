@@ -11,21 +11,34 @@ function redirectUser() {
   const urlParams = new URLSearchParams(queryString)
   let redirect = urlParams.get('returnTo') ?? location.origin
   redirect = decodeURI(redirect)
+
+  const optionsContainer = document.createElement("div")
+  const dashboardHeading = document.createElement("h4")
+  dashboardHeading.innerText = "TPEN3 Interfaces Dashboard"
+  const dashboardLink = document.createElement("a")
+  dashboardLink.href = "https://app.t-pen.org"
+  dashboardLink.innerText = "https://app.t-pen.org"
+  const TPEN3Heading = document.createElement("h4")
+  TPEN3Heading.innerText = "TPEN3 Home Page"
+  const TPEN3link = document.createElement("a")
+  TPEN3link.innerText = "https://three.t-pen.org"
+  TPEN3link.href = "https://three.t-pen.org"
+  optionsContainer.appendChild(dashboardHeading)
+  optionsContainer.appendChild(dashboardLink)
+  optionsContainer.appendChild(TPEN3Heading)
+  optionsContainer.appendChild(TPEN3link)
+
   try {
     redirect = new URL(redirect).toString()
+    const cameFromHeading = document.createElement("h4")
+    cameFromHeading.innerText = "Back To Where I Came From"
+    const cameFromLink = document.createElement("a")
+    cameFromLink.href = redirect
+    cameFromLink.innerText = redirect
+    optionsContainer.appendChild(cameFromHeading)
+    optionsContainer.appendChild(cameFromLink)
   }
-  catch(err) {
-    redirect = undefined
-  }
-
-  if(!redirect || redirect === location.origin+"/logout/"){
-    alert("Please provide a valid URL in the ?returnTo= parameter when logging out.")
-    setTimeout(() => {
-      location.href = location.origin
-    }, "5000")
-    return
-  }
-  console.log("REDIRECT TO "+redirect)
-  location.href = redirect
+  catch(err) { }
+  document.getElementById("content").appendChild(optionsContainer)
   return
 }
