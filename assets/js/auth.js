@@ -55,8 +55,8 @@ function urlToBase64(url) {
 /**
  *  Detect and get the value of returnTo from the origin address /login/?returnTo=
  *  If there is no returnTo, do specific defaults for login and logout
- *    - For login default to location.origin + location.pathname to it redirects to itself
- *    - For logout default to location.origin so it suggests TPEN3 home
+ *    - For login default to location.origin + location.pathname to it redirects to itself for handling.
+ *    - For logout default to location.origin so it suggests TPEN3 home at the callback page.
  */
 function processRedirect(login = false) {
   let link = new URL(window.location.href)
