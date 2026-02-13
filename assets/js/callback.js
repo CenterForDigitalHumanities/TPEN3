@@ -10,7 +10,7 @@ function showReturnToOption() {
   try {
     redirect = new URL(redirect).toString()
     const heading = document.createElement("h2")
-    heading.innerText = "Back To Where I Came From"
+    heading.innerText = "Suggested By Logout Source"
     const link = document.createElement("a")
     link.href = redirect
     link.innerText = redirect
