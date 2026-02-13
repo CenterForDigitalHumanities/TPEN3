@@ -55,7 +55,7 @@ function urlToBase64(url) {
 /**
  *  Detect and get the value of returnTo from the origin address /login/?returnTo=
  *  If there is no returnTo, do specific defaults for login and logout
- *    - For login default to location.origin + location.pathname to it redirects to itself for handling.
+ *    - For login default to location.origin + location.pathname so it redirects to itself for handling.
  *    - For logout default to location.origin so it suggests TPEN3 home at the callback page.
  * 
  * @param login A boolean as to whether your are processing for login or logout.
@@ -66,7 +66,6 @@ function processRedirect(login = false) {
   const urlParams = new URLSearchParams(queryString)
   const originDefault = login ? origin : location.origin
   let redirect = urlParams.get('returnTo') ?? originDefault
-  if (redirect) redirect = decodeURI(redirect)
   return redirect
 }
 
@@ -215,7 +214,7 @@ export function performLoginAndRedirect() {
 */
 export function performLogout() {
   const redir = processRedirect()
-  let callback = logoutCallback + `?returnTo=${encodeURIComponent(redir)}`
+  const callback = logoutCallback + `?returnTo=${encodeURIComponent(redir)}`
   // Ex. https://three.t-pen.org/callback/?returnTo=https%3A%2F%2Ftranscribonanza.com%2Finterface.html%3FcustomParam%3Dhello%23hashValue
   webAuth.logout({
     returnTo: callback
