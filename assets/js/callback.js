@@ -13,10 +13,11 @@ function showReturnToOption() {
     heading.innerText = "Suggested By Logout Source"
     const link = document.createElement("a")
     link.href = redirect
+    link.rel = "noopener noreferrer"
     link.innerText = redirect
     const note = document.createElement("p")
     const emphasis = document.createElement("em")
-    emphasis.innerText = "*Never click links you do not recognize."
+    emphasis.innerText = "Never click links you do not recognize."
     note.appendChild(emphasis)
     const container = document.getElementById("returnToOption")
     if (!container) return
