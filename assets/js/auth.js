@@ -60,8 +60,8 @@ function processRedirect(login = false) {
   let link = new URL(window.location.href)
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
-  const or = login ? origin : location.origin
-  let redirect = urlParams.get('returnTo') ?? or
+  const originDefault = login ? origin : location.origin
+  let redirect = urlParams.get('returnTo') ?? originDefault
   if (redirect) redirect = decodeURI(redirect)
   return redirect
 }
