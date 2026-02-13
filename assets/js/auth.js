@@ -61,7 +61,6 @@ function processRedirect() {
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
   let redirect = urlParams.get('returnTo') ?? origin
-  redirect = decodeURI(redirect)
   return redirect
 }
 
