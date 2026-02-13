@@ -56,11 +56,13 @@ function urlToBase64(url) {
  *  Detect and get the value of returnTo from the origin address /login/?returnTo=
  *  If there is no returnTo, default to the origin address /login/ for the redirect.
  */
-function processRedirect() {
+function processRedirect(login) {
   let link = new URL(window.location.href)
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
-  let redirect = urlParams.get('returnTo') ?? origin
+  const or = login ? origin : location.origin
+  let redirect = urlParams.get('returnTo') ?? or
+  if (redirect) redirect = decodeURI(redirect)
   return redirect
 }
 
@@ -89,7 +91,7 @@ function getInviteParam(paramName) {
 */
 export function performLoginAndRedirect() {
   // Know the value for ?returnTo.  You have this whether the login returned here or is initiated here, if provided.
-  let redir = processRedirect()
+  let redir = processRedirect(true)
   // Know the value from state= after the universal login completes and redirects.  It will contain ?returnTo (if provided) which is where you need to go.
   let refer = getReferringPage()
   // Know the ID Token returned by a successful login in the universal login widget.  It is in the address bar as ?id_token=
@@ -113,6 +115,7 @@ export function performLoginAndRedirect() {
 
     // The decoded ?state= contains the ?returnTo= that we need the value of, which which may also have URL parameters and/or a hash itself
     let redirect = referURLParams.get('returnTo') ?? origin
+    redirect = decodeURI(redirect)
     let redirectLink
     try {
       redirectLink = new URL(redirect)
@@ -163,6 +166,7 @@ export function performLoginAndRedirect() {
      * If we end up referring to the origin because no ?returnTo was involved, then we don't want to redirect.
      */
     if (!refer) refer = redir
+    refer = decodeURI(refer)
     const wantsToRedirect = (refer !== origin)
     let redirectLink
     try {
@@ -207,7 +211,7 @@ export function performLoginAndRedirect() {
 */
 export function performLogout() {
   const redir = processRedirect()
-  const callback = logoutCallback + `?returnTo=${encodeURIComponent(redir)}`
+  let callback = logoutCallback + `?returnTo=${encodeURIComponent(redir)}`
   // Ex. https://three.t-pen.org/callback/?returnTo=https%3A%2F%2Ftranscribonanza.com%2Finterface.html%3FcustomParam%3Dhello%23hashValue
   webAuth.logout({
     returnTo: callback
