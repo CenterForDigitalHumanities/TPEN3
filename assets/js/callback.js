@@ -24,5 +24,5 @@ function showReturnToOption() {
     container.appendChild(heading)
     container.appendChild(note)
     container.appendChild(link)
-  } catch(err) { }
+  } catch(err) { console.error(err+) }
 }
