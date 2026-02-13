@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", showReturnToOption)
 
 /**
- * If a valid returnTo parameter is present, add a "Back To Where I Came From" link.
+ * If a valid returnTo parameter is present, offer that link to the user.
  */
 function showReturnToOption() {
   const urlParams = new URLSearchParams(location.search)
