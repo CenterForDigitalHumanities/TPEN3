@@ -1,16 +1,15 @@
-window.onload = redirectUser()
+window.addEventListener("DOMContentLoaded", showLogoutOptions)
 
 /**
- *  Detect and get the value of returnTo from the origin address /callback/?returnTo=
- *  If there is no returnTo, default to the origin homepage.
- *  Note that performLogout() in auth.js will always add a returnTo, and it may just be the origin homepage.
+ * After logout, present the user with navigation choices.
+ * If a returnTo parameter is present and valid, include it as an option.
  */
-function redirectUser() {
+function showLogoutOptions() {
   let link = new URL(location.href)
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
   let redirect = urlParams.get('returnTo') ?? location.origin
-  redirect = decodeURI(redirect)
+  redirect = decodeURIComponent(redirect)
 
   const optionsContainer = document.createElement("div")
   const dashboardHeading = document.createElement("h4")
@@ -18,15 +17,15 @@ function redirectUser() {
   const dashboardLink = document.createElement("a")
   dashboardLink.href = "https://app.t-pen.org"
   dashboardLink.innerText = "https://app.t-pen.org"
-  const TPEN3Heading = document.createElement("h4")
-  TPEN3Heading.innerText = "TPEN3 Home Page"
-  const TPEN3link = document.createElement("a")
-  TPEN3link.innerText = "https://three.t-pen.org"
-  TPEN3link.href = "https://three.t-pen.org"
+  const tpen3Heading = document.createElement("h4")
+  tpen3Heading.innerText = "TPEN3 Home Page"
+  const tpen3Link = document.createElement("a")
+  tpen3Link.innerText = "https://three.t-pen.org"
+  tpen3Link.href = "https://three.t-pen.org"
   optionsContainer.appendChild(dashboardHeading)
   optionsContainer.appendChild(dashboardLink)
-  optionsContainer.appendChild(TPEN3Heading)
-  optionsContainer.appendChild(TPEN3link)
+  optionsContainer.appendChild(tpen3Heading)
+  optionsContainer.appendChild(tpen3Link)
 
   try {
     redirect = new URL(redirect).toString()
@@ -39,6 +38,9 @@ function redirectUser() {
     optionsContainer.appendChild(cameFromLink)
   }
   catch(err) { }
-  document.getElementById("content").appendChild(optionsContainer)
+  const content = document.getElementById("content")
+  if (content) {
+    content.appendChild(optionsContainer)
+  }
   return
 }
