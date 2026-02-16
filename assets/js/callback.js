@@ -1,31 +1,30 @@
-window.onload = redirectUser()
+window.addEventListener("DOMContentLoaded", showReturnToOption)
 
 /**
- *  Detect and get the value of returnTo from the origin address /callback/?returnTo=
- *  If there is no returnTo, default to the origin homepage.
- *  Note that performLogout() in auth.js will always add a returnTo, and it may just be the origin homepage.
+ * If a valid returnTo parameter is present, offer that link to the user.
  */
-function redirectUser() {
-  let link = new URL(location.href)
-  const queryString = link.search
-  const urlParams = new URLSearchParams(queryString)
-  let redirect = urlParams.get('returnTo') ?? location.origin
-  redirect = decodeURI(redirect)
+function showReturnToOption() {
+  const urlParams = new URLSearchParams(location.search)
+  let redirect = urlParams.get('returnTo')
+  if (!redirect) return
   try {
-    redirect = new URL(redirect).toString()
-  }
-  catch(err) {
-    redirect = undefined
-  }
-
-  if(!redirect || redirect === location.origin+"/logout/"){
-    alert("Please provide a valid URL in the ?returnTo= parameter when logging out.")
-    setTimeout(() => {
-      location.href = location.origin
-    }, "5000")
-    return
-  }
-  console.log("REDIRECT TO "+redirect)
-  location.href = redirect
-  return
+    const parsed = new URL(redirect)
+    if (parsed.protocol !== "https:" && parsed.protocol !== "http:") return
+    redirect = parsed.toString()
+    const heading = document.createElement("h2")
+    heading.innerText = "Suggested By Logout Source"
+    const link = document.createElement("a")
+    link.href = redirect
+    link.rel = "noreferrer"
+    link.innerText = redirect
+    const note = document.createElement("p")
+    const emphasis = document.createElement("em")
+    emphasis.innerText = "Never click links you do not recognize."
+    note.appendChild(emphasis)
+    const container = document.getElementById("returnToOption")
+    if (!container) return
+    container.appendChild(heading)
+    container.appendChild(note)
+    container.appendChild(link)
+  } catch(err) { console.error(err) }
 }

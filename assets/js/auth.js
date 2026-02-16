@@ -54,14 +54,18 @@ function urlToBase64(url) {
 
 /**
  *  Detect and get the value of returnTo from the origin address /login/?returnTo=
- *  If there is no returnTo, default to the origin address /login/ for the redirect.
+ *  If there is no returnTo, do specific defaults for login and logout
+ *    - For login default to location.origin + location.pathname so it redirects to itself for handling.
+ *    - For logout default to location.origin so it suggests TPEN3 home at the callback page.
+ * 
+ * @param login A boolean as to whether you are processing for login or logout.
  */
-function processRedirect() {
+function processRedirect(login = false) {
   let link = new URL(window.location.href)
   const queryString = link.search
   const urlParams = new URLSearchParams(queryString)
-  let redirect = urlParams.get('returnTo') ?? origin
-  redirect = decodeURI(redirect)
+  const originDefault = login ? origin : location.origin
+  const redirect = urlParams.get('returnTo') ?? originDefault
   return redirect
 }
 
@@ -90,7 +94,7 @@ function getInviteParam(paramName) {
 */
 export function performLoginAndRedirect() {
   // Know the value for ?returnTo.  You have this whether the login returned here or is initiated here, if provided.
-  let redir = processRedirect()
+  let redir = processRedirect(true)
   // Know the value from state= after the universal login completes and redirects.  It will contain ?returnTo (if provided) which is where you need to go.
   let refer = getReferringPage()
   // Know the ID Token returned by a successful login in the universal login widget.  It is in the address bar as ?id_token=
@@ -112,9 +116,8 @@ export function performLoginAndRedirect() {
     // If there was no ?returnTo, they don't want to redirect.
     const wantsToRedirect = referURLParams.has('returnTo')
 
-    // The decoded ?state= contains the ?returnTo= that we need the value of, which which may also have URL parameters and/or a hash itself
+    // The decoded ?state= contains the ?returnTo= that we need the value of, which may also have URL parameters and/or a hash itself
     let redirect = referURLParams.get('returnTo') ?? origin
-    redirect = decodeURI(redirect)
     let redirectLink
     try {
       redirectLink = new URL(redirect)
@@ -165,7 +168,6 @@ export function performLoginAndRedirect() {
      * If we end up referring to the origin because no ?returnTo was involved, then we don't want to redirect.
      */
     if (!refer) refer = redir
-    refer = decodeURI(refer)
     const wantsToRedirect = (refer !== origin)
     let redirectLink
     try {
