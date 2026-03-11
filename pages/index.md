@@ -8,15 +8,15 @@ modules: [/assets/js/isKnown.js]
 > TPEN3 is now in early access! [Learn what's new]({{site.url}}/announcements/2025/11/24/whats-new-tpen3.html) and
 > [sign up today](./login?returnTo={{site.url}}/announcements/2025/11/24/whats-new-tpen3.html) to start transcribing with the latest features.
 
-{: .notice}
-> Privacy first: read the [TPEN3 Privacy Statement]({{site.url}}/privacy/) for details on data use, local storage, and your rights. TPEN is intended for adult 
-> human users. We do not sell or rent any data and implement no tracking or analytics.
-
 ## Transcription for Paleographical and Editorial Notation
 
 {: .unauthenticated}
 [Sign Up](./login?returnTo={{site.url}}/announcements/2025/11/24/whats-new-tpen3.html){: .button role="button"}
 Open an account to start recording annotations on images from all over the world and across time.
+
+> Privacy first: read the [TPEN3 Privacy Statement]({{site.url}}/privacy/) for details on data use, local storage, and your rights. TPEN is intended for adult 
+> human users. We do not sell or rent any data and implement no tracking or analytics.
+{: .aside}
 
 {: .authenticated.hidden}
 Welcome back! [Launch TPEN 3.0](https://app.t-pen.org){: .button role="button"}

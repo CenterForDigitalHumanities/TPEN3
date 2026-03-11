@@ -74,6 +74,23 @@ h2,
 h3 {
     font-family: 'IBM Plex Sans Light', 'IBM Plex Sans', sans-serif;
 }
+
+.aside {
+    margin: 1.25em 0;
+    padding: 0.9em 1.1em;
+    border-left: 4px solid var(--primary-color);
+    background-color: hsl(186, 35%, 18%);
+    color: var(--light-gray);
+}
+
+.aside p {
+    margin: 0;
+}
+
+.aside a {
+    color: var(--light-color);
+}
+
 .notice {
     background-color: #990000;
     box-shadow: 0 0 3px #FF0000;
