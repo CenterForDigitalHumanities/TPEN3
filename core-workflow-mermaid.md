@@ -3,6 +3,7 @@ layout: default
 title: Core Workflow Interfaces Planning
 description: Planning and visualization of core workflow interfaces using Mermaid.
 permalink: /workflow
+sync_prompt: /prompts/sync-core-workflow-mermaid
 ---
 
 ## Core Workflow Interfaces Planning
@@ -310,7 +311,7 @@ flowchart TD
     Transcribe --> Annotate
 ```
 
-> **Note:** Update this chart as new interfaces or workflow steps are defined.
+> **Note:** This flow can be updated as new features or steps are introduced.
 
 ---
 
