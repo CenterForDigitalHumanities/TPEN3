@@ -151,7 +151,8 @@ and setting custom roles and permissions.
 > *3. Develop a set of core interfaces and workflows for project creation,
 > annotation, and transcription.*
 
-### Workflows
+
+### Workflows ([See Workflow Diagrams](/workflow))
 
 TPEN 3.0 is built around modularity and flexibility but the core workflows 
 emulate the existing functionality of the TPEN 2.8 platform. In Phase 1, we 

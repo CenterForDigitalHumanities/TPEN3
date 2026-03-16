@@ -14,7 +14,7 @@ New to TPEN 3? Start here:
 - **[Getting Started Guide]({{site.url}}/getting-started)** - Your first steps with TPEN 3
 - **[Create an Account]({{site.url}}/tutorials/2022/07/01/create-an-account.html)** - Sign up and authentication basics
 
-## 📝 Core Workflows
+## 📝 Core Workflows ([See Workflow Diagrams](/workflow))
 
 Learn the essential TPEN 3 workflows:
 - **[Start a Project]({{site.url}}/tutorials/2022/07/02/start-a-project.html)** - Create from images, IIIF, or import from TPEN 2.8

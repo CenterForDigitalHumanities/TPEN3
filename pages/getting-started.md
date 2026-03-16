@@ -110,7 +110,7 @@ TPEN 3 never modifies, mirrors, or claims original images. Your transcriptions a
 
 ---
 
-## Common Workflows
+## Common Workflows ([See Workflow Diagrams](/workflow))
 
 ### Solo Transcription
 

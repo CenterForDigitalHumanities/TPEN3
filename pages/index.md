@@ -107,24 +107,33 @@ Your projects
 
 ---
 
-## Helpful Patterns
 
-From within your project management, you will find lots of ways to share, collaborate, or reuse your annotation data. 
-Here are a few helpful patterns to get you started.
+## Helpful Patterns & API
 
-### https://services.tpen.rerum.io/project?new=https://example.com/image.jpg
+For the most up-to-date and complete API documentation, see the [TPEN-services API Reference](https://github.com/CenterForDigitalHumanities/TPEN-services/blob/main/API.md).
 
-Start a new transcription. This link may also be [embedded in your own repository](https://github.com/CenterForDigitalHumanities/TPEN3/issues/32) of images to enable people to start transcribing your collections.
+Here are some common patterns and endpoints you can use:
 
+### Start a New Project from an Image
+```
+https://api.t-pen.org/project?new=https://example.com/image.jpg
+```
+Start a new transcription project from any public image URL. This link can be embedded in your own repository or website to enable direct transcription.
 
-### https://services.tpen.rerum.io/manifest/`project_id`
+### Get a Project's IIIF Manifest
+```
+https://api.t-pen.org/manifest/{project_id}
+```
+Retrieve the IIIF Manifest for your project to load it in external viewers or tools.
 
-Discover the Manifest to load your project in an external viewer
+### Share a Project in Read-Only Mode
+```
+https://api.t-pen.org/project/{project_id}?view=html
+```
+Share your project with others in a read-only web viewer.
 
-
-### https://tpen.rerum.io/project/`project_id`?view=html
-
-Share your Project in a readonly viewer
+### API Authentication & Tokens
+See the [API Reference](https://github.com/CenterForDigitalHumanities/TPEN-services/blob/main/API.md#authentication) for details on obtaining and using tokens for authenticated endpoints.
 
 ---
 
