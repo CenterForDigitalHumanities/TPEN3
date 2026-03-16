@@ -14,9 +14,27 @@ tldr: |
   - Roadmap: testing harnesses, new services, and more interfaces coming soon
 ---
 
+
 We are excited to announce that **TPEN 3.0 Early Access is now open to everyone!**
 
+Want to know what’s changed? See the full list of new features and improvements in our [What's New in TPEN 3.0](https://three.t-pen.org/announcements/2025/11/24/whats-new-tpen3.html) announcement.
+
 After a year of development and feedback from our partners, we are inviting the public to try out the next generation of the TPEN platform. This is your opportunity to explore new features, test workflows, and help us shape the future of digital transcription and annotation.
+
+
+## Getting Started Checklist
+
+Ready to try TPEN 3.0? Here’s a quick checklist to get you started:
+
+1. [Create your account](https://three.t-pen.org/login) or log in
+2. [Read the Getting Started Guide]({{site.url}}/getting-started)
+3. Start a new project (single image, IIIF manifest, or import from TPEN 2.8)
+4. Try transcribing and annotating your first page
+5. Invite collaborators to your project
+6. Explore project management and sharing options
+7. Share your feedback or report issues via the built-in tools or [GitHub Issues](https://github.com/CenterForDigitalHumanities/TPEN3/issues)
+
+---
 
 ## What to Expect
 

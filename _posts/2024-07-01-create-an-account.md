@@ -41,6 +41,9 @@ If you do not have an existing account, you can create a new one.
 5. Click on the "Continue" button.
 6. Follow the prompts on screen to confirm your account and enjoy using TPEN!
 
+{: .aside}
+> If you have any trouble with signup, feel free to reach out to us via email (see the [About](/about) page) or through our [GitHub Issues](https://github.com/CenterForDigitalHumanities/TPEN3/issues/new/choose) page.
+
 <hr>
 
 \* *<small>TPEN practices minimal data collection and you are not required to provide any data beyond what you require for 
