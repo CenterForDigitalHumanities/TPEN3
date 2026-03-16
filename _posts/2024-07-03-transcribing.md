@@ -33,4 +33,6 @@ While imported TPEN 2.8 projects and some IIIF resources may have fragment selec
 
 TPEN will launch with three different interfaces for transcription. The first will largely resemble the TPEN 2.8 interface, with the addition of new grouping and ordering features. The second will be a more modern interface, with a more streamlined layout and a more minimalist approach to annotation. The third will focus on texts with challenging layouts and text flow, such as bracketed texts with interlinear glosses and intervening illustrations or figures.
 
+![Three transcription interfaces]({{ site.baseurl }}/assets/img/transcription.png)
+
 One exciting feature of TPEN3, however, is that the authorization and annotation systems are completely available with a public API. Third-parties or individual researchers can build their own transcription interfaces. A specific collection might need a focused tool or interaction for the unique format of its documents or sets of crowd-sourced or machine-generated annotations may benefit from a clean interface for proof-reading.
