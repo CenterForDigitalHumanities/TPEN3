@@ -4,7 +4,7 @@ date: "2026-03-17"
 categories:
   - "announcements"
 author: "TPEN Team"
-coverImage: "https://github.com/CenterForDigitalHumanities/blog/assets/1119165/174f0db0-a677-4fad-aa48-f3584f583f4a"
+coverImage: "/assets/img/ea.png"
 
 tldr: |
   **🚀 TPEN 3.0 Early Access is live!**
