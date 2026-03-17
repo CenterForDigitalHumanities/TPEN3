@@ -23,7 +23,7 @@ Want to know what’s changed? See the full list of new features and improvement
     <source src="/assets/img/slop.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <div style="font-size:0.9em;color:#666">It doesn't get better</div>
+  <div style="font-size:0.9em;color:#666">Sloppier isn't always better.</div>
 </div>
 
 After a year of development and feedback from our partners, we are inviting the public to try out the next generation of the TPEN platform. This is your opportunity to explore new features, test workflows, and help us shape the future of digital transcription and annotation.
