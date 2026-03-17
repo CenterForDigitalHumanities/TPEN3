@@ -14,13 +14,19 @@ tldr: |
   - Roadmap: testing harnesses, new services, and more interfaces coming soon
 ---
 
-
 We are excited to announce that **TPEN 3.0 Early Access is now open to everyone!**
 
 Want to know what’s changed? See the full list of new features and improvements in our [What's New in TPEN 3.0](https://three.t-pen.org/announcements/2025/11/24/whats-new-tpen3.html) announcement.
 
-After a year of development and feedback from our partners, we are inviting the public to try out the next generation of the TPEN platform. This is your opportunity to explore new features, test workflows, and help us shape the future of digital transcription and annotation.
+<div style="margin:2em 0;text-align:center">
+  <video controls width="480" poster="/assets/img/ea.png">
+    <source src="/assets/img/slop.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div style="font-size:0.9em;color:#666">It doesn't get better</div>
+</div>
 
+After a year of development and feedback from our partners, we are inviting the public to try out the next generation of the TPEN platform. This is your opportunity to explore new features, test workflows, and help us shape the future of digital transcription and annotation.
 
 ## Getting Started Checklist
 
