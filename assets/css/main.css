@@ -111,11 +111,15 @@ h3 {
 }
 .post-cover-image-banner {
     background-image: var(--bg-image);
-    background-size: cover;
-    background-position: top center;
+    background-size: contain;
+    background-position: center center;
     background-attachment: fixed;
-    height: 300px;
     width: 100%;
+    height: min(40vw, 350px);
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
     position: relative;
   }
   
