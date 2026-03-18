@@ -1,0 +1,21 @@
+---
+layout: null
+---
+{% include feed-xslt-inject.html %}
+{% feed_meta %}
+<rss version="2.0">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <link>{{ site.url }}{{ site.baseurl }}</link>
+    <description>{{ site.description | xml_escape }}</description>
+    {% for post in site.posts %}
+    <item>
+      <title>{{ post.title | xml_escape }}</title>
+      <link>{{ site.url }}{{ post.url }}</link>
+      <description>{{ post.excerpt | xml_escape }}</description>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <guid>{{ site.url }}{{ post.url }}</guid>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
