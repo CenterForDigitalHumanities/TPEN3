@@ -14,7 +14,7 @@ modules: [/assets/js/isKnown.js]
 [Sign Up](./login?returnTo={{site.url}}/announcements/2025/11/24/whats-new-tpen3.html){: .button role="button"}
 Open an account to start recording annotations on images from all over the world and across time.
 
-> Privacy first: read the [TPEN3 Privacy Statement]({{site.url}}/privacy/) for details on data use, local storage, and your rights. TPEN is intended for adult 
+> Privacy first: read the [TPEN3 Privacy Statement]({{site.url}}/privacy/) for details on data use, local storage, and your rights. TPEN is intended for adult
 > human users. We do not sell or rent any data and implement no tracking or analytics.
 {: .aside}
 
@@ -23,34 +23,23 @@ Welcome back! [Launch TPEN 3.0](https://app.t-pen.org){: .button role="button"}
 
 ---
 {% assign pinned_posts = site.posts | where_exp: "p", "p.pinned == true" %}
-{% if pinned_posts and pinned_posts.size > 0 %}
-  {% assign post = pinned_posts.first %}
-{% else %}
-  {% assign today_date = 'now' | date: '%s' %}
-  {% assign pre_date = site.posts.first.date | date: '%s' %}
-  {% assign diff = today_date | minus: pre_date %}
-  {% if diff < 604800 %}
-    {% assign post = site.posts.first %}
-  {% endif %}
-{% endif %}
-{% if post %}
+{% assign recent_posts = site.posts | where_exp: "p", "p.date >= site.time | date: '%s' | minus: 604800 | date: '%Y-%m-%d'" %}
+{% assign posts_to_show = pinned_posts | concat: recent_posts | uniq %}
+
 <ul class="post-list">
+  {% for post in posts_to_show %}
     <li class="post-list-item">
       <h3>
-        <a href="{{ post.url | absolute_url}}">{{ post.title }}
-          <small>({{ post.date | date_to_long_string: "ordinal" }})
-            <cite>{{ post.author }}</cite>
-          </small>
-        </a>
+        <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+        <small>({{ post.date | date_to_long_string: "ordinal" }}) <cite>{{ post.author }}</cite></small>
       </h3>
       {% if post.coverImage %}
-      <img src="{{ post.coverImage }}" alt="{{ post.title }}" class="post-cover-image">
+        <img src="{{ post.coverImage }}" alt="{{ post.title }}" class="post-cover-image">
       {% endif %}
-      <p>
-        {{ post.excerpt | strip_html }}
-      </p>
+      <p>{{ post.excerpt | strip_html }}</p>
     </li>
-  </ul>
+  {% endfor %}
+</ul>
 {% endif %}
 {% for category in site.categories %}
 <a href="{{ site.baseurl }}/category/{{ category[0] }}" style="text-decoration: none;"> <i class="bi bi-bookmark-fill"></i> {{ category[0] | capitalize }} ({{category[1] | size }})</a> &nbsp;
@@ -84,7 +73,7 @@ Encourages users to share with the community and find new ways to work.
 <div>
 <h3> Active </h3>
 
-Established in 2010, the project is still active and growing. 
+Established in 2010, the project is still active and growing.
 </div>
 </div>
 
@@ -107,7 +96,6 @@ Your projects
 
 ---
 
-
 ## Helpful Patterns & API
 
 For the most up-to-date and complete API documentation, see the [TPEN-services API Reference](https://github.com/CenterForDigitalHumanities/TPEN-services/blob/main/API.md).
@@ -115,24 +103,31 @@ For the most up-to-date and complete API documentation, see the [TPEN-services A
 Here are some common patterns and endpoints you can use:
 
 ### Start a New Project from an Image
+
 ```
 https://api.t-pen.org/project?new=https://example.com/image.jpg
 ```
+
 Start a new transcription project from any public image URL. This link can be embedded in your own repository or website to enable direct transcription.
 
 ### Get a Project's IIIF Manifest
+
 ```
 https://api.t-pen.org/manifest/{project_id}
 ```
+
 Retrieve the IIIF Manifest for your project to load it in external viewers or tools.
 
 ### Share a Project in Read-Only Mode
+
 ```
 https://api.t-pen.org/project/{project_id}?view=html
 ```
+
 Share your project with others in a read-only web viewer.
 
 ### API Authentication & Tokens
+
 See the [API Reference](https://github.com/CenterForDigitalHumanities/TPEN-services/blob/main/API.md#authentication) for details on obtaining and using tokens for authenticated endpoints.
 
 ---
