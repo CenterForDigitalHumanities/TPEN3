@@ -21,7 +21,7 @@ Open an account to start recording annotations on images from all over the world
 {: .authenticated.hidden}
 Welcome back! [Launch TPEN 3.0](https://app.t-pen.org){: .button role="button"}
 
----
+<hr>
 
 {%- assign pinned_posts = site.posts | where: "pinned", true -%}
 {%- assign posts_to_show = pinned_posts -%}
