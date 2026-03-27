@@ -22,9 +22,9 @@ Open an account to start recording annotations on images from all over the world
 Welcome back! [Launch TPEN 3.0](https://app.t-pen.org){: .button role="button"}
 
 ---
-{% assign pinned_posts = site.posts | where_exp: "p", "p.pinned == true" %}
-{% assign recent_posts = site.posts | where_exp: "p", "p.date >= site.time | date: '%s' | minus: 604800 | date: '%Y-%m-%d'" %}
-{% assign posts_to_show = pinned_posts | concat: recent_posts | uniq %}
+
+{%- assign pinned_posts = site.posts | where: "pinned", true -%}
+{%- assign posts_to_show = pinned_posts -%}
 
 <ul class="post-list">
   {% for post in posts_to_show %}
