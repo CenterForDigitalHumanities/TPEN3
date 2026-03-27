@@ -5,7 +5,7 @@ categories:
   - "announcements"
 author: "TPEN Team"
 coverImage: "/assets/img/ea.png"
-
+pinned: true
 tldr: |
   **🚀 TPEN 3.0 Early Access is live!**
   - Public trials now open—create, transcribe, and collaborate
