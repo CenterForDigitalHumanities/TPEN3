@@ -40,7 +40,6 @@ Welcome back! [Launch TPEN 3.0](https://app.t-pen.org){: .button role="button"}
     </li>
   {% endfor %}
 </ul>
-{% endif %}
 {% for category in site.categories %}
 <a href="{{ site.baseurl }}/category/{{ category[0] }}" style="text-decoration: none;"> <i class="bi bi-bookmark-fill"></i> {{ category[0] | capitalize }} ({{category[1] | size }})</a> &nbsp;
 {% endfor %}
