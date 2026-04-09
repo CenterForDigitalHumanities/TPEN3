@@ -8,7 +8,6 @@ tags:
   - "iiif"
   - "manifests"
   - "standards"
-coverImage: "/assets/img/iiif_manifest.png"
 author: "Patrick Cuba"
 ---
 
