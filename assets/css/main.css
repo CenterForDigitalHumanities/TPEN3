@@ -1,7 +1,7 @@
 --- 
 --- 
 
-@import url("/assets/fonts/bootstrap-icons.woff");
+@import url("bootstrap-icons.css");
 @import url("monokai.css");
 
 @font-face {
