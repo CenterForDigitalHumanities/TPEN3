@@ -39,13 +39,12 @@ The first month of TPEN 3 Early Access was defined by two parallel themes: **AI 
 
 ## TPEN-Prompts
 
-**Initial launch** — TPEN-Prompts shipped as a net-new repository this month, providing a split-tool scaffold for manuscript transcription with LLM assistance. The initial implementation included project structure, contribution guidelines, runtime module organization, and a working prompt-to-transcription flow.
+**Initial launch** — [TPEN-Prompts](https://github.com/CenterForDigitalHumanities/TPEN-Prompts/) shipped as a net-new repository this month, providing a split-tool scaffold for manuscript transcription with LLM assistance. The initial implementation works with users' TPEN.  Users can give permissions to allow agentic and chat AIs to automatically detect lines, organize into reading order columns, and even transcribe page in TPEN3 projects.  The tool will produce the prompt for you to copy and paste into your favorite web chat or CLI to have it transcribe for you!
 
 **Prompt tuning (×2)** — Two rounds of prompt refinement improved output quality and reliability during demo and real-user testing. ([#4](https://github.com/CenterForDigitalHumanities/TPEN-Prompts/pull/4), [#7](https://github.com/CenterForDigitalHumanities/TPEN-Prompts/pull/7))
 
-**JSON-paste fallback restored** — The submission flow for pasting raw JSON output was temporarily broken and has been restored. ([#6](https://github.com/CenterForDigitalHumanities/TPEN-Prompts/pull/6))
+**JSON-paste fallback strategy** — Added a fallback strategy for creating lines and/or columns when the LLM does not have the tools to make PUT or POST requests to TPEN Services. ([#9](https://github.com/CenterForDigitalHumanities/TPEN-Prompts/pull/9))
 
-**Column creation fallback** — Added a fallback strategy for creating columns when the primary detection path is unavailable. ([#9](https://github.com/CenterForDigitalHumanities/TPEN-Prompts/pull/9))
 
 ---
 
