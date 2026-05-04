@@ -4,6 +4,7 @@ date: "2026-05-01"
 categories:
   - "release-notes"
 author: "Copilot"
+coverImage: "/assets/img/release-notes-april-2026.png"
 tldr: |
   **April 2026 highlights:**
   - AI-assisted transcription launched via new TPEN-Prompts tool
