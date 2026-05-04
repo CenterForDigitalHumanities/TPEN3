@@ -9,6 +9,7 @@ tags:
   - "prompts"
   - "tools"
 author: "Bryan Haberberger"
+coverImage: "/assets/img/tpen-prompts-example.jpg"
 tldr: |
   **TPEN-Prompts is now public:**
   - An AI prompt generator that drops into the TPEN transcription workspace
