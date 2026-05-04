@@ -24,10 +24,13 @@ Welcome back! [Launch TPEN 3.0](https://app.t-pen.org){: .button role="button"}
 <hr>
 
 {%- assign pinned_posts = site.posts | where: "pinned", true -%}
-{%- assign posts_to_show = pinned_posts -%}
+{%- assign recent_posts = site.posts | where_exp: "post", "post.pinned != true" | slice: 0, 5 -%}
 
+## Pinned Posts
+
+{% if pinned_posts.size > 0 %}
 <ul class="post-list">
-  {% for post in posts_to_show %}
+  {% for post in pinned_posts %}
     <li class="post-list-item">
       <h3>
         <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
@@ -40,6 +43,30 @@ Welcome back! [Launch TPEN 3.0](https://app.t-pen.org){: .button role="button"}
     </li>
   {% endfor %}
 </ul>
+{% else %}
+No pinned posts yet.
+{% endif %}
+
+## Recent Posts
+
+{% if recent_posts.size > 0 %}
+<ul class="post-list">
+  {% for post in recent_posts %}
+    <li class="post-list-item">
+      <h3>
+        <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+        <small>({{ post.date | date_to_long_string: "ordinal" }}) <cite>{{ post.author }}</cite></small>
+      </h3>
+      {% if post.coverImage %}
+        <img src="{{ post.coverImage }}" alt="{{ post.title }}" class="post-cover-image">
+      {% endif %}
+      <p>{{ post.excerpt | strip_html }}</p>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+No recent posts.
+{% endif %}
 {% for category in site.categories %}
 <a href="{{ site.baseurl }}/category/{{ category[0] }}" style="text-decoration: none;"> <i class="bi bi-bookmark-fill"></i> {{ category[0] | capitalize }} ({{category[1] | size }})</a> &nbsp;
 {% endfor %}
@@ -86,9 +113,9 @@ Open your account to get started: [Sign Up](./login?returnTo={{site.url}}/announ
 {: .authenticated.hidden}
 Welcome back! Ready to continue your work?
 
-[Launch TPEN 3 →](https://app.t-pen.org){: .button role="button"}
-[Getting Started Guide →]({{site.url}}/getting-started)
-[View Tutorials →]({{site.url}}/category/tutorials)
+- [Launch TPEN 3 →](https://app.t-pen.org){: .button role="button"}
+- [Getting Started Guide →]({{site.url}}/getting-started)
+- [View Tutorials →]({{site.url}}/category/tutorials)
 
 {: .project-list.authenticated.hidden.gridly}
 Your projects
