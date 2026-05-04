@@ -46,6 +46,6 @@ Step-by-step setup and an inventory of existing prompt templates are all documen
 
 TPEN is built around portable, standards-based data — IIIF Manifests, Web Annotations, public APIs. TPEN-Prompts extends that ethos to the AI layer. Your transcription is yours, your model choice is yours, and the glue between them is a transparent prompt you can read, edit, and save. We think this is a good model of AI assistance in scholarly transcription that includes human-in-the-loop principles. The work that is produced is rightfully attributed to you as the author. You are accountable to the outcome, like all the work that you do.
 
-- Tool: <https://centerfordigitalhumanities.github.io/TPEN-Prompts/>
-- Repo & docs: <https://github.com/CenterForDigitalHumanities/TPEN-Prompts>
+- Tool: [centerfordigitalhumanities.github.io/TPEN-Prompts](https://centerfordigitalhumanities.github.io/TPEN-Prompts/)
+- Repo & docs: [TPEN-Prompts on GitHub](https://github.com/CenterForDigitalHumanities/TPEN-Prompts)
 - Feedback: [TPEN-Prompts issues](https://github.com/CenterForDigitalHumanities/TPEN-Prompts/issues) or [TPEN discussions](https://github.com/CenterForDigitalHumanities/TPEN3/discussions)
