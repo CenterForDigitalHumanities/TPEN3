@@ -1,5 +1,5 @@
 ---
-title: "Introducing TPEN-Prompts: AI-Assisted Transcription, on Your Terms"
+title: "Introducing TPEN-Prompts: AI-Assisted Transcription"
 excerpt: "A new split-screen tool that builds well-formatted LLM prompts carrying live TPEN3 project context — bring your own AI, keep your data your own."
 date: "2026-05-04"
 categories:
@@ -8,7 +8,7 @@ tags:
   - "ai"
   - "prompts"
   - "tools"
-author: "TPEN Team"
+author: "Bryan Haberberger"
 tldr: |
   **TPEN-Prompts is now public:**
   - An AI prompt generator that drops into the TPEN3 transcription workspace
@@ -27,25 +27,22 @@ That distinction matters. AI is moving fast, model preferences are personal, and
 The tool ships with a small library of task templates aimed at the most common manuscript-prep chores:
 
 - **Line Detection** — find every text line on a page and save bounding boxes
-- **Group Existing Lines Into Columns** — organize an already-detected line set into reading-order columns
-- **Line Detection + Column Grouping** — both of the above in one pass
-- **Transcribe Over Existing Lines** — fill in transcription text for lines that already exist
-- **Line Detection + Transcription** — detect and transcribe a fresh page end-to-end
-- **Line Detection + Column Grouping + Transcription** — the whole pipeline in one prompt
+- **Line Grouping** — organize an already-detected line set into reading-order columns
+- **Transcribing** — read text within lines and automatically transcribe
 
-Each template inlines the canvas IRI, image URL, page endpoint, image dimensions, and (when you authorize it) a TPEN auth token.  The assistant has everything it needs to work and write back to TPEN. If the AI can make HTTP requests, it can `PUT` or `POST` results directly to TPEN Services. If it cannot, the prompt instructs the LLM to emit a compact JSON payload.  You can copy that JSON and bring it back to splitscreen tool to persist the data.
+The AI assistant will be given all the context it needs to work and write back to TPEN. If the AI can make HTTP requests, it can `PUT` or `POST` results directly to TPEN Services. If it cannot, the prompt instructs the LLM to emit a compact JSON payload.  You can copy that JSON and bring it back to splitscreen tool to persist the data when the LLM does not have the necessary internet access.
 
 ## Using it inside TPEN3
 
-The tool is designed for the transcription workspace as a split-screen tool. When opened from inside a project at [app.t-pen.org](https://app.t-pen.org), TPEN hands the tool a context-filled payload (project, page, canvas, current line) so prompt generation is instant.  This prompt has all the context an LLM needs to do the work.
+The tool is designed for the transcription workspace as a split-screen tool. When opened, TPEN hands the tool a context-filled payload so prompt generation is instant.
 
-Project leaders can register TPEN-Prompts as one of their project's tools. Once configured, contributors will see it alongside the other workspace tools and can launch it whenever they want an AI nudge. Step-by-step setup, the postMessage contract, the standalone URL-parameter mode, and an inventory of templates are all documented in the project README.
+Project leaders can register TPEN-Prompts as one of their project's tools. Once configured, contributors will see it alongside the other workspace tools. Step-by-step setup and an inventory of existing prompt templates are all documented in the project README.
 
-> Read the setup guide: [TPEN-Prompts README on GitHub](https://github.com/CenterForDigitalHumanities/TPEN-Prompts#readme)
+> [TPEN-Prompts README on GitHub](https://github.com/CenterForDigitalHumanities/TPEN-Prompts#readme)
 
-## A note on philosophy
+## AI as a Tool
 
-TPEN3 is built around portable, standards-based data — IIIF Manifests, Web Annotations, public APIs. TPEN-Prompts extends that ethos to the AI layer. Your transcription is yours, your model choice is yours, and the glue between them is a transparent prompt you can read, edit, and save. We think this is a good model of AI assistance in scholarly transcription that includes human-in-the-loop principles.  
+TPEN is built around portable, standards-based data — IIIF Manifests, Web Annotations, public APIs. TPEN-Prompts extends that ethos to the AI layer. Your transcription is yours, your model choice is yours, and the glue between them is a transparent prompt you can read, edit, and save. We think this is a good model of AI assistance in scholarly transcription that includes human-in-the-loop principles. The work that is produced is rightfully attributed to you as the author. You are accountable to the outcome, like all the work that you do.  
 
 - Tool: <https://centerfordigitalhumanities.github.io/TPEN-Prompts/>
 - Repo & docs: <https://github.com/CenterForDigitalHumanities/TPEN-Prompts>
