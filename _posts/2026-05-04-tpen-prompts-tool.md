@@ -34,6 +34,13 @@ The AI is given all the context it needs to work and write back to TPEN. If the 
 
 ## Using it inside TPEN
 
+<figure style="margin:1.5em 0;text-align:center">
+  <a href="/assets/img/tpen-prompts-example.jpg" target="_blank" rel="noopener">
+    <img src="/assets/img/tpen-prompts-example.jpg" alt="TPEN-Prompts split-screen tool open alongside the transcription workspace, showing a generated prompt ready to copy" style="width:100%;max-width:860px;height:auto">
+  </a>
+  <figcaption style="font-size:0.9em;color:#666;margin-top:0.5em">Click to view full size.</figcaption>
+</figure>
+
 The tool is designed for the transcription workspace as a split-screen tool.  Project leaders can register TPEN-Prompts as one of their project's tools on the Project Management page.  Once configured, contributors will see it alongside the other workspace tools.  
 
 When opened via the Transcription Interface, TPEN hands the tool a context-filled payload so prompt generation is instant. Any data the AI produces is written through TPEN Services, so it lands as proper linked open data — W3C Web Annotation and IIIF compliant.
@@ -42,7 +49,7 @@ Step-by-step setup and an inventory of existing prompt templates are all documen
 
 - [TPEN-Prompts README on GitHub](https://github.com/CenterForDigitalHumanities/TPEN-Prompts#readme)
 
-## AI as a Tool
+## AI as a tool
 
 TPEN is built around portable, standards-based data — IIIF Manifests, Web Annotations, public APIs. TPEN-Prompts extends that ethos to the AI layer. Your transcription is yours, your model choice is yours, and the glue between them is a transparent prompt you can read, edit, and save. We think this is a good model of AI assistance in scholarly transcription that includes human-in-the-loop principles. The work that is produced is rightfully attributed to you as the author. You are accountable to the outcome, like all the work that you do.
 
