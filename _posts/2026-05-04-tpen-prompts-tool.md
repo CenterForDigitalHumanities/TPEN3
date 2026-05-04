@@ -1,6 +1,6 @@
 ---
 title: "Introducing TPEN-Prompts: AI-Assisted Transcription"
-excerpt: "A new split-screen tool that builds well-formatted LLM prompts carrying live TPEN project context — bring your own AI, keep your data your own."
+excerpt: "A new split-screen tool that builds well-formatted LLM prompts carrying live TPEN project context."
 date: "2026-05-04"
 categories:
   - "announcements"
