@@ -9,28 +9,50 @@ permalink: /roadmap/
 
 ## Development Timeline
 
-The funding period for TPEN 3.0 is from 2024-2026. Development has progressed through these phases:
+The funding period for TPEN 3.0 was originally 2024-2026. Federal funding was
+removed on April 2, 2026 and reinstated on October 13, 2026. Development
+resumes in January 2027 and the full public launch is targeted for August 2028.
 
 1. **✅ Phase 1: 2024** (Completed)
     - New platform design
     - Project creation and management
     - Core interfaces and workflows
-2. **🚀 Phase 2: 2025** (In Progress - Early Access)
+2. **🚀 Phase 2: 2025** (Completed - Early Access)
     - Early access release (November 2025)
-    - User feedback and improvements
-    - Additional interfaces and features
-    - Test cases and focused features
-3. **📅 Phase 3: 2026** (Upcoming)
+    - Open to all users (March 2026)
+    - Production cutover (March 2026)
+3. **⏸️ Funding interruption: April - December 2026**
+    - Federal funding removed (April 2, 2026)
+    - Reinstatement requested (July 2, 2026)
+    - Reinstated by the NEH (October 13, 2026)
+    - Development paused, Early Access remains live
+4. **🔧 Phase 3: January - October 2027** (Restart and stabilization)
+    - Development and deployment environments
+    - Release notes and the public record resumed
+    - Deferred interfaces and the end-to-end workflow
+5. **📅 Phase 4: November 2027 - August 2028** (Training, migration, launch)
     - Comprehensive training and documentation
     - Streamlined TPEN 2.8 migration tools
     - Community demonstrations and workshops
-    - Full public launch (December 2026)
+    - **Full public launch: August 2028**
+
+The plan above replaces the one in the original proposal. The Phase 3 written
+for March 2026 never started, so it is not revised here, it is moved. Its
+content survives intact as Phase 4, and a new Phase 3 goes in front of it to
+rebuild the environment and the public record that the pause eroded. See
+[the funding interruption](#funding-interruption-april-to-december-2026)
+for what that cost.
 
 ---
 
-## Current Status: Early Access (November 2025)
+## Current Status: Reactivation (November 2026)
 
-TPEN 3 is now available for early access! Core features are functional and we're actively gathering feedback from early adopters.
+TPEN 3 is live in Early Access and stays live through the restart. Core
+features are functional and we are still gathering feedback. What is happening
+right now is institutional reactivation, not grant-funded development: the
+reinstatement was confirmed on October 13, 2026, and funded work resumes in
+January 2027. Until then the team is restoring the conditions a restart needs,
+the first of which is a development environment that does not exist yet.
 
 ### Available Now
 
@@ -50,6 +72,9 @@ TPEN 3 is now available for early access! Core features are functional and we're
 - 🔄 Expanded export format options (TEI, custom schemas)
 - 🔄 Repository integrations and cloud storage support
 - 🔄 Comprehensive migration tools for TPEN 2.8 projects
+
+These deferred items are scheduled work again. They land in Phase 3, alongside
+the interfaces and the end-to-end workflow that the pause interrupted.
 
 [View detailed feature comparison →]({{site.url}}/announcements/2025/11/24/whats-new-tpen3.html)
 
@@ -312,11 +337,86 @@ There are three main ways to prioritize work for the final release:
    fulfill the special cases of the test users. Some may be simply selected 
    by the developers, but no feature should be added without a clear use case.
 
-## Phase 3: March 2026
+## Funding interruption: April to December 2026
 
-The final phase of development focuses on training and documentation, 
-migration from TPEN 2.8, community demonstrations, and feedback. The launch 
-of TPEN 3.0 is scheduled for December 2026.
+Federal funding for TPEN 3.0 was removed on April 2, 2026, before
+the phase originally written for March 2026 got under way. Nothing in that phase started.
+Development work stopped, and Early Access kept running on institutional
+support.
+
+Reinstatement was requested on July 2, 2026 and confirmed by the NEH on
+October 13, 2026.
+
+What the pause cost, stated plainly:
+
+- Six and a half months between removal and reinstatement. Nine months of a
+  thirty-six month funded period with no federal development.
+- One phase of work that now has to be done in full.
+- A platform untouched for the better part of a year, so the restart is not a
+  resume.
+- A public record that stopped. Monthly release notes end at April 2026, and
+  the last change to this site before the reinstatement was 2026-05-04.
+
+The environment is the sharpest problem. `app.t-pen.org`, `api.t-pen.org`, and
+`three.t-pen.org` are live and healthy. `dev.api.t-pen.org` returns 503, and
+`dev.app.t-pen.org` has never resolved. Both launch documents describe a
+development tier that does not exist. Rebuilding without one means changes get
+tested against production data in front of users, so it comes first.
+
+---
+
+## Forward Timeline
+
+The phases below are the plan of record as of November 2026. Phase 4 carries
+the objectives originally written for March 2026.
+
+## Phase 3: January - October 2027
+
+The first funded phase after reinstatement. Its job is to make the project
+workable again before the real feature work resumes.
+
+---
+
+> *1. Restore the development and deployment environment.*
+
+Provision `dev.app.t-pen.org` and bring `dev.api.t-pen.org` back up, with a
+separate database and its own RERUM target, so a change can be proven somewhere
+other than production. Then prove the deployment path end to end: a pull
+request goes green, merges, and DEV serves that commit with traceable identity.
+
+---
+
+> *2. Resume the public record.*
+
+Monthly release notes restart, and the April to December 2026 gap gets either a
+reconstruction or one entry that explains it. The user documentation is audited
+against what actually shipped in 2026, since `getting-started.md`,
+`tutorials.md`, and `faq.md` all predate Early Access.
+
+---
+
+> *3. Finish the work the earlier phases deferred.*
+
+This is the end-to-end simplest case that Phase 1 recorded as incomplete, plus
+the interfaces still listed as Coming Soon. It is not new scope. It was already
+on the books before the money was pulled.
+
+---
+
+> *4. Reconstitute the Advisory Board.*
+
+The prioritization mechanism described under Phase 2 depends on the Advisory
+Board, and there is no active board today. It comes back in this phase, or
+feature selection for the final release has no mechanism at all.
+
+---
+
+## Phase 4: November 2027 - August 2028
+
+The original Phase 3, moved. Its content is unchanged, because none of it
+happened. This final phase focuses on training and documentation,
+migration from TPEN 2.8, community demonstrations, and feedback. The launch
+of TPEN 3.0 is targeted for August 2028.
 
 ---
 
@@ -365,9 +465,9 @@ after the launch and outside of the funding period.
 
 ---
 
-> *4. Launch of TPEN 3.0 (December 2026).*
+> *4. Launch of TPEN 3.0 (August 2028).*
 
-The launch of TPEN 3.0 is scheduled for December 2026. The platform will be 
+The launch of TPEN 3.0 is targeted for August 2028. The platform will be
 available to the public and delivered as a stable, feature-complete product. 
 All relevant materials will be submitted as deliverables to the funders and 
 the platform will be maintained by the TPEN team for the foreseeable future.
