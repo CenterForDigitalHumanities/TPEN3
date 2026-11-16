@@ -36,12 +36,12 @@ resumes in January 2027 and the full public launch is targeted for August 2028.
     - Community demonstrations and workshops
     - **Full public launch: August 2028**
 
-The plan above replaces the one in the original proposal. The Phase 3 written
-for March 2026 never started, so it is not revised here, it is moved. Its
-content survives intact as Phase 4, and a new Phase 3 goes in front of it to
-rebuild the environment and the public record that the pause eroded. See
-[the funding interruption](#funding-interruption-april-to-december-2026)
-for what that cost.
+> The plan above replaces the one in the original proposal. The Phase 3 written
+> for March 2026 never started, so it is not revised here, it is moved. Its
+> content survives intact as Phase 4, and a new Phase 3 goes in front of it to
+> rebuild the environment and the public record that the pause eroded. See
+> [the funding interruption](#funding-interruption-april-to-december-2026)
+> for what that cost.
 
 ---
 
@@ -51,8 +51,8 @@ TPEN 3 is live in Early Access and stays live through the restart. Core
 features are functional and we are still gathering feedback. What is happening
 right now is institutional reactivation, not grant-funded development: the
 reinstatement was confirmed on October 13, 2026, and funded work resumes in
-January 2027. Until then the team is restoring the conditions a restart needs,
-the first of which is a development environment that does not exist yet.
+January 2027. Until then the team is reviewing the ecosystem and adjusting current
+plans based on the feedback received.
 
 ### Available Now
 
@@ -358,8 +358,7 @@ What the pause cost, stated plainly:
   the last change to this site before the reinstatement was 2026-05-04.
 
 The environment is the sharpest problem. `app.t-pen.org`, `api.t-pen.org`, and
-`three.t-pen.org` are live and healthy. `dev.api.t-pen.org` returns 503, and
-`dev.app.t-pen.org` has never resolved. Both launch documents describe a
+`three.t-pen.org` are live and healthy. Both launch documents describe a
 development tier that does not exist. Rebuilding without one means changes get
 tested against production data in front of users, so it comes first.
 
