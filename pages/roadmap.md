@@ -17,7 +17,7 @@ resumes in January 2027 and the full public launch is targeted for August 2028.
     - New platform design
     - Project creation and management
     - Core interfaces and workflows
-2. **🚀 Phase 2: 2025** (Completed - Early Access)
+2. **✅ Phase 2: 2025** (Completed - Early Access; Advisory Board prioritization carried into Phase 3)
     - Early access release (November 2025)
     - Open to all users (March 2026)
     - Production cutover (March 2026)
@@ -311,6 +311,9 @@ per the funding proposal, are required for the final release and others are
 simply proposed as possible and will be scheduled for work after delivery. It 
 is up to the Advisory Board to decide which features are most impactful.
 
+Those scheduled meetings did not happen: the board has been inactive, and the
+feature prioritization it was meant to perform is carried into Phase 3.
+
 Users will also provide feedback and there should be a combination of simple 
 ways to do this. Some GitHub issue templates will help, but there should also 
 be a persistent feedback tool on each interface. Contact via email or forms 
@@ -330,8 +333,8 @@ There are three main ways to prioritize work for the final release:
 
 2. **Advisory Board Features**: These are features that the Advisory Board 
    has selected as important for the final release. They are the next most 
-   important and will be prioritized second. The Advisory Board will meet 
-   regularly to discuss the progress and provide feedback.
+   important and will be prioritized second. The board is not active today, so 
+   this category has no entries until it is reconstituted in Phase 3.
 
 3. **User Features**: These are features that users have requested or that 
    fulfill the special cases of the test users. Some may be simply selected 
@@ -358,9 +361,9 @@ What the pause cost, stated plainly:
   the last change to this site before the reinstatement was 2026-05-04.
 
 The environment is the sharpest problem. `app.t-pen.org`, `api.t-pen.org`, and
-`three.t-pen.org` are live and healthy. Both launch documents describe a
-development tier that does not exist. Rebuilding without one means changes get
-tested against production data in front of users, so it comes first.
+`three.t-pen.org` are live and healthy, but the development and staging tier
+around them is not finished. Rebuilding without one means changes get tested
+against production data in front of users, so it comes first.
 
 ---
 

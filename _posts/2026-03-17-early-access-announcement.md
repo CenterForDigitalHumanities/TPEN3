@@ -5,7 +5,7 @@ categories:
   - "announcements"
 author: "TPEN Team"
 coverImage: "/assets/img/ea.png"
-pinned: true
+pinned: false
 tldr: |
   **🚀 TPEN 3.0 Early Access is live!**
   - Public trials now open—create, transcribe, and collaborate
@@ -15,6 +15,12 @@ tldr: |
 ---
 
 We are excited to announce that **TPEN 3.0 Early Access is now open to everyone!**
+
+{: .notice}
+> **Update (November 2026):** Federal funding was removed in April 2026 and
+> reinstated on October 13. See
+> [the reinstatement announcement]({{site.url}}/announcements/2026/11/10/funding-reinstated.html)
+> for the current timeline.
 
 Want to know what’s changed? See the full list of new features and improvements in our [What's New in TPEN 3.0](https://three.t-pen.org/announcements/2025/11/24/whats-new-tpen3.html) announcement.
 

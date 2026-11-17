@@ -50,7 +50,7 @@ The [roadmap]({{site.url}}/roadmap/) carries the full plan, including the interr
 
 ## What we still need from you
 
-The priority mechanism in the roadmap runs through the Advisory Board, which is actively being reactivated. Until then, [the discussions forum](https://github.com/CenterForDigitalHumanities/TPEN3/discussions) is how features get argued for. People kept transcribing through the pause, which is the reason the platform is in a state worth restarting.
+The priority mechanism in the roadmap runs through the Advisory Board, which has been dormant. Reconstituting it is one of the goals of Phase 3. Until then, [the discussions forum](https://github.com/CenterForDigitalHumanities/TPEN3/discussions) is how features get argued for. People kept transcribing through the pause, which is the reason the platform is in a state worth restarting.
 
 If you have been waiting on a migration tool, or an interface that never arrived, or documentation that still describes the 2.8 way of doing things: say so on the discussion you care about most. Work with a clear use case in front of it gets scheduled first.
 
