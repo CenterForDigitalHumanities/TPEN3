@@ -8,7 +8,7 @@ tags:
   - "funding"
   - "roadmap"
   - "neh"
-author: "Patrick Cub"
+author: "Patrick Cuba"
 coverImage: "/assets/img/logo_feat.png"
 pinned: true
 tldr: |
